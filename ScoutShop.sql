@@ -90,7 +90,7 @@ create table VERSIONE_PRODOTTO (
      Di_Codice_prodotto char(64) not null,
      Codice_prodotto char(64) not null,
      Marchio char(64) not null,
-     Descrizione char(1000) not null,
+     Descrizione text not null,
      Colore char(64),
      Taglia char(10),
      Prezzo float not null,
