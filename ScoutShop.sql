@@ -39,7 +39,7 @@ create table DETTAGLIO_ORDINE (
      Codice_prodotto char(64) not null,
      Codice_ordine char(64) not null,
      Quantita int not null,
-     Prezzo_d_acquisto float(64) not null,
+     Prezzo_d_acquisto float not null,
      constraint ID_DETTAGLIO_ORDINE_ID primary key (Codice_ordine, Di_Codice_prodotto, Codice_prodotto));
 
 create table NOTIFICA (
@@ -66,7 +66,7 @@ create table PRODOTTO (
 create table SPEDIZIONE (
      Tipo_spedizione char(64) not null,
      Tempo_di_arrivo int not null,
-     Costo_spedizione float(64) not null,
+     Costo_spedizione float not null,
      constraint ID_SPEDIZIONE_ID primary key (Tipo_spedizione));
 
 create table STATO_ORDINE (
@@ -90,12 +90,12 @@ create table VERSIONE_PRODOTTO (
      Di_Codice_prodotto char(64) not null,
      Codice_prodotto char(64) not null,
      Marchio char(64) not null,
-     Descrizione char(1000) not null,
+     Descrizione text not null,
      Colore char(64),
      Taglia char(10),
-     Prezzo float(64) not null,
+     Prezzo float not null,
      Disponibilita bigint not null,
-     Sconto float(64),
+     Sconto float,
      Nome_immagine char(64) not null,
      constraint ID_VERSIONE_PRODOTTO_ID primary key (Di_Codice_prodotto, Codice_prodotto));
 
