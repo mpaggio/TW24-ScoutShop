@@ -212,11 +212,6 @@ INSERT INTO `databaseweb`.`stato_ordine` (`Tipo_stato`) VALUES ('In transito');
 INSERT INTO `databaseweb`.`stato_ordine` (`Tipo_stato`) VALUES ('In consegna');
 INSERT INTO `databaseweb`.`stato_ordine` (`Tipo_stato`) VALUES ('Consegnato');
 
-/* INSERIMENTO VERSIONE PRODOTTO */
-
-
-
-/******************************************/
 /* INSERIMENTO VERSIONE PRODOTTO DEFINITIVO */
 INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Taglia`, `Prezzo`, `Disponibilita`, `Nome_immagine`) VALUES ('000001', '_0_XS', 'Scoutmarchio', 'Maglione dell’uniforme Agesci, blu unisex, pura lana vergine.', 'XS', '47.50', '48', 'maglione.jpg');
 INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Taglia`, `Prezzo`, `Disponibilita`, `Nome_immagine`) VALUES ('000001', '_0_S', 'Scoutmarchio', 'Maglione dell’uniforme Agesci, blu unisex, pura lana vergine.', 'S', '48.50', '28', 'maglione.jpg');
@@ -674,7 +669,7 @@ INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_pro
 INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Prezzo`, `Disponibilita`, `Nome_immagine`) VALUES ('000167', '_0_0', 'Edizionifiordaliso', 'Un libro iconico e indispensabile sui principali nodi, perfetto non solo per costruzioni ma per tutte le tue avventure all’aria aperta! Questo pezzo vintage e da collezione è difficile da trovare. Se non l’hai già scovato tra i tesori di famiglia, ora hai l’opportunità di acquistarlo e portarlo sempre con te. Ideale anche come regalo simbolico per occasioni speciali!', '1.00', '42', 'libro_nodi-ed-stella-alpina.jpg');
 INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Prezzo`, `Disponibilita`, `Nome_immagine`) VALUES ('000168', '_0_0', 'Edizionifiordaliso', 'Nella vita di ogni giorno, a casa, in sede, al campo, in viaggio, insomma dappertutto, ho sempre apprezzato la compagnia di una di quelle persone che vengono definite dalle mani d’oro, perché sanno fare di tutto! Molti di loro hanno un talento innato per riparare qualsiasi cosa o trovare soluzioni per qualsiasi necessità, ma non tutti: molti imparano pian piano, con fatica ed applicazione. Ed anche questi ci riescono! Il presente sussidio è dedicato a questa seconda categoria ed insegna, con mille suggerimenti, a diventare abili nel risolvere quei problemini quotidiani, banali, ma sempre presenti. Si parla di attrezzi e di come usarli, si parla di come intervenire su inconvenienti domestici e non: imparerete molto da queste pagine. Autore: Luigi Ferrando Pagine: 64 Formato: 14 x 21 Illustratori: Jean Claudio Vinci Illustrazioni: col. Collana: Sussidi Tecnici Argomenti: tecniche scout, branca E/G Destinatari: ragazzi Edizione: (1) marzo2008 ISBN: 978-88-8054-828-7', '6.00', '13', 'fiordaliso_libro_aggiustatutto.jpg');
 
-/* INSERIMENTO ORDINI */
+/* INSERIMENTO SPEDIZIONI */
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Standard', '5', '0.00');
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Express', '3', '4.50');
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Super Express', '1', '8.50');
