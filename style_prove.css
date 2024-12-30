@@ -1,0 +1,105 @@
+body {
+    background-color: #bcd5e7;
+}
+
+header > nav {
+    background-color: #21295c;
+}
+
+header > nav > div {
+    padding-bottom: 10px;
+}
+
+header > nav > div > * {
+    margin: 0px 2%;
+}
+
+header > nav > div > div > a > img {
+    width: 100px;
+}
+
+header > nav > div > form {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 468px) {
+    header > nav > div > div:nth-child(2) {
+        order: 1;
+    }
+
+    header > nav > div > form {
+        margin-top: 0;
+    }
+
+    header > nav > div > div:first-child > a:first-child {
+        display: none;
+    }
+
+    header > nav > div > div:first-child > nav {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header > nav > div > div > a > img {
+        width: 150px;
+    }
+    
+    footer * {
+        font-size: 15px;
+    }
+}
+
+header > nav > div > form > button {
+    background-color: #bcd5e7;
+    color: #21295c;
+    border: none;
+    border-radius: 10px;
+}
+
+header > nav > div > div > a {
+    color: #bcd5e7;
+}
+
+header > nav > div > div > div > a {
+    color: #bcd5e7;
+}
+
+footer {
+    background-color: #21295c;
+    font-size: 10px;
+    padding: 10px 0;
+}
+
+footer * {
+    margin: 0px 2%;
+}
+
+footer a {
+    color: #bcd5e7;
+}
+
+footer a:hover {
+    color: #fcba04;
+}
+
+header > nav > div > div > div {
+    background-color: #21295c !important;
+}
+
+header > nav > div > div > div > div {
+    color: #bcd5e7;
+}
+
+header > nav > div > div > div > div > a {
+    color: #bcd5e7;
+}
+
+header > nav > div > div > div > ul {
+    background-color: #21295c !important;
+    border-radius: 0% !important;
+}
+
+header > nav > div > div > div > ul > li > a{
+    color: #bcd5e7 !important;
+}
