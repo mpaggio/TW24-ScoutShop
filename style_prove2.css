@@ -102,35 +102,67 @@ header > nav > div > div > div > div > div {
 header > nav > div > div > div > div > div > div {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
-    border-bottom: 2px solid #bcd5e7 !important;
+    border-top: 1px solid #bcd5e7 !important;
+    border-bottom: 1px solid #bcd5e7 !important;
 }
 
-header > nav > div > div > div > div > div > h2 > button {
+header > nav > div > div > div > div > div > h2 > a {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
-    /*border-left: 2px solid #bcd5e7 !important;*/
+    border: none !important;
+    text-decoration: none;
 }
 
-header > nav > div > div > div > div > div > h2 > button:focus {
+header > nav > div > div > div > div > div > h2 > a:focus {
     box-shadow: none !important;
-}
-
-header > nav > div > div > div > div > div > h2 > button::after {
-    color: #bcd5e7 !important;
 }
 
 header > nav > div > div > div > div > a {
     color: #bcd5e7;
 }
 
+/* Nasconde la freccia di default di Bootstrap */
+header > nav > div > div > div > div > div > h2 > a::after {
+    display: none !important;
+}
+
+/* Quando l'accordion è espanso, ruota l'icona */
+header > nav > div > div > div > div > div > h2 > a:not(.collapsed) .svg-chevron {
+    transform: rotate(180deg);
+}
+
+/* Rimuove i bordi e le linee durante l'apertura dell'accordion */
+header > nav .accordion-button:not(.collapsed) {
+    border-top: none !important; /* Rimuove il bordo superiore */
+    box-shadow: none !important; /* Rimuove ombre aggiuntive */
+}
+
+
+
+
 
 /*----- CSS FOR PROFILE ICON -----*/
 
 header > nav > div > div > div > ul {
-    background-color: #21295c !important;
+    background-color: #bcd5e7 !important;
     border-radius: 0% !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
 }
 
+
+header > nav > div > div > div > ul > li > a:focus, header > nav > div > div > div > ul > li > a:hover{
+    background-color: #bcd5e7 !important;
+}
+
+header > nav > div > div > div > ul > li > a:hover {
+    text-decoration: underline !important;
+}
+
+
 header > nav > div > div > div > ul > li > a{
-    color: #bcd5e7 !important;
+    color: #21295c !important;
+}
+
+header > nav > div > div > div > ul > li > hr{
+    border-color: #21295c !important;
 }
