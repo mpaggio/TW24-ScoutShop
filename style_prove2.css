@@ -143,12 +143,22 @@ header > nav .accordion-button:not(.collapsed) {
 
 /*----- CSS FOR PROFILE ICON -----*/
 
-header > nav > div > div > div > ul {
+/*header > nav > div > div > div > ul {
     background-color: #bcd5e7 !important;
+    border-radius: 0% !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}*/
+
+header > nav > div > div > div > ul {
+    background-color: white !important;
     border-radius: 0% !important;
     box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
 }
 
+
+/*header > nav > div > div > div > ul > li > a:focus, header > nav > div > div > div > ul > li > a:hover{
+    background-color: #bcd5e7 !important;
+}*/
 
 header > nav > div > div > div > ul > li > a:focus, header > nav > div > div > div > ul > li > a:hover{
     background-color: #bcd5e7 !important;

@@ -91,15 +91,47 @@ header > nav > div > div > div > div {
     color: #bcd5e7;
 }
 
+
+
+
+
+
 header > nav > div > div > div > div > a {
     color: #bcd5e7;
 }
 
 header > nav > div > div > div > ul {
-    background-color: #21295c !important;
+    background-color: rgba(33, 41, 92, 1.0) !important;
+    /*background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));*/
     border-radius: 0% !important;
-}
+    /*box-shadow: 0px 0px 0px 1000000px rgba(255, 255, 255, 0.5);*/
+} 
 
 header > nav > div > div > div > ul > li > a{
     color: #bcd5e7 !important;
+}
+
+header > nav > div > div > div > ul::after + body:not(ul) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+header > nav > div > div > div > ul:active + body > header > nav, body > footer {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3));
+}
+
+header > nav > div > div > div > .dropdown-menu {
+    display: none; /* Nasconde il dropdown fino a quando non viene cliccato */
+}
+
+header > nav > div > div > div > .dropdown-menu.show {
+    display: block; /* Mostra il dropdown quando è selezionato */
+}
+
+header > nav > div > div:nth-child(2):nth-child(2) {
+    background-color: none !important;
+    border-radius: 0% !important;
+} 
+
+header > nav > div > div:last-of-type > div {
+    background-color: transparent !important;
 }
