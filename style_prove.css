@@ -111,14 +111,6 @@ header > nav > div > div > div > ul > li > a{
     color: #bcd5e7 !important;
 }
 
-header > nav > div > div > div > ul::after + body:not(ul) {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-}
-
-header > nav > div > div > div > ul:active + body > header > nav, body > footer {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3));
-}
-
 header > nav > div > div > div > .dropdown-menu {
     display: none; /* Nasconde il dropdown fino a quando non viene cliccato */
 }
@@ -135,3 +127,12 @@ header > nav > div > div:nth-child(2):nth-child(2) {
 header > nav > div > div:last-of-type > div {
     background-color: transparent !important;
 }
+
+/*------ FOR SHADOWING BACKGROUND ------*/
+/*body:not(ul) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+body > header > nav, body > footer {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3));
+}*/
