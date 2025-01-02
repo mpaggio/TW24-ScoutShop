@@ -1,0 +1,66 @@
+main > div {
+    background-color: white;
+}
+
+img {
+    width: 20%;
+    height: auto;
+}
+
+main {
+    height: calc(100vh - 100px);
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    padding-bottom: calc(50px+82px);
+    /* Altezza stimata del footer */
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 50px - 82px);
+    /* Altezza viewport meno altezza del footer */
+}
+
+main > div {
+    flex: 1;
+    /* Occupa il restante spazio disponibile */
+    overflow: hidden;
+    /* Previene il contenuto che esce dal contenitore */
+}
+
+main > div > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    /* Nasconde l'overflow per contenere il contenuto */
+}
+
+main > div > div > div:not(:first-child) {
+    flex: 1;
+    overflow-y: auto;
+    /* Abilita lo scorrimento interno */
+}
+
+main > ul > li > button {
+    color: #21295c !important;
+    
+}
+
+main > div > div > div > button {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+}
+
+main > div > div > div > div {
+    width: 100%;
+}
+
+main > div > div > div > div > div > a {
+    color: #21295c;
+}
