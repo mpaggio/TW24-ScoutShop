@@ -1,0 +1,349 @@
+body {
+    background-color: #bcd5e7;
+}
+
+header > nav:first-of-type {
+    background-color: #21295c;
+}
+
+header > nav:first-of-type > div {
+    padding-bottom: 10px;
+}
+
+header > nav:first-of-type > div > * {
+    margin: 0px 2%;
+}
+
+header > nav:first-of-type > div > div > a > img {
+    width: 100px;
+}
+
+header > nav:first-of-type > div > form {
+    margin-top: 10px;
+}
+
+header > nav > div > form > button {
+    background-color: #bcd5e7;
+    color: #21295c;
+    border: none;
+    border-radius: 10px;
+}
+
+header > nav > div > div > a {
+    color: #bcd5e7;
+}
+
+header > nav > div > div > div > a {
+    color: #bcd5e7;
+}
+
+footer {
+    background-color: #21295c;
+    font-size: 10px;
+    padding: 10px 0;
+}
+
+footer * {
+    margin: 0px 2%;
+}
+
+footer a {
+    color: #bcd5e7;
+}
+
+footer a:hover {
+    color: #fcba04;
+}
+
+header > nav > div > div > div {
+    background-color: #21295c !important;
+}
+
+header > nav > div > div > div > div {
+    color: #bcd5e7;
+}
+
+
+
+/*----- CSS FOR LATERAL MENU -----*/
+
+header > nav > div > div > div > div > div, header > nav > div > div > div > div > div > div > div > div > div {
+    border: none !important;
+}
+
+header > nav > div > div > div > div > div > div {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+    border-top: 1px solid #bcd5e7 !important;
+    border-bottom: 1px solid #bcd5e7 !important;
+}
+
+header > nav > div > div > div > div > div > h2 > a, header > nav > div > div > div > div > div > div > div > div > div > h2 > a {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+    border: none !important;
+    text-decoration: none;
+}
+
+header > nav > div > div > div > div > div > h2 > a:focus, header > nav > div > div > div > div > div > div > div > div > div > h2 > a:focus {
+    box-shadow: none !important;
+}
+
+header > nav > div > div > div > div > a{
+    color: #bcd5e7;
+}
+
+/* Nasconde la freccia di default di Bootstrap */
+header > nav > div > div > div > div > div > h2 > a::after, header > nav > div > div > div > div > div > div > div > div > div > h2 > a::after {
+    display: none !important;
+}
+
+/* Quando l'accordion è espanso, ruota l'icona */
+header > nav > div > div > div > div > div > h2 > a:not(.collapsed) .svg-chevron {
+    transform: rotate(180deg);
+}
+
+header > nav > div > div > div > div > div > h2 > a:not(.collapsed) {
+    border-top: 1px solid #bcd5e7 !important;
+}
+
+header > nav > div > div > div > div > div > div > div > div > div > h2:hover {
+    text-decoration: underline !important;    
+}
+
+header > nav .accordion-button:not(.collapsed) {
+    box-shadow: none !important; /* Rimuove ombre aggiuntive */
+}
+
+
+
+
+
+/*----- CSS FOR PROFILE ICON -----*/
+
+header > nav > div > div:last-of-type > div {
+    background-color: transparent !important;
+}
+
+/*header > nav > div > div > div > ul {
+    background-color: #bcd5e7 !important;
+    border-radius: 0% !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}*/
+
+/*header > nav > div > div > div > ul {
+    background-color: white !important;
+    border-radius: 0% !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}*/
+
+header > nav > div > div > div > ul {
+    background-color: #21295c !important;
+    border-radius: 0% !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+} 
+
+header > nav > div > div > div > ul > li > a:focus, header > nav > div > div > div > ul > li > a:hover{
+    background-color: transparent !important;
+}
+
+header > nav > div > div > div > ul > li > a:hover {
+    color: #fcba04 !important;
+}
+
+header > nav > div > div > div > ul > li > a{
+    color: #bcd5e7 !important;
+}
+
+header > nav > div > div > div > ul > li > hr{
+    border-color: #bcd5e7 !important;
+}
+
+
+
+
+
+/*------ FOR SHADOWING BACKGROUND ------*/
+body:not(ul) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+body > header > nav:first-of-type, body > footer {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3));
+}
+
+
+
+
+
+/* RULES FOR DEKSTOP NAV BAR */
+header > nav:nth-child(2) {
+    background: none !important;
+    border-color: transparent !important;
+    display: none;
+}
+
+header > nav:nth-child(2) a {
+    color: #21295c;
+    font-size: 1em;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+header > nav:nth-child(2) > ul > li  > div > a:hover {
+    text-decoration: underline !important;
+}
+
+/* COPIATO DAL LABORATORIO */
+header > nav:nth-child(2) > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+header > nav:nth-child(2) > ul > li {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+header > nav:nth-child(2) > ul > li > div > a {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header > nav:nth-child(2) a::after {
+    display: none;
+}
+
+header > nav:nth-child(2) > ul > li > div ul {
+    background-color: #21295c;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}
+
+header > nav:nth-child(2) > ul > li > div > ul > li > a {
+    margin: 10px 0;
+}
+
+header > nav:nth-child(2) > ul > li > div > ul > li > a {
+    color: #bcd5e7 !important;
+}
+
+header > nav:nth-child(2) > ul > li > div > ul > li > a:hover {
+    color:#fcba04 !important; 
+}
+
+
+
+/* STYLE FOR MAIN */
+
+main > section {
+    background-color: white;
+    margin: 35px 5% 10px;
+    padding: 20px 20px 10px;
+    border: 2px solid #21295c;
+}
+
+main > section:last-of-type {
+    margin: 5px 5% 100px;
+}
+
+main > section > h2 {
+    color: #21295c;
+}
+
+main > section > ul {
+    list-style: none;
+    margin: 30px 0 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+main > section > ul > li{
+    box-shadow: 0 0 3px 1px #21295c;
+    margin: 10px 0px;
+}
+
+main > section > ul > li > article {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+main > section > ul > li > article > img {
+    width: 60%;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+main > section > ul > li > article > p {
+    font-size: 1em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+main > section > ul > li > article > p:last-of-type {
+    color: #21295c;
+}
+
+main > section > ul > li > article > h3 {
+    color: #21295c;
+    font-size: 1.2em;
+}
+
+
+
+
+
+/* MEDIA QUERY */
+@media screen and (min-width: 468px) {
+    header > nav:first-of-type > div > div:nth-child(2) {
+        order: 1;
+    }
+
+    header > nav:first-of-type > div > form {
+        margin-top: 0;
+    }
+
+    header > nav:first-of-type > div > div:first-child > a:first-child {
+        display: none;
+    }
+
+    header > nav:first-of-type > div > div:first-child > nav {
+        display: none;
+    }
+
+    header > nav:nth-child(2) {
+        display: block  !important;
+    }
+
+    main > section {
+        margin: 5px 5% 10px;
+    }
+
+    main > section > ul > li{
+        margin: 10px 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header > nav > div > div > a > img {
+        width: 150px;
+    }
+    
+    footer * {
+        font-size: 15px;
+    }
+
+    header > nav:nth-child(2) > ul > li > div > a {
+        font-size: 1.4em;
+    }
+}
