@@ -61,6 +61,15 @@ main > div > div > div > div {
     width: 100%;
 }
 
-main > div > div > div > div > div > a {
+main > div > div > div > div {
+    height: fit-content !important;
+}
+
+main > div > div > div > div > div > div > a {
     color: #21295c;
+}
+
+body > div > div > div {
+    background-color: #21295c!important;
+    color: #bcd5e7 !important;
 }
