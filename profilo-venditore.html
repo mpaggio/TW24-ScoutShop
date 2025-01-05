@@ -31,7 +31,7 @@
             </div>
         </nav>
     </header>
-    <main class="container-fluid flex-grow-1 overflow-hidden p-3">
+    <main class="container-fluid d-flex flex-column flex-grow-1 overflow-hidden p-3">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="articles-tab" data-bs-toggle="tab" data-bs-target="#articles-tab-pane" type="button"
@@ -42,17 +42,17 @@
                     role="tab" aria-controls="orders-tab-pane" aria-selected="false">Ordini</button>
             </li>
         </ul>
-        <div class="tab-content vh-100 overflow-hidden" id="myTabContent">
-            <div class="tab-pane fade show active overflow-hidden p-3" id="articles-tab-pane" role="tabpanel" aria-labelledby="articles-tab" tabindex="0">
+        <div class="tab-content h-100 overflow-hidden" id="myTabContent">
+            <div class="tab-pane fade show active h-100 overflow-auto p-3" id="articles-tab-pane" role="tabpanel" aria-labelledby="articles-tab" tabindex="0">
                 <div class="d-flex justify-content-between mb-2">
                     <form class="d-flex flex-grow-1 me-3" role="search">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                     </form>
                     <button class="btn" data-bs-toggle="modal" data-bs-target="#addModal">Aggiungi</button>
                 </div>
-                <div class="d-flex flex-wrap justify-content-between overflow-auto">
+                <div class="d-flex flex-wrap justify-content-between">
                     <div class="card border border-dark mt-3">
-                        <div class="d-flex p-2">
+                        <div class="d-flex justify-content-between p-2">
                             <img src="./img/ScoutShop_Logo4.png" class="img-fluid rounded-start" alt="product image">
                             <div class="card-body">
                                 <h5 class="card-title">Cintura in pelle</h5>
@@ -61,7 +61,7 @@
                                     <small class="text-body-secondary">Pezzi rimasti: 2</small>
                                 </p>
                             </div>
-                            <div class="d-flex flex-column justify-content-around">
+                            <div class="d-flex flex-column justify-content-around me-2">
                                 <a class="icon-link fs-4" href="#" data-bs-toggle="modal" data-bs-target="#editModal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
                                         viewBox="0 0 16 16">
@@ -245,8 +245,93 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="orders-tab-pane" role="tabpanel" aria-labelledby="orders-tab" tabindex="0">
-                <h1>Ordini</h1>
+            <div class="tab-pane fade h-100 overflow-auto p-3" id="orders-tab-pane" role="tabpanel" aria-labelledby="orders-tab" tabindex="0">
+                <ul class="list-group list-group-flush text-center">
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Ordine no. 1325156</h5>
+                        <ul class="card-text list-group list-group-flush">
+                            Orazio Spina ha ordinato:
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Cintura in pelle (2)</small>
+                            </li>
+                            <li class="list-group-item border-0">
+                                <small class="text-body-secondary">Fazzolettone a quadri (3)</small>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>
