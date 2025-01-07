@@ -2,12 +2,10 @@
 <html lang="it">
 <head>
     <title>Scout Shop - Home</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="notification-style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="notification-style.css" />
 </head>
 <body>
     <header>
@@ -15,68 +13,52 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
                     <!-- Burger icon -->
-                    <a class="icon-link fs-4 me-4" href="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <button class="icon-link fs-4 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Apri menu di navigazione laterale">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-list d-flex col-md-1" viewBox="0 0 16 16">
                             <title>Menu</title>
-                            <path d="M1 3h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm0 4h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm0 4h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2z"/>
+                            <path d="M1 3h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm0 4h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2zm0 4h14a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2z" />
                         </svg>
-                    </a>
+                    </button>
                     <!-- Lateral offcanvas -->
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
-                            <h1 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h1>
-                            <a href="" data-bs-dismiss="offcanvas" aria-label="Close" class="ms-auto">
+                            <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h2>
+                            <button type="button" data-bs-dismiss="offcanvas" aria-label="Chiudi menu di navigazione laterale" class="ms-auto">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <title>Close</title>
-                                    <path d="M2 2l12 12M14 2L2 14" stroke-width="2"/>
+                                    <title>Chiudi</title>
+                                    <path d="M2 2l12 12M14 2L2 14" stroke-width="2" />
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                         <div class="offcanvas-body accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" href="home_buyer2.html">Home</a>
+                                    <a class="accordion-button collapsed" href="home_buyer2.html" aria-label="Vai alla home">Home</a>
                                 </h2>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" aria-label="Apri/Chiudi lista abbigliamento">
                                     Abbigliamento
                                         <svg class="bi bi-chevron-down ms-auto svg-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2"/>
+                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Felpe
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli felpe">Felpe</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Giacche
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli giacche">Giacche</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Magliette
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli magliette">Magliette</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Ponci
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli ponci">Ponci</a>
                                             </div>
                                         </div>
                                     </div>
@@ -84,64 +66,36 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseTwo" aria-label="Apri/Chiudi lista attrezzatura">
                                     Attrezzatura
                                         <svg class="bi bi-chevron-down ms-auto svg-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2"/>
+                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </h2>
                                 <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Borracce
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli borracce">Borracce</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Cucina
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli cucina">Cucina</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Illuminazione
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Materassini
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli materassini">Materassini</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Sacchi a pelo
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Tende
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli tende">Tende</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Zaini
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli zaini">Zaini</a>
                                             </div>
                                         </div>
                                     </div>
@@ -149,57 +103,33 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree" aria-label="Apri/Chiudi lista divisa">
                                     Divisa
                                         <svg class="bi bi-chevron-down ms-auto svg-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2"/>
+                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </h2>
                                 <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Calzettoni
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Camicie
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli camicie">Camicie</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Cinture
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli cinture">Cinture</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Distintivi
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Fazzolettoni
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Pantaloncini
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a>
                                             </div>
                                         </div>
                                     </div>
@@ -207,43 +137,27 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive" aria-label="Apri/Chiudi lista editoria">
                                     Editoria
                                         <svg class="bi bi-chevron-down ms-auto svg-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2"/>
+                                            <path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 9.293l5.646-4.647a.5.5 0 0 1 .708.708l-6 5a.5.5 0 0 1-.708 0l-6-5a.5.5 0 0 1 0-.708z" stroke-width="2" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </h2>
                                 <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Cartine
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli cartine">Cartine</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Manuali Scout
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Spiritualità Scout
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <a class="accordion-button collapsed px-4">
-                                                        Tecniche Scout
-                                                    </a>
-                                                </h2>
+                                                <a href="#" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -251,11 +165,11 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed">
+                                    <a class="accordion-button collapsed" href="#" aria-label="Vai alla pagina supporto/aiuto">
                                         Aiuto
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-question-circle ms-1" viewBox="0 0 16 16">
-                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                            <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
                                         </svg>
                                     </a>
                                 </h2>
@@ -263,11 +177,11 @@
                         </div>
                     </div>
                     <a class="navbar-brand" href="home_buyer2.html">
-                        <img src="./img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top">
+                        <img src="./img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top" />
                     </a>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a class="icon-link fs-4 me-4" href="">
+                    <a class="icon-link fs-4 me-4" href="" aria-label="Vai al carrello">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart3 d-flex col-md-1"
                             viewBox="0 0 16 16">
                             <title>Cart button</title>
@@ -276,7 +190,7 @@
                         </svg>
                     </a>
                     <div class="btn-group">
-                        <a class="icon-link fs-4" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                        <button class="icon-link fs-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Apri/Chiudi menu profilo utente">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-person-circle col-md-1"
                                 viewBox="0 0 16 16">
                                 <title>Profile button</title>
@@ -284,83 +198,84 @@
                                 <path fill-rule="evenodd"
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end mt-3">
-                            <li><a class="dropdown-item" href="#">Profilo</a></li>
-                            <li><a class="dropdown-item" href="notification.html">Notifiche</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Log out</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai al profilo">Profilo</a></li>
+                            <li><a class="dropdown-item" href="notification.html" aria-label="Vai alle notifiche">Notifiche</a></li>
+                            <li><hr class="dropdown-divider" aria-hidden="true"></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Esci dal profilo">Log out</a></li>
                         </ul>
                     </div>
                 </div>
                 <form class="d-flex flex-grow-1" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <label for="search-input" class="visually-hidden">Campo di ricerca</label>
+                    <input id="search-input" class="form-control" type="search" placeholder="Search" aria-label="Campo di ricerca" />
                 </form>
             </div>
         </nav>
-        <nav class="">
+        <nav>
             <ul>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="home_buyer2.html">
+                        <a class="btn dropdown-toggle" href="home_buyer2.html" aria-label="Vai alla home">
                             Home
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Apri/Chiudi lista abbigliamento">
                             Abbigliamento
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Felpe</a></li>
-                            <li><a class="dropdown-item" href="#">Giacche</a></li>
-                            <li><a class="dropdown-item" href="#">Magliette</a></li>
-                            <li><a class="dropdown-item" href="#">Ponci</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli felpe">Felpe</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli giacche">Giacche</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli magliette">Magliette</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli ponci">Ponci</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Apri/Chiudi lista attrezzatura">
                             Attrezzatura
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Borracce</a></li>
-                            <li><a class="dropdown-item" href="#">Cucina</a></li>
-                            <li><a class="dropdown-item" href="#">Illuminazione</a></li>
-                            <li><a class="dropdown-item" href="#">Materassini</a></li>
-                            <li><a class="dropdown-item" href="#">Sacchi a pelo</a></li>
-                            <li><a class="dropdown-item" href="#">Tende</a></li>
-                            <li><a class="dropdown-item" href="#">Zaini</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli borracce">Borracce</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cucina">Cucina</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli materassini">Materassini</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli tende">Tende</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli zaini">Zaini</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Apri/Chiudi lista divisa">
                             Divisa
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Calzettoni</a></li>
-                            <li><a class="dropdown-item" href="#">Camicie</a></li>
-                            <li><a class="dropdown-item" href="#">Cinture</a></li>
-                            <li><a class="dropdown-item" href="#">Distintivi</a></li>
-                            <li><a class="dropdown-item" href="#">Fazzolettoni</a></li>
-                            <li><a class="dropdown-item" href="#">Pantaloncini</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli camicie">Camicie</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cinture">Cinture</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Apri/Chiudi lista editoria">
                             Editoria
-                        </a>
+                        </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Cartine</a></li>
-                            <li><a class="dropdown-item" href="#">Manuali Scout</a></li>
-                            <li><a class="dropdown-item" href="#">Spiritualità Scout</a></li>
-                            <li><a class="dropdown-item" href="#">Tecniche Scout</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cartine">Cartine</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a></li>
+                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -371,135 +286,114 @@
         <section>
             <div class="d-flex justify-content-between">
                 <h1>Notifiche:</h1>
-                <p>
-                    Segna come già lette 
-                    <input class="form-check-input" type="checkbox" value="" id="checkbox1">
-                </p>
+                <label for="checkbox1">
+                    Segna come già lette
+                    <input class="form-check-input" type="checkbox" value="" id="checkbox1" aria-label="Segna come letto" />
+                </label> 
             </div>
             <ul>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
                 <li>
-                    <section>
+                    <article>
+                        <h2>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</h2>
                         <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
+                            <p>10/12/2024</p>
+                            <a href="" title="Elimina notifica">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
+                                </svg>
+                            </a>
                         </div>
-                        <p>10/12/2024</p>
-                    </section>
-                </li>
-                <li>
-                    <section>
-                        <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
-                        </div>
-                        <p>10/12/2024</p>
-                    </section>
-                </li>
-                <li>
-                    <section>
-                        <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
-                        </div>
-                        <p>10/12/2024</p>
-                    </section>
-                </li>
-                <li>
-                    <section>
-                        <div class="d-flex justify-content-between">
-                            <p>Ordine n° 1927509157 effettuato con successo! Clicca per visualizzare lo stato</p>
-                            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                            </svg></a>
-                        </div>
-                        <p>10/12/2024</p>
-                    </section>
+                    </article>
                 </li>
             </ul>
         </section>
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
-        <a href="" class="text-decoration-none">Aiuto</a>
+        <a href="" class="text-decoration-none" aria-label="Vai alla pagina si supporto/aiuto ">Aiuto</a>
         <div class="d-flex flex-wrap flex-column justify-content-end">
-            <a href="mailto:orazio.spina@studio.unibo.it" class="text-decoration-none">orazio.spina@studio.unibo.it</a>
-            <a href="mailto:marco.paggetti@studio.unibo.it" class="text-decoration-none">marco.paggetti@studio.unibo.it</a>
+            <a href="mailto:orazio.spina@studio.unibo.it" class="text-decoration-none" aria-label="Invia una mail a Orazio Spina">orazio.spina@studio.unibo.it</a>
+            <a href="mailto:marco.paggetti@studio.unibo.it" class="text-decoration-none" aria-label="Invia una mail a Marco Paggetti">marco.paggetti@studio.unibo.it</a>
         </div>
     </footer>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

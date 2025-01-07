@@ -1,7 +1,10 @@
+/* ---- BODY ---- */
 body {
     background-color: #bcd5e7;
 }
 
+
+/* ---- HEADER ---- */
 header > nav:first-of-type {
     background-color: #21295c;
 }
@@ -22,21 +25,29 @@ header > nav:first-of-type > div > form {
     margin-top: 10px;
 }
 
-header > nav > div > form > button {
-    background-color: #bcd5e7;
-    color: #21295c;
+header > nav > div > div > a, header > nav > div > div > button {
+    color: #bcd5e7;
     border: none;
-    border-radius: 10px;
+    background-color: transparent;
 }
 
-header > nav > div > div > a {
+header > nav > div > div > div > a, header > nav > div > div > div > button {
+    color: #bcd5e7;
+    border: none;
+    background-color: transparent;
+}
+
+header > nav > div > div > div {
+    background-color: #21295c !important;
+}
+
+header > nav > div > div > div > div {
     color: #bcd5e7;
 }
 
-header > nav > div > div > div > a {
-    color: #bcd5e7;
-}
 
+
+/* ---- FOOTER ---- */
 footer {
     background-color: #21295c;
     font-size: 10px;
@@ -55,37 +66,39 @@ footer a:hover {
     color: #fcba04;
 }
 
-header > nav > div > div > div {
-    background-color: #21295c !important;
-}
-
-header > nav > div > div > div > div {
-    color: #bcd5e7;
-}
 
 
-
-/*----- CSS FOR LATERAL MENU -----*/
-
+/* ---- OFFCANVAS ---- */
 header > nav > div > div > div > div > div, header > nav > div > div > div > div > div > div > div > div > div {
     border: none !important;
+    background-color: transparent !important;
+}
+
+header > nav > div > div > div > div > div > div > div > div > div {
+    margin-left: 5%;
+}
+
+header > nav > div > div > div > div > div > div > div > div > div:not(:last-of-type) {
+    margin-bottom: 5px;
 }
 
 header > nav > div > div > div > div > div > div {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
     border-top: 1px solid #bcd5e7 !important;
     border-bottom: 1px solid #bcd5e7 !important;
 }
 
-header > nav > div > div > div > div > div > h2 > a, header > nav > div > div > div > div > div > div > div > div > div > h2 > a {
-    background-color: #21295c !important;
+header > nav > div > div > div > div > h2 {
+    background-color: transparent !important;
+}
+
+header > nav > div > div > div > div > button, header > nav > div > div > div > div > div > h2 > button, header > nav > div > div > div > div > div > h2 > a, header > nav > div > div > div > div > div > div > div > div > div > a {
     color: #bcd5e7 !important;
     border: none !important;
     text-decoration: none;
+    background-color: transparent !important;
 }
 
-header > nav > div > div > div > div > div > h2 > a:focus, header > nav > div > div > div > div > div > div > div > div > div > h2 > a:focus {
+header > nav > div > div > div > div > div > h2 > a:focus, header > nav > div > div > div > div > div > h2 > button:focus, header > nav > div > div > div > div > div > div > div > div > div > a:focus {
     box-shadow: none !important;
 }
 
@@ -94,48 +107,35 @@ header > nav > div > div > div > div > a{
 }
 
 /* Nasconde la freccia di default di Bootstrap */
-header > nav > div > div > div > div > div > h2 > a::after, header > nav > div > div > div > div > div > div > div > div > div > h2 > a::after {
+header > nav > div > div > div > div > div > h2 > a::after, header > nav > div > div > div > div > div > h2 > button::after {
     display: none !important;
 }
 
+header > nav > div > div > div > div > div > h2 > button {
+    box-shadow: none !important;
+}
+
 /* Quando l'accordion è espanso, ruota l'icona */
-header > nav > div > div > div > div > div > h2 > a:not(.collapsed) .svg-chevron {
+header > nav > div > div > div > div > div > h2 > button:not(.collapsed) .svg-chevron {
     transform: rotate(180deg);
 }
 
-header > nav > div > div > div > div > div > h2 > a:not(.collapsed) {
+header > nav > div > div > div > div > div > h2 > button:not(.collapsed) {
     border-top: 1px solid #bcd5e7 !important;
 }
 
-header > nav > div > div > div > div > div > div > div > div > div > h2:hover {
-    text-decoration: underline !important;    
-}
-
-header > nav .accordion-button:not(.collapsed) {
-    box-shadow: none !important; /* Rimuove ombre aggiuntive */
-}
+header > nav > div > div > div > div > div > div > div > div > div > a:hover {
+    color: #fcba04 !important;    
+} 
 
 
 
 
 
-/*----- CSS FOR PROFILE ICON -----*/
-
+/* ---- PROFILE ICON ---- */
 header > nav > div > div:last-of-type > div {
     background-color: transparent !important;
 }
-
-/*header > nav > div > div > div > ul {
-    background-color: #bcd5e7 !important;
-    border-radius: 0% !important;
-    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
-}*/
-
-/*header > nav > div > div > div > ul {
-    background-color: white !important;
-    border-radius: 0% !important;
-    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
-}*/
 
 header > nav > div > div > div > ul {
     background-color: #21295c !important;
@@ -164,7 +164,7 @@ header > nav > div > div > div > ul > li > hr{
 
 
 
-/*------ FOR SHADOWING BACKGROUND ------*/
+/* ---- BACKGROUND SHADOWING ---- */
 body:not(ul) {
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
 }
@@ -177,25 +177,24 @@ body > header > nav:first-of-type, body > footer {
 
 
 
-/* RULES FOR DEKSTOP NAV BAR */
+/* ---- DEKSTOP NAV BAR ---- */
 header > nav:nth-child(2) {
     background: none !important;
     border-color: transparent !important;
     display: none;
 }
 
-header > nav:nth-child(2) a {
+header > nav:nth-child(2) a, header > nav:nth-child(2) button {
     color: #21295c;
     font-size: 1em;
     background-color: transparent !important;
     border: none !important;
 }
 
-header > nav:nth-child(2) > ul > li  > div > a:hover {
+header > nav:nth-child(2) > ul > li  > div > a:hover, header > nav:nth-child(2) > ul > li  > div > button:hover {
     text-decoration: underline !important;
 }
 
-/* COPIATO DAL LABORATORIO */
 header > nav:nth-child(2) > ul {
     list-style: none;
     margin: 0;
@@ -211,18 +210,18 @@ header > nav:nth-child(2) > ul > li {
     margin: 0;
 }
 
-header > nav:nth-child(2) > ul > li > div > a {
+header > nav:nth-child(2) > ul > li > div > a, header > nav:nth-child(2) > ul > li > div > button {
     display: inline-block;
     padding: 10px;
     margin: 0 auto;
     text-align: center;
 }
 
-header > nav:nth-child(2) a::after {
+header > nav:nth-child(2) a::after, header > nav:nth-child(2) button::after {
     display: none;
 }
 
-header > nav:nth-child(2) > ul > li > div ul {
+header > nav:nth-child(2) > ul > li > div > ul {
     background-color: #21295c;
     box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
 }
@@ -241,8 +240,7 @@ header > nav:nth-child(2) > ul > li > div > ul > li > a:hover {
 
 
 
-/* STYLE FOR MAIN */
-
+/* ---- MAIN ---- */
 main > section {
     background-color: white;
     margin: 35px 5% 100px;
@@ -255,22 +253,22 @@ main > section > div {
     margin: 0 5px;
 }
 
-main > section > div > p {
+main > section > div > label {
     margin-bottom: 0;
     font-size: 15px;
 }
 
-main > section > div > p > input {
+main > section > div > label > input {
     border:1px solid #21295c !important;
     font-size: 15px;
 }
 
-main > section > div > p > input:checked {
+main > section > div > label > input:checked {
     box-shadow: none !important;
     background-color: #21295c !important;
 }
 
-main > section > div > p > input:focus {
+main > section > div > label > input:focus {
     box-shadow: none !important;
 }
 
@@ -297,31 +295,34 @@ main > section > ul > li:hover {
     box-shadow: 0 0 3px 1px #21295c;
 }
 
-main > section > ul > li > section {
+main > section > ul > li > article {
     font-size: 0.8em;
 }
 
-main > section > ul > li > section > div {
+main > section > ul > li > article > div {
     align-items: center;
+    margin-top: 15px;
 }
 
-main > section > ul > li > section > div > a {
+main > section > ul > li > article > div > a {
     color: red;
 }
 
-main > section > ul > li > section > div > a > svg {
+main > section > ul > li > article > div > a > svg {
     min-width: 20px;
     min-height: 20px;
 }
 
-main > section > ul > li > section > div > p:first-of-type {
+main > section > ul > li > article > h2 {
     font-weight: bold;
     margin-bottom: 0;
+    font-size: 1em;
 }
 
-main > section > ul > li > section > p:last-of-type {
-    margin-bottom: 0;
+main > section > ul > li > article > div > p {
+    margin: 0;
 }
+
 
 
 
@@ -336,7 +337,7 @@ main > section > ul > li > section > p:last-of-type {
         margin-top: 0;
     }
 
-    header > nav:first-of-type > div > div:first-child > a:first-child {
+    header > nav:first-of-type > div > div:first-child > button:first-child {
         display: none;
     }
 
@@ -349,31 +350,23 @@ main > section > ul > li > section > p:last-of-type {
     }
 
     main > section {
-        margin: 5px 10% 100px;
-    }
-
-    main > section > ul > li{
-        margin: 20px 20px;
-    }
-
-    main > section > ul > li > section {
-        font-size: 1em;
+        margin: 5px 5% 100px;
     }
 
     main > section > div {
-        margin: 0 20px;
+        margin: 15px 3%;
+    }
+
+    main > section > ul > li{
+        margin: 10px 20px;
     }
 
     main > section > div > h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
-    main > section > div > p {
-        font-size: 1.5em;
-    }
-
-    main > section > div > p > input {
-        font-size: 1em;
+    main > section > ul > li > article > div > p, main > section > ul > li > article > h2 {
+        font-size: 1.2em;
     }
 }
 
@@ -386,11 +379,7 @@ main > section > ul > li > section > p:last-of-type {
         font-size: 15px;
     }
 
-    header > nav:nth-child(2) > ul > li > div > a {
+    header > nav:nth-child(2) > ul > li > div > a, header > nav:nth-child(2) > ul > li > div > button {
         font-size: 1.4em;
-    }
-
-    main > section {
-        margin: 5px 15% 100px;
     }
 }
