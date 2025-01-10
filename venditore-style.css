@@ -1,4 +1,4 @@
-main > div {
+main>div {
     background-color: white;
 }
 
@@ -17,35 +17,104 @@ html {
     margin: 0;
 }
 
-main > div > div > div:not(:first-child) {
-    flex: 1;
-    overflow-y: auto;
-    /* Abilita lo scorrimento interno */
-}
-
-main > ul > li > button {
+main>ul>li>button {
     color: #21295c !important;
-    
+
 }
 
-main > div > div > div > button {
+main>div>div>section>div>button {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
 }
 
-main > div > div > div > div {
+main>div>div>section>div>div {
     width: 100%;
 }
 
-main > div > div > div > div {
+main>div>div>section>div>div {
     height: fit-content !important;
 }
 
-main > div > div > div > div > div > div > a {
+main>div>div>section>div>div>div>div>a {
     color: #21295c;
 }
 
-body > div > div > div {
-    background-color: #21295c!important;
+main>div>div>section>div>div>div>div>a:last-of-type {
+    color: red;
+}
+
+body>div>div>div {
+    background-color: #21295c !important;
     color: #bcd5e7 !important;
+}
+
+body>div>div>div>div>button:first-of-type {
+    background-color: white !important;
+    color: #21295c !important;
+}
+
+body>div>div>div>div>button {
+    background-color: #bcd5e7 !important;
+    color: #21295c !important;
+}
+
+main>div>div>section>div>form>div:last-of-type>input {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
+    border: none;
+    padding: 5px 10px;
+}
+
+@media screen and (max-width: 768px) {
+    main>div>div {
+        overflow: auto !important;
+    }
+
+    main>div>div>section:first-of-type {
+        display: none !important;
+    }
+
+    main>div>div>section:last-of-type {
+        margin: 0 !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main>div>div:first-of-type {
+        flex-direction: row !important;
+    }
+
+    main>div>div>section {
+        width: 50% !important;
+    }
+
+    body>div:not(:first-of-type) {
+        display: none !important;
+    }
+
+    main>div>div>ul>li>ul {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+
+    main>div>div>section>div>form>div:not(:nth-last-of-type(-n+3)) {
+        display: inline-block !important;
+        width: 45% !important;
+    }
+
+    main>div>div>section>div>form>div:nth-of-type(even):not(:nth-last-of-type(-n+3)) {
+        margin-left: 5%;
+    }
+
+    main>div>div>section>div>form>div:nth-of-type(odd):not(:nth-last-of-type(-n+3)) {
+        margin-right: 5%;
+    }
+}
+
+.active {
+    display: flex !important;
 }
