@@ -265,8 +265,12 @@ main > section > ul {
 }
 
 main > section > ul > li{
-    box-shadow: 0 0 3px 1px #21295c;
+    border: 1px solid #21295c;
     margin: 10px 0px;
+}
+
+main > section > ul > li:hover{
+    box-shadow: 0 0 3px 1px #21295c;
 }
 
 main > section > ul > li > article {
@@ -277,7 +281,7 @@ main > section > ul > li > article {
 }
 
 main > section > ul > li > article > img {
-    width: 60%;
+    width: 100%;
     margin: 0 auto 10px;
     display: block;
 }
@@ -292,9 +296,13 @@ main > section > ul > li > article > p:last-of-type {
     color: #21295c;
 }
 
-main > section > ul > li > article > h3 {
+main > section > ul > li > article > a {
+    text-decoration: none;
+}
+
+main > section > ul > li > article > a > h3 {
     color: #21295c;
-    font-size: 1.2em;
+    font-size: 1.8em;
 }
 
 
