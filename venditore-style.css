@@ -7,10 +7,6 @@ img {
     height: auto;
 }
 
-main {
-    height: calc(100vh - 100px);
-}
-
 body,
 html {
     height: 100%;

@@ -51,7 +51,3 @@ addButton.addEventListener("click", () => {
     }
     console.log("É stato cliccato il bottone modifica");
 });
-
-orderPane.addEventListener("shown.bs.tab", () => {
-   articleTab.style.setProperty("display", "none", "!important");
-});
