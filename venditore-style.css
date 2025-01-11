@@ -95,22 +95,6 @@ main>div>div>section>div>form>div:last-of-type>input {
     }
 }
 
-@media screen and (min-width: 1500px) {
-
-    main>div>div>section>div>form>div:not(:nth-last-of-type(-n+3)) {
-        display: inline-block !important;
-        width: 45% !important;
-    }
-
-    main>div>div>section>div>form>div:nth-of-type(even):not(:nth-last-of-type(-n+3)) {
-        margin-left: 5%;
-    }
-
-    main>div>div>section>div>form>div:nth-of-type(odd):not(:nth-last-of-type(-n+3)) {
-        margin-right: 5%;
-    }
-}
-
 .active {
     display: flex !important;
 }
