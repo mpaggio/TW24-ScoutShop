@@ -89,7 +89,7 @@ main>div>div>section>div>form>div:last-of-type>input {
         display: none !important;
     }
 
-    main>div>div>ul>li>ul {
+    main>div>div>ul>li>div>ul {
         display: flex !important;
         flex-direction: row !important;
     }

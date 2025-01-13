@@ -385,13 +385,17 @@ main>section>div>div:last-of-type {
     border: 2px solid #21295c;
 }
 
-main>section>div>div>button {
+main>section>div>div>a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
     background-color: #21295c !important;
     color: #bcd5e7 !important;
     box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
     border: none;
     padding: 5px 10px;
 }
+
 
 @media screen and (min-width: 768px) {
     main>section>div>div:last-of-type {
