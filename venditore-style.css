@@ -63,16 +63,39 @@ main>div>div>section>div>form>div:last-of-type>input {
 }
 
 @media screen and (max-width: 768px) {
-    main>div>div {
-        overflow: auto !important;
+    main>div>div>section:last-of-type {
+        margin: 0 !important;
     }
 
     main>div>div>section:first-of-type {
-        display: none !important;
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        /* Larghezza del modal */
+        max-width: 400px;
+        /* Limita la dimensione massima */
+        background-color: #21295c;
+        color: #bcd5e7;
+        border: 2px solid black;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 20px;
+        overflow: auto;
+        border-radius: 10px;
     }
 
-    main>div>div>section:last-of-type {
-        margin: 0 !important;
+    main>div>div>section:first-of-type>div:last-of-type {
+        border: none !important;
+    }
+
+    main>div>div>section>div>form>div:last-of-type>input {
+        background-color: white !important;
+        color: #21295c !important;
+        border: none;
+        padding: 5px 10px;
     }
 }
 
@@ -89,12 +112,22 @@ main>div>div>section>div>form>div:last-of-type>input {
         display: none !important;
     }
 
-    main>div>div>ul>li>div>ul {
-        display: flex !important;
-        flex-direction: row !important;
+    main>div>div>section:first-of-type {
+        display: block;
     }
 }
 
 .active {
     display: flex !important;
+}
+
+body.modal-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }

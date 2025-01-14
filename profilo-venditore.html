@@ -49,10 +49,8 @@
             <div class="tab-pane fade show active h-100 p-4" id="articles-tab-pane" role="tabpanel"
                 aria-labelledby="articles-tab" tabindex="0">
                 <section class="overflow-auto me-3">
-                    <div class="modal-header mb-2">
-                        <h1 class="modal-title fs-5">Modifica prodotto:</h1>
-                    </div>
-                    <div class="modal-body border border-dark p-3">
+                    <h1 class="d-none fs-5">Modifica prodotto:</h1>
+                    <div class="d-none border border-dark p-3">
                         <form class="row justify-content-between" action="POST">
                             <div class="col-lg-6 mb-3">
                                 <label for="productName" class="form-label">Nome prodotto:</label>
@@ -60,24 +58,20 @@
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="productPrice" class="form-label">Prezzo:</label>
-                                <input type="number" class="form-control" id="productPrice">
+                                <input type="text" class="form-control" id="productPrice">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="productQuantity" class="form-label">Quantità:</label>
-                                <input type="number" class="form-control" id="productQuantity">
+                                <input type="text" class="form-control" id="productQuantity">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="productDiscount" class="form-label">Sconto:</label>
-                                <input type="number" class="form-control" value="0" id="productDiscount">
+                                <input type="text" class="form-control" value="0" id="productDiscount">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="productDescription" class="form-label">Descrizione:</label>
                                 <textarea class="form-control" id="productDescription"
-                                    rows="3">Valure di default text area</textarea>
-                            </div>
-                            <div class="col-lg-6 mb-3">
-                                <label for="productImage" class="form-label">Immagine:</label>
-                                <input type="file" class="form-control" id="productImage">
+                                    rows="3" cols="10">Valure di default text area</textarea>
                             </div>
                             <div class="d-flex justify-content-end">
                                 <input class="me-3" type="reset" value="Chiudi">
@@ -91,7 +85,7 @@
                         <form class="d-flex flex-grow-1 me-3" role="search">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                         </form>
-                        <button class="btn" data-bs-toggle="modal" data-bs-target="#addModal">Aggiungi</button>
+                        <button class="btn">Aggiungi</button>
                     </div>
                     <div class="d-flex flex-wrap justify-content-between">
                         <div class="card border border-dark mt-3">
@@ -106,8 +100,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -139,8 +132,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -172,8 +164,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -205,8 +196,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -238,8 +228,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -271,8 +260,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -304,8 +292,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -337,8 +324,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-column justify-content-around me-2">
-                                    <a class="icon-link fs-4" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#editModal">
+                                    <a class="icon-link fs-4" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path
@@ -463,7 +449,7 @@
 
     <!-- Modals -->
     <!-- Delete article modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel">
+    <!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -479,93 +465,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Edit article modal -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModalLabel">Modifica prodotto:</h1>
-                </div>
-                <div class="modal-body">
-                    <form action="POST">
-                        <div class="mb-3">
-                            <label for="productName" class="form-label">Nome prodotto:</label>
-                            <input type="text" class="form-control" value="Cintura in pelle" id="productName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-price" class="form-label">Prezzo:</label>
-                            <input type="text" class="form-control" id="product-price">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Quantità:</label>
-                            <input type="text" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Sconto:</label>
-                            <input type="text" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Immagine:</label>
-                            <input type="file" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-description" class="form-label">Descrizione:</label>
-                            <textarea class="form-control" id="product-description"
-                                rows="3">Valure di default text area</textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Chiudi</button>
-                    <button type="button" class="btn">Salva</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Insert new article modal -->
-    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="addModalLabel">Aggiungi prodotto:</h1>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="mb-3">
-                            <label for="product-name" class="form-label">Nome:</label>
-                            <input type="text" class="form-control" id="product-name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-price" class="form-label">Prezzo:</label>
-                            <input type="text" class="form-control" id="product-price">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Quantità:</label>
-                            <input type="text" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Sconto:</label>
-                            <input type="text" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-quantity" class="form-label">Immagine:</label>
-                            <input type="file" class="form-control" id="product-quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label for="product-description" class="form-label">Descrizione:</label>
-                            <textarea class="form-control" id="product-description" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">Chiudi</button>
-                    <button type="button" class="btn">Salva</button>
-                </div>
-            </div>
-        </div>
-    </div>
+-->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
