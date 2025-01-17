@@ -1,42 +1,31 @@
-main>div {
-    background-color: white;
+.btn {
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
 }
 
-img {
-    width: 20%;
-    height: auto;
-}
-
-body,
-html {
-    height: 100%;
-    margin: 0;
-}
-
-main>ul>li>button {
-    color: #21295c !important;
-
-}
-
-main>div>div>section>div>button {
+.btn-primary {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
 }
 
-main>div>div>section>div>div {
-    width: 100%;
+.btn-secondary {
+    background-color: white !important;
+    color: #21295c !important;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
 }
 
-main>div>div>section>div>div {
-    height: fit-content !important;
+.btn-primary:hover,
+.btn-secondary:hover {
+    color: #fcba04 !important;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) inset;
 }
 
-main>div>div>section>div>div>div>div>a {
-    color: #21295c;
-}
-
-main>div>div>section>div>div>div>div>a:last-of-type {
-    color: red;
+.text-primary {
+    color: #21295c !important;
 }
 
 body>div>div>div {
@@ -44,23 +33,6 @@ body>div>div>div {
     color: #bcd5e7 !important;
 }
 
-body>div>div>div>div>button:first-of-type {
-    background-color: white !important;
-    color: #21295c !important;
-}
-
-body>div>div>div>div>button {
-    background-color: #bcd5e7 !important;
-    color: #21295c !important;
-}
-
-main>div>div>section>div>form>div:last-of-type>input {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
-    border: none;
-    padding: 5px 10px;
-}
 
 @media screen and (max-width: 768px) {
     main>div>div>section:last-of-type {
