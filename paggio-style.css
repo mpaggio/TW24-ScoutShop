@@ -241,7 +241,6 @@ header > nav:nth-child(2) > ul > li > div > ul > li > a:hover {
 
 
 /* ---- MAIN ---- */
-
 main > section {
     background-color: white;
     margin: 35px 5% 10px;
@@ -251,6 +250,139 @@ main > section {
 
 main > section:last-of-type {
     margin: 35px 5% 100px;
+}
+
+main > section > h2 {
+    color: #21295c;
+}
+
+main > section > div > button {
+    color: #21295c;
+    font-size: 1.1em;
+}
+
+main > section > div > button:hover {
+    text-decoration: underline;
+}
+
+main > section > div > h1 {
+    color: #21295c;
+    font-size: 1.5em;
+}
+
+main > section > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+main > section > ul > li{
+    border: 1px solid #21295c;
+    background-color: #bcd5e7;
+}
+
+main > section > ul > li:hover{
+    box-shadow: 0 0 3px 1px #21295c;
+}
+
+main > section > ul > li > article > p {
+    font-size: 1em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+main > section > ul > li > article > a > h3 {
+    color: #21295c;
+    font-size: 1.8em;
+}
+
+main > section > article {
+    background-color: #EEEEEE;
+    border: 2px solid #21295c;
+}
+
+main > section > article:last-of-type {
+    max-height: 560px;
+}
+
+main > section > article > header > h2 {
+    color: #21295c;
+    font-size: 6vw;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+main > section > article > form > label {
+    color: #21295c;
+    font-size: 4vw;
+    display: block;
+}
+
+main > section > article > form > div > input {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #21295c;
+    padding: 3px 6px;
+}
+
+main > section > article > form > div > button > svg {
+    color: #21295c;
+}
+
+main > section > article > form > button:first-of-type {
+    background-color: white;
+    color: #21295c;
+    padding: 5px 10px;
+    margin-top: 30px;
+    margin-right: 10%;
+    width: 45%;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+}
+
+main > section > article > form > button:last-of-type {
+    background-color: #21295c;
+    color: #bcd5e7;
+    padding: 5px 10px;
+    width: 45%;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+}
+
+main > section > article > form > button:hover {
+    color: #fcba04;
+    box-shadow: 0px 0px 2px 1px rgba(33, 41, 92, 0.5) inset;
+}
+
+main > section > article > article {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #21295c;
+    margin-bottom: 20px;
+}
+
+main > section > article > article > header > h3 {
+    color: #21295c;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+main > section > article > article > div:not(:last-of-type) {
+    border-bottom: 1px solid #21295c;
+}
+
+main > section > article > article > div > img {
+    max-width: 40%;
+    margin-right: 5%;
+}
+
+main > section > article > article > div > div > h4 {
+    color: #21295c;
+}
+
+main > section > article > article > div > div > h4, main > section > article > article > div > div > p {
+    margin: 0;
+    padding: 0;
+    font-size: 3vw;
 }
 
 main > section > section {
@@ -370,6 +502,7 @@ main > section > article > aside > form > fieldset > input {
 
 
 
+
 /* MEDIA QUERY */
 @media screen and (min-width: 468px) {
     header > nav:first-of-type > div > div:nth-child(2) {
@@ -395,9 +528,17 @@ main > section > article > aside > form > fieldset > input {
     main > section {
         margin: 5px 5% 10px !important;
     }
-    
+
     main > section:last-of-type {
         margin: 5px 5% 100px !important;
+    }
+
+    main > section > div > h1 {
+        font-size: 2.5em;
+    }
+
+    main > section > ul > li{
+        margin: 10px 20px;
     }
 
     main > section > article > aside > h2 {
@@ -443,13 +584,50 @@ main > section > article > aside > form > fieldset > input {
         font-size: 1.4em;
     }
 
-    main > section {
-        margin: 0 15% 100px;
-        padding: 50px 50px;
+    main > section > article {
+        padding: 2%;
+        margin: 20px 15px ;
+        width: 50%;
     }
 
     main > section > article > img {
         width: 40%;
+    }
+
+    main > section > article > form {
+        padding: 0 5%;
+    }
+
+    main > section > article > form > div > input {
+        margin-bottom: 15px;
+    }
+
+    main > section > article > header > h2 {
+        font-size: 2.5vw;
+    }
+
+    main > section > article > form > label {
+        font-size: 1.5vw;
+    }
+
+    main > section > article > form > button {
+        margin-top: 30px;
+    }
+
+    main > section > article > article > header > h3 {
+        font-size: 2vw;
+    }
+
+    main > section > article > article > div > img {
+        max-width: 20%;
+    }
+
+    main > section > article > article > div > div > h4 {
+        font-size: 1.5vw;
+    }
+
+    main > section > article > article > div > div > p {
+        font-size: 1em;
     }
 
     main > section > article > aside {

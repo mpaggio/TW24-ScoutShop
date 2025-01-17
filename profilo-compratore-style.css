@@ -388,11 +388,6 @@ main > section > article > article > div > div > h4, main > section > article > 
         font-size: 1.4em;
     }
 
-    main > section {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
     main > section > article {
         padding: 2%;
         margin: 20px 15px ;

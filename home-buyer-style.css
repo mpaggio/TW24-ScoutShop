@@ -309,6 +309,10 @@ main > section > ul > li > article > a > h3 {
     main > section {
         margin: 5px 5% 10px !important;
     }
+    
+    main > section:last-of-type {
+        margin: 5px 5% 100px !important;
+    }
 }
 
 @media screen and (min-width: 768px) {

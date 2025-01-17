@@ -302,14 +302,11 @@ main > section > ul > li:hover {
     }
 
     main > section {
-        background-color: white;
-        margin: 5px 5% 10px;
-        padding: 20px 20px 10px;
-        border: 2px solid #21295c;
+        margin: 5px 5% 10px !important;
     }
     
     main > section:last-of-type {
-        margin: 5px 5% 100px;
+        margin: 5px 5% 100px !important;
     }
 
     main > section > ul > li{
