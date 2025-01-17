@@ -249,7 +249,7 @@ main > section {
 }
 
 main > section:last-of-type {
-    margin: 5px 5% 100px;
+    margin: 35px 5% 100px;
 }
 
 main > section > h2 {
@@ -307,7 +307,7 @@ main > section > ul > li > article > a > h3 {
     }
 
     main > section {
-        margin: 5px 5% 10px;
+        margin: 5px 5% 10px !important;
     }
 }
 

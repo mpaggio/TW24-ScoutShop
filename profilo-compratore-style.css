@@ -243,28 +243,23 @@ header > nav:nth-child(2) > ul > li > div > ul > li > a:hover {
 /* ---- MAIN ---- */
 main > section {
     background-color: white;
-    margin: 35px 5% 100px;
+    margin: 35px 5% 10px;
     padding: 10px 10px 10px;
     border: 2px solid #21295c;
 }
 
-main > section > h1 {
-    color: #21295c;
-    font-size: 10vw;
-    text-align: center;
-    margin-bottom: 20px;
+main > section:last-of-type {
+    margin: 35px 5% 100px;
 }
 
 main > section > article {
     background-color: #EEEEEE;
     border: 2px solid #21295c;
-    margin-bottom: 20px;
-    padding: 20px;
 }
 
 main > section > article:last-of-type {
-    max-height: 420px;
-    overflow-y: auto;
+    max-height: 560px;
+    overflow: auto;
 }
 
 main > section > article > header > h2 {
@@ -280,20 +275,11 @@ main > section > article > form > label {
     display: block;
 }
 
-main > section > article > form > div {
-    margin-bottom: 10px;
-}
-
 main > section > article > form > div > input {
     width: 80%;
     background-color: white;
     border: 1px solid #21295c;
     padding: 3px 6px;
-}
-
-main > section > article > form > div > button {
-    border: none;
-    padding: 0;
 }
 
 main > section > article > form > div > button > svg {
@@ -336,10 +322,6 @@ main > section > article > article > header > h3 {
     color: #21295c;
     font-size: 5vw;
     font-weight: bold;
-}
-
-main > section > article > article > div {
-    padding: 10px 0;
 }
 
 main > section > article > article > div:not(:last-of-type) {
@@ -385,11 +367,11 @@ main > section > article > article > div > div > h4, main > section > article > 
     }
 
     main > section {
-        margin-top: 5px;
+        margin: 5px 5% 10px !important;
     }
 
-    main > section > article:last-of-type {
-        max-height: 520px;
+    main > section:last-of-type {
+        margin: 5px 5% 100px !important;
     }
 }
 
@@ -415,10 +397,6 @@ main > section > article > article > div > div > h4, main > section > article > 
         padding: 2%;
         margin: 20px 15px ;
         width: 50%;
-    }
-
-    main > section > article:last-of-type {
-        max-height: 620px;
     }
 
     main > section > article > form {

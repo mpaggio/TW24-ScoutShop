@@ -243,38 +243,26 @@ header > nav:nth-child(2) > ul > li > div > ul > li > a:hover {
 /* ---- MAIN ---- */
 main > section {
     background-color: white;
-    margin: 35px 5% 100px;
-    padding: 20px 10px;
+    margin: 35px 5% 10px;
+    padding: 20px 20px 10px;
     border: 2px solid #21295c;
 }
 
-main > section > div {
-    align-items: baseline;
-    margin: 0 5px;
+main > section:last-of-type {
+    margin: 35px 5% 100px;
 }
 
-main > section > div > label {
-    margin-bottom: 0;
-    font-size: 15px;
+main > section > div > button {
+    color: #21295c;
+    font-size: 1.1em;
 }
 
-main > section > div > label > input {
-    border:1px solid #21295c !important;
-    font-size: 15px;
-}
-
-main > section > div > label > input:checked {
-    box-shadow: none !important;
-    background-color: #21295c !important;
-}
-
-main > section > div > label > input:focus {
-    box-shadow: none !important;
+main > section > div > button:hover {
+    text-decoration: underline;
 }
 
 main > section > div > h1 {
     color: #21295c;
-    margin-bottom: 0;
     font-size: 1.5em;
 }
 
@@ -285,30 +273,6 @@ main > section > ul > li {
 
 main > section > ul > li:hover {
     box-shadow: 0 0 3px 1px #21295c;
-}
-
-main > section > ul > li > article > div {
-    align-items: center;
-    margin-top: 15px;
-}
-
-main > section > ul > li > article > div > a {
-    color: red;
-}
-
-main > section > ul > li > article > div > a > svg {
-    min-width: 20px;
-    min-height: 20px;
-}
-
-main > section > ul > li > article > h2 {
-    font-weight: bold;
-    margin-bottom: 0;
-    font-size: 1em;
-}
-
-main > section > ul > li > article > div > p {
-    margin: 0;
 }
 
 
@@ -338,11 +302,14 @@ main > section > ul > li > article > div > p {
     }
 
     main > section {
-        margin: 5px 5% 100px;
+        background-color: white;
+        margin: 5px 5% 10px;
+        padding: 20px 20px 10px;
+        border: 2px solid #21295c;
     }
-
-    main > section > div {
-        margin: 15px 3%;
+    
+    main > section:last-of-type {
+        margin: 5px 5% 100px;
     }
 
     main > section > ul > li{
@@ -351,10 +318,6 @@ main > section > ul > li > article > div > p {
 
     main > section > div > h1 {
         font-size: 2.5em;
-    }
-
-    main > section > ul > li > article > div > p, main > section > ul > li > article > h2 {
-        font-size: 1.2em;
     }
 }
 
