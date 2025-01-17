@@ -41,6 +41,13 @@ header > nav > div > div > div {
     background-color: #21295c !important;
 }
 
+header > nav > div > div > div > button > span {
+    background-color: #fcba04;
+    width: 20px;
+    height: 20px;
+    font-size: 0.5em !important;
+}
+
 header > nav > div > div > div > div {
     color: #bcd5e7;
 }
@@ -504,7 +511,7 @@ main > section > article > aside > form > fieldset > input {
 
 
 /* MEDIA QUERY */
-@media screen and (min-width: 468px) {
+@media screen and (min-width: 482px) {
     header > nav:first-of-type > div > div:nth-child(2) {
         order: 1;
     }
