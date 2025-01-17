@@ -266,11 +266,6 @@ main > section > section > p {
     margin-bottom: 0;
 }
 
-main > section > article {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
 main > section > article > img {
     width: 90%;
 }
