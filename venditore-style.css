@@ -33,8 +33,19 @@ body>div>div>div {
     color: #bcd5e7 !important;
 }
 
+main>div>div>section>div>div>div>h5 {
+    font-size: 4vw;
+}
 
-@media screen and (max-width: 768px) {
+main>div>div>section>div>div>div>p {
+    font-size: 3vw;
+}
+
+button {
+    font-size: 3vw !important;
+}
+
+@media screen and (max-width: 767px) {
     main>div>div>section:last-of-type {
         margin: 0 !important;
     }
@@ -76,16 +87,16 @@ body>div>div>div {
         flex-direction: row !important;
     }
 
-    main>div>div>section {
-        width: 50% !important;
-    }
-
-    body>div:not(:first-of-type) {
-        display: none !important;
-    }
-
     main>div>div>section:first-of-type {
         display: block;
+    }
+
+    main>div>div>section>div>div>div>h5 {
+        font-size: 1.5em;
+    }
+
+    main>div>div>section>div>div>div>p {
+        font-size: 1.5vw;
     }
 }
 

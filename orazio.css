@@ -1,3 +1,4 @@
+/* Home page layout */
 body {
     background-color: #bcd5e7;
 }
@@ -71,71 +72,63 @@ footer a:hover {
     color: #fcba04;
 }
 
-main>div {
-    background-color: white;
+/* Fine home page */
+
+/* Customizing bootstrap classes */
+.btn {
+    fonst-size: 1em;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
 }
 
-img {
-    width: 20%;
-    height: auto;
-}
-
-body,
-html {
-    height: 100%;
-    margin: 0;
-}
-
-main>ul>li>button {
-    color: #21295c !important;
-
-}
-
-main>div>div>section>div>button {
+.btn-primary {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
 }
 
-main>div>div>section>div>div {
-    width: 100%;
+.btn-secondary {
+    background-color: white !important;
+    color: #21295c !important;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
 }
 
-main>div>div>section>div>div {
-    height: fit-content !important;
+.btn-primary:hover,
+.btn-secondary:hover {
+    color: #fcba04 !important;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) inset;
 }
 
-main>div>div>section>div>div>div>div>a {
-    color: #21295c;
+.text-primary {
+    color: #21295c !important;
 }
 
-main>div>div>section>div>div>div>div>a:last-of-type {
-    color: red;
-}
+/* Fine classi bootstrap */
 
+/* Profilo venditore */
 body>div>div>div {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
 }
 
-body>div>div>div>div>button:first-of-type {
-    background-color: white !important;
-    color: #21295c !important;
+main>section>div>div>ul>li>div>h5,
+main>div>div>section>div>div>div>h5 {
+    font-size: 4vw;
 }
 
-body>div>div>div>div>button {
-    background-color: #bcd5e7 !important;
-    color: #21295c !important;
+main>section>div>div>ul>li>div>p,
+main>div>div>section>div>div>div>p {
+    font-size: 3vw;
 }
 
-main>div>div>section>div>form>div:last-of-type>input {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
-    border: none;
-    padding: 5px 10px;
+button {
+    font-size: 3vw !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     main>div>div>section:last-of-type {
         margin: 0 !important;
     }
@@ -177,16 +170,18 @@ main>div>div>section>div>form>div:last-of-type>input {
         flex-direction: row !important;
     }
 
-    main>div>div>section {
-        width: 50% !important;
-    }
-
-    body>div:not(:first-of-type) {
-        display: none !important;
-    }
-
     main>div>div>section:first-of-type {
         display: block;
+    }
+
+    main>section>div>div>ul>li>div>h5,
+    main>div>div>section>div>div>div>h5 {
+        font-size: 1.5em;
+    }
+
+    main>section>div>div>ul>li>div>p,
+    main>div>div>section>div>div>div>p {
+        font-size: 1.5vw;
     }
 }
 
@@ -204,6 +199,10 @@ body.modal-active::before {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+
+/* Fine profilo venditore */
+
+/* Inizio roba paggio */
 
 /* ---- BODY ---- */
 body {
@@ -561,46 +560,14 @@ main>section>ul>li>article>a>h3 {
     }
 }
 
-/* Carrello css */
-body>div>div>div {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-}
+/* Fine roba Paggio */
 
-body>div>div>div>div>button:first-of-type {
-    background-color: white !important;
-    color: #21295c !important;
-}
-
-body>div>div>div>div>button {
-    background-color: #bcd5e7 !important;
-    color: #21295c !important;
-}
-
-main>section>div>div>ul>li>img {
-    width: 20%;
-}
-
-main>section>div>div>ul>li>div>a {
-    color: red;
-}
-
+/* Carrello */
 main>section>div>div>ul>li,
 main>section>div>div:last-of-type {
     background-color: #D3D3D3;
     padding: 20px 20px 10px;
     border: 2px solid #21295c;
-}
-
-main>section>div>div>a {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
-    border: none;
-    padding: 5px 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -609,49 +576,19 @@ main>section>div>div>a {
     }
 }
 
-main>section>div>div>div>ul>li>p {
-    margin: 0 !important;
+/* Fine carrello */
+
+/* Pagamento */
+main>section>div>div {
+    background-color: #D3D3D3;
+    padding: 20px 20px 10px;
+    border: 2px solid #21295c;
 }
 
-header>nav>div>a {
-    color: #bcd5e7;
-}
-
-header>nav>div>a:hover {
-    color: #fcba04;
-}
-
-@media screen and (min-width: 768px) {
-    main>div {
-        width: 40%;
+@media sceen and (min-width: 768px) {
+    main>section>div>div:last-of-type {
+        margin-right: calc(var(--bs-gutter-x) * .5);
     }
 }
 
-@media screen and (min-width: 1200px) {
-    main>div {
-        width: 25%;
-    }
-}
-
-main>div {
-    box-shadow: 0px 1px 6px rgba(33, 41, 92, 0.5);
-}
-
-main>div>div:first-of-type {
-    background-color: #21295c;
-    color: #bcd5e7;
-}
-
-main>div>div:nth-child(2) {
-    background-color: #bdbdbd;
-}
-
-main>div>div:nth-child(3) {
-    background-color: white;
-}
-
-main>div>div>div>a {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
-}
+/* Fine pagamento */

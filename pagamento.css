@@ -346,28 +346,6 @@ main>section>ul>li>article>a>h3 {
 }
 
 /* Carrello css */
-body>div>div>div {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-}
-
-body>div>div>div>div>button:first-of-type {
-    background-color: white !important;
-    color: #21295c !important;
-}
-
-body>div>div>div>div>button {
-    background-color: #bcd5e7 !important;
-    color: #21295c !important;
-}
-
-main>section>div>div>ul>li>img {
-    width: 20%;
-}
-
-main>section>div>div>ul>li>div>a {
-    color: red;
-}
 
 main>section>div>div {
     background-color: #D3D3D3;
@@ -375,20 +353,8 @@ main>section>div>div {
     border: 2px solid #21295c;
 }
 
-main>section>div>div>button {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) !important;
-    border: none;
-    padding: 5px 10px;
-}
-
 @media screen and (min-width: 768px) {
-    /* main>section>div>div:last-of-type {
+    main>section>div>div:last-of-type {
         margin-right: calc(var(--bs-gutter-x) * .5);
-    } */
-}
-
-main>section>div>div>div>ul>li>p {
-    margin: 0 !important;
+    }
 }
