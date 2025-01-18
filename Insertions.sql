@@ -673,3 +673,38 @@ INSERT INTO `databaseweb`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_pro
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Standard', '5', '0.00');
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Express', '3', '4.50');
 INSERT INTO `databaseweb`.`spedizione` (`Tipo_spedizione`, `Tempo_di_arrivo`, `Costo_spedizione`) VALUES ('Super Express', '1', '8.50');
+
+
+
+/* AGGIORNAMENTI */
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_L');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_M');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_S');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_XL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_XS');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-blu.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Blu_XXL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_L');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_M');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_S');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_XL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_XS');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-nero.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Nero_XXL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_L');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_M');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_S');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_XL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_XS');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'softshell-icepeak-barmstedt-uomo-rosso.jpg' WHERE (`Di_Codice_prodotto` = '000005') and (`Codice_prodotto` = '_Rossa_XXL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_L');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_M');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_S');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_XL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_XS');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'giacca-softshell-donna-scout-tech.jpg' WHERE (`Di_Codice_prodotto` = '000006') and (`Codice_prodotto` = '_0_XXL');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'hydrofask.jpg' WHERE (`Di_Codice_prodotto` = '000027') and (`Codice_prodotto` = '_Blu_0');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'hydrofask.jpg' WHERE (`Di_Codice_prodotto` = '000027') and (`Codice_prodotto` = '_Nero_0');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = 'hydrofask.jpg' WHERE (`Di_Codice_prodotto` = '000027') and (`Codice_prodotto` = '_Verde_0');
+UPDATE `databaseweb`.`versione_prodotto` SET `Nome_immagine` = '24-azzurro.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Azzurro_0');
+UPDATE `databaseweb`.`versione_prodotto` SET `Codice_prodotto` = '_Verde_0', `Colore` = 'Verde', `Nome_immagine` = '24-spearmint.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Lilla_0');
+UPDATE `databaseweb`.`versione_prodotto` SET `Codice_prodotto` = '_Lilla_0', `Colore` = 'Lilla', `Nome_immagine` = '24-fog.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Rosso_0');
+ 
