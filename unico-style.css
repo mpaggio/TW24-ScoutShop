@@ -600,10 +600,12 @@ main>section>article>aside>form>fieldset>input {
 }
 
 @media screen and (min-width: 768px) {
-    header > nav:nth-of-type(2) > ul > li > div > a, header > nav:nth-of-type(2) > ul > li > div > button {
+
+    header>nav:nth-of-type(2)>ul>li>div>a,
+    header>nav:nth-of-type(2)>ul>li>div>button {
         font-size: 1.5em !important;
-    } 
-    
+    }
+
     header>nav>div>div>a>img {
         width: 150px;
     }
@@ -804,8 +806,19 @@ footer a:hover {
     border-radius: 0px;
 }
 
+.btn-danger {
+    background-color: red !important;
+    color: white !important;
+    font-size: 1em;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
+}
+
 .btn-primary:hover,
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-danger:hover {
     color: #fcba04 !important;
     box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) inset;
 }
@@ -834,10 +847,6 @@ body>div>div>div {
     color: #bcd5e7 !important;
 }
 
-button {
-    font-size: 3vw !important;
-}
-
 @media screen and (max-width: 767px) {
     main>div>div>section:last-of-type {
         margin: 0 !important;
@@ -853,9 +862,7 @@ button {
         /* Larghezza del modal */
         max-width: 400px;
         /* Limita la dimensione massima */
-        background-color: white;
-        color: #21295c;
-        border: 2px solid black;
+        border: 2px solid #21295c;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         padding: 20px;
@@ -865,13 +872,6 @@ button {
 
     main>div>div>section:first-of-type>div:last-of-type {
         border: none !important;
-    }
-
-    main>div>div>section>div>form>div:last-of-type>input {
-        background-color: white !important;
-        color: #21295c !important;
-        border: none;
-        padding: 5px 10px;
     }
 }
 
@@ -947,9 +947,5 @@ main>section>div>div {
 header>nav>div>a:hover {
     color: #fcba04;
 }
-
-/* main>div {
-    box-shadow: 0px 1px 6px rgba(33, 41, 92, 0.5);
-} */
 
 /* Fine login */
