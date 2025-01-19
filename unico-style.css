@@ -322,10 +322,6 @@ main>section>article {
     border: 2px solid #21295c;
 }
 
-main>section>article:last-of-type {
-    max-height: 560px;
-}
-
 main>section>article>header>h2 {
     color: #21295c;
     font-size: 6vw;
@@ -832,10 +828,6 @@ footer a:hover {
 body>div>div>div {
     background-color: #21295c !important;
     color: #bcd5e7 !important;
-}
-
-button {
-    font-size: 3vw !important;
 }
 
 @media screen and (max-width: 767px) {
