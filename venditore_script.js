@@ -48,14 +48,6 @@ addButton.addEventListener("click", () => {
 
 closeButton.addEventListener("click", closeModalHandler);
 
-// Opzionale: chiudi cliccando fuori dal modal
-document.addEventListener("click", (event) => {
-    if (!formSection.contains(event.target) && formContainer.classList.contains("d-none")) {
-        console.log("Premuto fuori dal modal");
-        closeModalHandler();
-    }
-});
-
 // Aggiungi un evento di resize per gestire il cambiamento della dimensione della finestra
 window.addEventListener("resize", function() {
     if (window.innerWidth >= 768) {
