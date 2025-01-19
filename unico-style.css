@@ -748,6 +748,20 @@ header>nav>div>form {
     footer * {
         font-size: 15px;
     }
+
+    main {
+        overflow: hidden;
+    }
+
+    main > section {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    main > section > article:nth-of-type(2) {
+        height: 100%;
+        overflow: auto;
+    }
 }
 
 header>nav>div>form>button {
