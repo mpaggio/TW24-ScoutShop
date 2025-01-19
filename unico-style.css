@@ -600,6 +600,10 @@ main>section>article>aside>form>fieldset>input {
 }
 
 @media screen and (min-width: 768px) {
+    header > nav:nth-of-type(2) > ul > li > div > a, header > nav:nth-of-type(2) > ul > li > div > button {
+        font-size: 1.5em !important;
+    } 
+    
     header>nav>div>div>a>img {
         width: 150px;
     }
@@ -728,7 +732,7 @@ header>nav>div>form {
     margin-top: 10px;
 }
 
-@media screen and (min-width: 452px) {
+@media screen and (min-width: 482px) {
     header>nav>div>div:nth-child(2) {
         order: 1;
     }
@@ -780,25 +784,24 @@ footer a:hover {
 /* Fine home page */
 
 /* Customizing bootstrap classes */
-.btn {
-    fonst-size: 1em;
+.btn-primary {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+    font-size: 1em;
     padding: 5px 10px;
     border: 1px solid #21295c;
     box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
     border-radius: 0px;
 }
 
-.btn-primary {
-    background-color: #21295c !important;
-    color: #bcd5e7 !important;
-}
-
 .btn-secondary {
     background-color: white !important;
     color: #21295c !important;
+    font-size: 1em;
     padding: 5px 10px;
     border: 1px solid #21295c;
     box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
 }
 
 .btn-primary:hover,
@@ -850,8 +853,8 @@ button {
         /* Larghezza del modal */
         max-width: 400px;
         /* Limita la dimensione massima */
-        background-color: #21295c;
-        color: #bcd5e7;
+        background-color: white;
+        color: #21295c;
         border: 2px solid black;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
