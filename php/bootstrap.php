@@ -8,8 +8,17 @@
     
     $dbh = new DatabaseHelper("localhost", "root", "", "scoutshopdatabase", 3306);
     
-    foreach ($dbh->getUserOrders("orazio.spina@studio.unibo.it", 0) as $order) {
-        echo $order["Codice_ordine"];
+    $dbh->insertProductInCart("mpaggiojr@gmail.com", "000001", "_0_XL", 10);
+    foreach ($dbh->getUserProductsInCart("mpaggiojr@gmail.com") as $product) {
+        echo $product["Di_Codice_prodotto"];
+        echo $product["Quantita_"];
+        echo "<br>";
+    }
+
+    $dbh->updateProductQuantityInCart("mpaggiojr@gmail.com", "000001", "_0_XL", 16);
+    foreach ($dbh->getUserProductsInCart("mpaggiojr@gmail.com") as $product) {
+        echo $product["Di_Codice_prodotto"];
+        echo $product["Quantita_"];
         echo "<br>";
     }
 ?>

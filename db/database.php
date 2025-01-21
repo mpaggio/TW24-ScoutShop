@@ -159,6 +159,18 @@
             $stmt->bind_param("sssssss", $descrizione, $prezzo, $disponibilita, $sconto, $immagine, $codice_prodotto, $codice_versione);
             return $stmt->execute();
         }
+
+        // Ottieni disponibilità di una versione prodotto (prodotto singolo/carrello)
+        public function getProductVersionDisponibility($codice_prodotto, $codice_versione) {
+            $query = "SELECT Disponibilita FROM VERSIONE_PRODOTTO WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_row();
+        }
         
         // Rimuovi un prodotto (profilo venditore)
         public function removeProduct($codice_prodotto, $codice_versione) {
@@ -167,16 +179,27 @@
             $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
             $stmt->execute();
         }
-        
-        // Inserimento prodotti nel carrello (da modificare) !!! (carrello)
-        public function insertProductInCart($email, $codice_prodotto, $codice_versione) {
-            $query = "INSERT INTO CARRELLO (E_mail, Di_Codice_prodotto, Codice_prodotto) VALUES (?, ?, ?)";
+
+        // Visualizza prodotti nel carrello (carrello)
+        public function getUserProductsInCart($email) {
+            $query = "SELECT * FROM CARRELLO WHERE E_mail = ?";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sss", $email, $codice_prodotto, $codice_versione);
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
+        
+        // Inserimento prodotti nel carrello (carrello)
+        public function insertProductInCart($email, $codice_prodotto, $codice_versione, $quantita) {
+            $query = "INSERT INTO CARRELLO (E_mail, Di_Codice_prodotto, Codice_prodotto, Quantita_) VALUES (?, ?, ?, ?)";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("sssi", $email, $codice_prodotto, $codice_versione, $quantita);
             return $stmt->execute();
         }
         
-        // Rimozione prodotti dal carrello (da modificare) !!! (carrello)
+        // Rimozione prodotti dal carrello (carrello)
         public function removeProductFromCart($email, $codice_prodotto, $codice_versione) {
             $query = "DELETE FROM CARRELLO WHERE E_mail = ? AND Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
@@ -184,7 +207,7 @@
             return $stmt->execute();
         }
         
-        // Modifica quantità prodotti nel carrello (da modificare) !!! (carrello)
+        // Modifica quantità prodotti nel carrello (carrello)
         public function updateProductQuantityInCart($email, $codice_prodotto, $codice_versione, $quantita) {
             $query = "UPDATE CARRELLO SET Quantita_ = ? WHERE E_mail = ? AND Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
@@ -225,7 +248,7 @@
         
         // Ritorna tutte le notifiche di un utente (notifiche)
         public function getAllNotifies($email) {
-            $query = "SELECT * FROM `ORDINE` WHERE E_mail_compratore = ? OR E_mail_venditore = ?";
+            $query = "SELECT * FROM `ORDINE` WHERE (E_mail_compratore = ? AND EliminatoCompratoreYN = 0) OR (E_mail_venditore = ? AND EliminatoVenditoreYN = 0) ORDER BY Data_ordine DESC ";
             
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ss", $email, $email);
@@ -235,7 +258,7 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
         
-        // Visualizza notifica (notifiche)
+        // Segna notifica come visualizzata (notifiche)
         public function updateNotify($codice_ordine, $is_client) {
             if ($is_client) {
                 $query = "UPDATE `ORDINE` SET `LettoCompratoreYN`=1 WHERE Codice_ordine = ?";
@@ -247,8 +270,21 @@
             $stmt->bind_param("s", $codice_ordine);
             return $stmt->execute();
         }
+
+        // Elimina notifica (notifiche)
+        public function deleteNotify($codice_ordine, $is_client) {
+            if ($is_client) {
+                $query = "UPDATE `ORDINE` SET `EliminatoCompratoreYN`=1 WHERE Codice_ordine = ?";
+            } else {
+                $query = "UPDATE `ORDINE` SET `EliminatoVenditoreYN`=1 WHERE Codice_ordine = ?";
+            }
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $codice_ordine);
+            return $stmt->execute();
+        }
         
-        // Visualizza tutte le notifiche di un utente (notifiche)
+        // Segna tutte le notifiche di un utente come visualizzate (notifiche)
         public function updateAllNotify($codice_ordine, $is_client) {
             if ($is_client) {
                 $query = "UPDATE `ORDINE` SET `LettoCompratoreYN`=1";
