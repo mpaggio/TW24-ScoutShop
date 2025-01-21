@@ -210,7 +210,7 @@ header>nav:nth-child(2) button {
     border: none !important;
 }
 
-header>nav:nth-child(2)>ul>li>div>a:hover,
+header>nav:nth-child(2)>>>a:hover,
 header>nav:nth-child(2)>ul>li>div>button:hover {
     text-decoration: underline !important;
 }
@@ -753,12 +753,12 @@ header>nav>div>form {
         overflow: hidden;
     }
 
-    main > section {
+    main>section {
         height: 100%;
         overflow: hidden;
     }
 
-    main > section > article:nth-of-type(2) {
+    main>section>article:nth-of-type(2) {
         height: 100%;
         overflow: auto;
     }
@@ -869,14 +869,13 @@ body>div>div>div {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        /* Larghezza del modal */
-        max-width: 400px;
         /* Limita la dimensione massima */
         border: 2px solid #21295c;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         padding: 20px;
-        overflow: auto;
+        max-height: 75% !important;
+        overflow: auto !important;
         border-radius: 10px;
     }
 
@@ -892,16 +891,6 @@ body>div>div>div {
 
     main>div>div>section:first-of-type {
         display: block;
-    }
-
-    main>section>div>div>ul>li>div>h5,
-    main>div>div>section>div>div>div>h5 {
-        font-size: 1.5em;
-    }
-
-    main>section>div>div>ul>li>div>p,
-    main>div>div>section>div>div>div>p {
-        font-size: 1.5vw;
     }
 }
 
