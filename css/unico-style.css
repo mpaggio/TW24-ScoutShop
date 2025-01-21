@@ -869,14 +869,13 @@ body>div>div>div {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
-        /* Larghezza del modal */
-        max-width: 400px;
         /* Limita la dimensione massima */
         border: 2px solid #21295c;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         padding: 20px;
-        overflow: auto;
+        max-height: 75% !important;
+        overflow: auto !important;
         border-radius: 10px;
     }
 

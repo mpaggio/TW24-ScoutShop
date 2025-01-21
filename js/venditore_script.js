@@ -32,6 +32,9 @@ function closeModalHandler() {
     while (form.childElementCount > 1) {
         form.removeChild(form.firstElementChild);
     }
+    if (document.body.classList.contains("modal-active")) {
+        document.body.classList.remove("modal-active");
+    }
     if (window.innerWidth < 768) {
         formSection.style.display = "none";
     }
@@ -46,7 +49,7 @@ function closeModalHandler() {
 editButton.forEach((button) => {
     button.addEventListener("click", () => {
         if (isOpen === false) {
-            title.innerText = "Modifica prodotto:";
+            title.innerText = "Modifica prodotto: (Cintura in pelle)";
             button.disabled = true;
             let edit_elements = `
                 <div class="col-lg-6 mb-3">
