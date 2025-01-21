@@ -700,3 +700,8 @@ UPDATE `scoutshopdatabase`.`versione_prodotto` SET `Nome_immagine` = '24-azzurro
 UPDATE `scoutshopdatabase`.`versione_prodotto` SET `Codice_prodotto` = '_Verde_0', `Colore` = 'Verde', `Nome_immagine` = '24-spearmint.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Lilla_0');
 UPDATE `scoutshopdatabase`.`versione_prodotto` SET `Codice_prodotto` = '_Lilla_0', `Colore` = 'Lilla', `Nome_immagine` = '24-fog.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Rosso_0');
  
+/* AGGIUNTA ORDINI */
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000001','2025-01-08','0','0','mpaggiojr@gmail.com','orazio.spina@studio.unibo.it','Standard');
+
+/* AGGIUNTA DETTAGLI ORDINE */
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000003','_0_S','000001','2','29');
