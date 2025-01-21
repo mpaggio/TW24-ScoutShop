@@ -210,7 +210,7 @@ header>nav:nth-child(2) button {
     border: none !important;
 }
 
-header>nav:nth-child(2)>ul>li>div>a:hover,
+header>nav:nth-child(2)>>>a:hover,
 header>nav:nth-child(2)>ul>li>div>button:hover {
     text-decoration: underline !important;
 }
@@ -753,12 +753,12 @@ header>nav>div>form {
         overflow: hidden;
     }
 
-    main > section {
+    main>section {
         height: 100%;
         overflow: hidden;
     }
 
-    main > section > article:nth-of-type(2) {
+    main>section>article:nth-of-type(2) {
         height: 100%;
         overflow: auto;
     }
@@ -892,16 +892,6 @@ body>div>div>div {
 
     main>div>div>section:first-of-type {
         display: block;
-    }
-
-    main>section>div>div>ul>li>div>h5,
-    main>div>div>section>div>div>div>h5 {
-        font-size: 1.5em;
-    }
-
-    main>section>div>div>ul>li>div>p,
-    main>div>div>section>div>div>div>p {
-        font-size: 1.5vw;
     }
 }
 
