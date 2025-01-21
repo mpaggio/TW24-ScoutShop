@@ -3,9 +3,9 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Sun Jan 19 19:19:04 2025 
--- * LUN file: C:\Users\mpagg\Desktop\TW24-ScoutShop\ScoutShop.lun 
--- * Schema: ScoutShopDatabase/1 
+-- * Generation date: Tue Jan 21 17:02:54 2025 
+-- * LUN file: C:\xampp\htdocs\TW24-ScoutShop\db\ScoutShop.lun 
+-- * Schema: ScoutShopDatabase/2 
 -- ********************************************* 
 
 
@@ -23,7 +23,8 @@ create table Carrello (
      E_mail char(64) not null,
      Di_Codice_prodotto char(64) not null,
      Codice_prodotto char(64) not null,
-     constraint ID_Carrello_ID primary key (E_mail, Di_Codice_prodotto, Codice_prodotto));
+     Quantita_ int not null,
+     constraint ID_Carrello_ID primary key (Di_Codice_prodotto, Codice_prodotto, E_mail));
 
 create table CATEGORIA_GENERALE (
      Nome_categoria char(64) not null,
@@ -47,6 +48,8 @@ create table ORDINE (
      Data_ordine date not null,
      LettoCompratoreYN char not null,
      LettoVenditoreYN char not null,
+     EliminatoCompratoreYN char not null,
+     EliminatoVenditoreYN char not null,
      E_mail_compratore char(64) not null,
      E_mail_venditore char(64) not null,
      Tipo_spedizione char(64) not null,
@@ -94,11 +97,11 @@ create table VERSIONE_PRODOTTO (
 -- Constraints Section
 -- ___________________ 
 
-alter table Carrello add constraint FKCar_VER_FK
+alter table Carrello add constraint FKCar_VER
      foreign key (Di_Codice_prodotto, Codice_prodotto)
      references VERSIONE_PRODOTTO (Di_Codice_prodotto, Codice_prodotto);
 
-alter table Carrello add constraint FKCar_UTE
+alter table Carrello add constraint FKCar_UTE_FK
      foreign key (E_mail)
      references UTENTE_COMPRATORE (E_mail);
 
@@ -144,10 +147,10 @@ alter table VERSIONE_PRODOTTO add constraint FKDi
 -- _____________ 
 
 create unique index ID_Carrello_IND
-     on Carrello (E_mail, Di_Codice_prodotto, Codice_prodotto);
+     on Carrello (Di_Codice_prodotto, Codice_prodotto, E_mail);
 
-create index FKCar_VER_IND
-     on Carrello (Di_Codice_prodotto, Codice_prodotto);
+create index FKCar_UTE_IND
+     on Carrello (E_mail);
 
 create unique index ID_CATEGORIA_GENERALE_IND
      on CATEGORIA_GENERALE (Nome_categoria);
