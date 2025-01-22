@@ -58,7 +58,7 @@
         }
         
         // Ritorna i prodotti venduti più recentemente (home buyer)
-        public function getRecentProducts($n=-1, $email) {
+        public function getRecentProducts($email, $n=-1) {
             $query = "SELECT P.*, VP.* FROM DETTAGLIO_ORDINE DO INNER JOIN VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON DO.Di_Codice_prodotto = VP.Di_Codice_prodotto AND DO.Codice_prodotto = VP.Codice_prodotto AND P.Codice_prodotto = VP.Di_Codice_prodotto INNER JOIN ORDINE O ON DO.Codice_ordine = O.Codice_ordine WHERE O.E_mail_compratore != ? ORDER BY O.Data_ordine DESC";
             
             if ($n > 0) {
@@ -90,7 +90,7 @@
         }
         
         // Ritorna uno specifico prodotto (pagina prodotto)
-        public function getSingleProcuct($nome_prodotto) {
+        public function getSingleProduct($nome_prodotto) {
             $query = "SELECT P.*, VP.* FROM PRODOTTO P INNER JOIN VERSIONE_PRODOTTO VP ON P.Codice_prodotto = VP.Di_Codice_prodotto WHERE P.Nome_prodotto = ?";
             
             $stmt = $this->db->prepare($query);
