@@ -11,7 +11,7 @@
         
         // Ritorna tutte le versioni prodotto (pagina venditore)
         public function getProductVerions() {
-            $query = "SELECT P.*, VP.* FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto";
+            $query = "SELECT P.Nome_prodotto, VP.Nome_immagine, VP.Disponibilita, VP.Di_Codice_prodotto, VP.Codice_prodotto, VP.Prezzo FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto";
             
             $stmt = $this->db->prepare($query);
             $stmt->execute();
@@ -302,7 +302,7 @@
             if ($is_client) {
                 $query = "SELECT O.*, DO.* FROM ORDINE O INNER JOIN DETTAGLIO_ORDINE DO ON O.Codice_ordine = DO.Codice_ordine WHERE E_mail_compratore = ? ORDER BY O.Data_ordine DESC";
             } else {
-                $query = "SELECT O.*, DO.* FROM ORDINE O INNER JOIN DETTAGLIO_ORDINE DO ON O.Codice_ordine = DO.Codice_ordine WHERE E_mail_venditore = ? ORDER BY O.Data_ordine DESC";
+                $query = "SELECT O.Codice_ordine, O.Data_ordine, O.E_mail_compratore, DO.Di_codice_prodotto, DO.Codice_prodotto, DO.Quantita_, P.Nome_prodotto FROM ORDINE O INNER JOIN DETTAGLIO_ORDINE DO ON O.Codice_ordine = DO.Codice_ordine INNER JOIN PRODOTTO P ON P.Codice_prodotto = DO.Di_Codice_prodotto WHERE E_mail_venditore = ? ORDER BY O.Data_ordine DESC";
             }
             
             $stmt = $this->db->prepare($query);
