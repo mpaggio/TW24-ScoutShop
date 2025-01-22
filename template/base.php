@@ -284,11 +284,7 @@
         </nav>
     </header>
     <main>
-        <?php
-        if(isset($templateParams["nome"])){
-            require($templateParams["nome"]);
-        }
-        ?>
+        
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
         <a href="" class="text-decoration-none" aria-label="Vai alla pagina di supporto/aiuto ">Aiuto</a>

@@ -314,7 +314,13 @@ main>section>ul>li>article>p {
 
 main>section>ul>li>article>a>h3 {
     color: #21295c;
-    font-size: 1.8em;
+    font-size: 1.5em;
+}
+
+main > section > ul > li > article > img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
 }
 
 main>section>article {
