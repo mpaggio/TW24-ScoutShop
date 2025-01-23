@@ -218,7 +218,7 @@
             <ul>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn fs-6 text-decoration-none dropdown-toggle" href="home.php" aria-label="Vai alla home">
+                        <a class="btn fs-6 text-decoration-none dropdown-toggle" href="../php/home.php" aria-label="Vai alla home">
                             Home
                         </a>
                     </div>
@@ -284,7 +284,15 @@
         </nav>
     </header>
     <main>
-        
+        <section>
+            <h2>Invia un messaggio al nostro supporto</h2>
+
+            <form action="mailto:marco.paggetti@studio.unibo.it" method="post" enctype="text/plain" aria-labelledby="form-label">
+                <label class="d-none" for="message" id="form-label">Messaggio:</label>
+                <textarea class="d-block mb-3 mt-3 p-2 w-100" id="message" name="message" rows="15" cols="100" required aria-describedby="message-description" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                <button class="btn btn-primary" type="submit" aria-label="Invia il messaggio">Invia</button>
+            </form>
+        </section>
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
         <a href="../template/help.php" class="text-decoration-none" aria-label="Vai alla pagina di supporto/aiuto ">Aiuto</a>
@@ -296,6 +304,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/base.js"></script>
+    <script src="../js/help.js"></script>
 
     <?php
     if(isset($templateParams["js"])):
