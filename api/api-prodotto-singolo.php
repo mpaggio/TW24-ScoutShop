@@ -6,9 +6,33 @@ error_reporting(E_ALL);
 
 require_once('../php/bootstrap.php');
 
+if (isset($_POST["Di_Codice_prodotto"]) && isset($_POST["Codice_prodotto"]) && isset($_POST["Quantita"])) {
+    $codiceProdotto = $_POST["Di_Codice_prodotto"];
+    $codiceVersione = $_POST["Codice_prodotto"];
+    $quantita = $_POST["Quantita"];
+
+    if (is_numeric($quantita) && $quantita > 0) {
+        $result = $dbh->insertProductInCart("mpaggiojr@gmail.com", $codiceProdotto, $codiceVersione, $quantita);
+        if ($result) {
+            header('Content-Type: application/json');
+            echo json_encode(["success" => "Prodotto aggiunto al carrello"]);
+            exit();
+        } else {
+            header('Content-Type: application/json');
+            echo json_encode(["error" => "Errore nell'inserimento del prodotto nel carrello"]);
+            exit();
+        }
+    } else {
+        header('Content-Type: application/json');
+        echo json_encode(["error" => "Quantità non valida"]);
+        exit();
+    }
+}
+
 if (isset($_GET["Nome_prodotto"])) {
     
     $nomeProdotto = $_GET["Nome_prodotto"];
+    $codiceProdotto = $_GET["Di_Codice_prodotto"];
     $versioniProdotto = $dbh->getSingleProduct($nomeProdotto);
 
     $structuredProducts = [];

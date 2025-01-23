@@ -1,6 +1,38 @@
 let json;
 let color = 0;
 let taglia = 0;
+let versione;
+
+async function inviaDatiProdotto() {
+    console.log(versione);
+    const codiceProdotto = versione[0]["Di_Codice_prodotto"];
+    const quantita = document.getElementById("quantita").value;
+    const urlApi = "../api/api-prodotto-singolo.php";
+
+    let codiceVersione = "_" + color + "_" + taglia;
+
+    const data = new URLSearchParams();
+    data.append('Di_Codice_prodotto', codiceProdotto);
+    data.append('Codice_prodotto', codiceVersione);
+    data.append('Quantita', quantita);
+
+    try {
+        const response = await fetch(urlApi, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: data.toString()
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log('Risposta:', responseData);
+    } catch (error) {
+        console.error('Errore:', error);
+    }
+}
 
 function trovaIndiceTaglia(prodotto, taglia) {
     let index = 0;
@@ -14,8 +46,11 @@ function trovaIndiceTaglia(prodotto, taglia) {
 
 function generaPaginaProdottoSingolo($prodotto) {
 
-    let versione;
     let index;
+
+    console.log($prodotto);
+    console.log("Colore: " + color);
+    console.log("Taglia: " + taglia);
 
     if (color === 0) {
         versione = Object.values($prodotto)[color];
@@ -23,15 +58,19 @@ function generaPaginaProdottoSingolo($prodotto) {
         versione = $prodotto[color];
     }
 
+    if (color === 0 && versione[0]["Colore"] !== null){
+        color = versione[0]["Colore"];
+    } 
+
+    if(taglia === 0 && versione[0]["Taglia"] !== null) {
+        taglia = versione[0]["Taglia"];
+    }
+
     if (taglia === 0) {
         index = 0;
     } else {
         index = trovaIndiceTaglia(versione,taglia);
     }
-    
-
-    console.log($prodotto[color]);
-    console.log(index);
     
     let result = `
         <section>
@@ -41,7 +80,7 @@ function generaPaginaProdottoSingolo($prodotto) {
                     <h2>${versione[0]["Nome_prodotto"]}</h2>
                     <p><span>Marchio:</span>${versione[0]["Marchio"]}</p>
                     <p><span>Prezzo:</span>${versione[index]["Prezzo"]}€</p>
-                    <form action="#" method="get">
+                    <form>
     `;
 
     if (versione[0]["Taglia"] !== null) {
@@ -154,12 +193,18 @@ function attachEventListenerColor(select){
         const buttonMinus = document.querySelector("main > section > article > aside > form > fieldset > button:first-of-type");
         const buttonPlus = document.querySelector("main > section > article > aside > form > fieldset > button:last-of-type");
         const input = document.querySelector("main > section > article > aside > form > fieldset > input");
-        const selectColor = document.querySelector("main > section > article > aside > form > label:last-of-type > select");
-        const selectSize = document.querySelector("main > section > article > aside > form > label:first-of-type > select");
+        const selectColor = document.querySelector("#colore");
+        const selectSize = document.querySelector("#taglia");
+        const form = document.querySelector("main > section > article > aside > form");
         attachEventListenerMinus(buttonMinus, input);
         attachEventListenerPlus(buttonPlus, input);
-        attachEventListenerColor(selectColor);
-        attachEventListenerSize(selectSize);
+        if (selectColor != null) {
+            attachEventListenerColor(selectColor);
+        }
+        if (selectSize != null) {
+            attachEventListenerSize(selectSize);
+        }
+        attachEventListenerForm(form);
     })
 }
 
@@ -172,19 +217,33 @@ function attachEventListenerSize(select){
         const buttonMinus = document.querySelector("main > section > article > aside > form > fieldset > button:first-of-type");
         const buttonPlus = document.querySelector("main > section > article > aside > form > fieldset > button:last-of-type");
         const input = document.querySelector("main > section > article > aside > form > fieldset > input");
-        const selectColor = document.querySelector("main > section > article > aside > form > label:last-of-type > select");
-        const selectSize = document.querySelector("main > section > article > aside > form > label:first-of-type > select");
+        const selectColor = document.querySelector("#colore");
+        const selectSize = document.querySelector("#taglia");
+        const form = document.querySelector("main > section > article > aside > form");
         attachEventListenerMinus(buttonMinus, input);
         attachEventListenerPlus(buttonPlus, input);
-        attachEventListenerColor(selectColor);
-        attachEventListenerSize(selectSize);
+        if (selectColor != null) {
+            attachEventListenerColor(selectColor);
+        }
+        if (selectSize != null) {
+            attachEventListenerSize(selectSize);
+        }
+        attachEventListenerForm(form);
+    })
+}
+
+function attachEventListenerForm(form) {
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        inviaDatiProdotto();
     })
 }
 
 async function caricaProdottoSingolo() {
     
-    const urlParams = new URLSearchParams(window.location.search).get("Nome_prodotto");
-    const url = "../api/api-prodotto-singolo.php?" + "Nome_prodotto=" + encodeURIComponent(urlParams);
+    const urlParamsNomeProdotto = new URLSearchParams(window.location.search).get("Nome_prodotto");
+    const urlParamsCodiceProdotto = new URLSearchParams(window.location.search).get("Codice_prodotto");
+    const url = "../api/api-prodotto-singolo.php?" + "Di_Codice_prodotto=" + encodeURIComponent(urlParamsCodiceProdotto) + "&Nome_prodotto=" + encodeURIComponent(urlParamsNomeProdotto);
     
 
     try {
@@ -194,18 +253,23 @@ async function caricaProdottoSingolo() {
         }
         json = await response.json();
         const prodottoSingolo = generaPaginaProdottoSingolo(json);
-        console.log(json);
         const main = document.querySelector("main");
         main.innerHTML = prodottoSingolo;
         const buttonMinus = document.querySelector("main > section > article > aside > form > fieldset > button:first-of-type");
         const buttonPlus = document.querySelector("main > section > article > aside > form > fieldset > button:last-of-type");
         const input = document.querySelector("main > section > article > aside > form > fieldset > input");
-        const selectColor = document.querySelector("main > section > article > aside > form > label:last-of-type > select");
-        const selectSize = document.querySelector("main > section > article > aside > form > label:first-of-type > select");
+        const selectColor = document.querySelector("#colore");
+        const selectSize = document.querySelector("#taglia");
+        const form = document.querySelector("main > section > article > aside > form");
         attachEventListenerMinus(buttonMinus, input);
         attachEventListenerPlus(buttonPlus, input);
-        attachEventListenerColor(selectColor);
-        attachEventListenerSize(selectSize);
+        if (selectColor != null) {
+            attachEventListenerColor(selectColor);
+        }
+        if (selectSize != null) {
+            attachEventListenerSize(selectSize);
+        }
+        attachEventListenerForm(form);
 
     }   catch (error) {
         console.error('Errore nel caricamento dei prodotti: ', error);

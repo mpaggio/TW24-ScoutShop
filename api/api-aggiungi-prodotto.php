@@ -10,21 +10,6 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-
-    // Debug $_POST
-    echo "POST DATA:";
-    var_dump($_POST);
-
-    // Debug $_FILES
-    echo "FILES DATA:";
-    var_dump($_FILES);
-
-    // Debug raw input
-    $data = file_get_contents('php://input');
-    echo "RAW INPUT:";
-    var_dump($data);
-
-    die();
     
     $productName = $_POST['productName'];
     $productCategory = $_POST['productCategory'];
