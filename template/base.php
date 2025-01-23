@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-brand" href="home-buyer.html">
+                    <a class="navbar-brand" href="home.php">
                         <img src="../img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top" />
                     </a>
                 </div>
@@ -218,7 +218,7 @@
             <ul>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <a class="btn fs-6 text-decoration-none dropdown-toggle" href="home-buyer.html" aria-label="Vai alla home">
+                        <a class="btn fs-6 text-decoration-none dropdown-toggle" href="home.php" aria-label="Vai alla home">
                             Home
                         </a>
                     </div>
@@ -284,11 +284,7 @@
         </nav>
     </header>
     <main>
-        <?php
-        if(isset($templateParams["nome"])){
-            require($templateParams["nome"]);
-        }
-        ?>
+        
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
         <a href="" class="text-decoration-none" aria-label="Vai alla pagina di supporto/aiuto ">Aiuto</a>
@@ -299,7 +295,8 @@
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <script src="../js/base.js"></script>
+
     <?php
     if(isset($templateParams["js"])):
         foreach($templateParams["js"] as $script):

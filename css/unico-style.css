@@ -181,20 +181,6 @@ header>nav>div>div>div>ul>li>hr {
 
 
 
-/* ---- BACKGROUND SHADOWING ---- */
-body:not(ul) {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-}
-
-body>header>nav:first-of-type,
-body>footer {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-}
-
-
-
-
-
 /* ---- DEKSTOP NAV BAR ---- */
 header>nav:nth-child(2) {
     background: none !important;
@@ -314,7 +300,13 @@ main>section>ul>li>article>p {
 
 main>section>ul>li>article>a>h3 {
     color: #21295c;
-    font-size: 1.8em;
+    font-size: 1.5em;
+}
+
+main > section > ul > li > article > img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
 }
 
 main>section>article {
