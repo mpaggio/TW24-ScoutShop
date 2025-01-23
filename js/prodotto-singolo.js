@@ -74,7 +74,7 @@ function generaPaginaProdottoSingolo($prodotto) {
     
     let result = `
         <section>
-            <article class="mb-5 text-center bg-transparent border-0 justify-content-around align-items-center d-flex flex-wrap w-100">
+            <article class="mb-5 text-center bg-transparent border-0 justify-content-around align-items-center d-flex flex-wrap w-100 mx-0 mt-0">
                 <img src="${versione[0]["Nome_immagine"]}" alt="${versione[0]["Nome_prodotto"]}" />
                 <aside>
                     <h2>${versione[0]["Nome_prodotto"]}</h2>

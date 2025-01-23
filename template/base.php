@@ -49,16 +49,16 @@
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli felpe">Felpe</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Felpe" aria-label="Vai alla pagina con articoli felpe">Felpe</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli giacche">Giacche</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Giacche" aria-label="Vai alla pagina con articoli giacche">Giacche</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli magliette">Magliette</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Magliette" aria-label="Vai alla pagina con articoli magliette">Magliette</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli ponci">Ponci</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Ponci" aria-label="Vai alla pagina con articoli ponci">Ponci</a>
                                             </div>
                                         </div>
                                     </div>
@@ -77,25 +77,25 @@
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli borracce">Borracce</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Borracce" aria-label="Vai alla pagina con articoli borracce">Borracce</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli cucina">Cucina</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Cucina" aria-label="Vai alla pagina con articoli cucina">Cucina</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Illuminazione" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli materassini">Materassini</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Materassini" aria-label="Vai alla pagina con articoli materassini">Materassini</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Sacchi a pelo" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli tende">Tende</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Tende" aria-label="Vai alla pagina con articoli tende">Tende</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli zaini">Zaini</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Zaini" aria-label="Vai alla pagina con articoli zaini">Zaini</a>
                                             </div>
                                         </div>
                                     </div>
@@ -114,22 +114,22 @@
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Calzettoni" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli camicie">Camicie</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Camicie" aria-label="Vai alla pagina con articoli camicie">Camicie</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli cinture">Cinture</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Cinture" aria-label="Vai alla pagina con articoli cinture">Cinture</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Distintivi" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Fazzolettoni" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Pantaloncini" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a>
                                             </div>
                                         </div>
                                     </div>
@@ -148,16 +148,16 @@
                                     <div class="accordion-body">
                                         <div class="accordion accordion-flush">
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli cartine">Cartine</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Cartine" aria-label="Vai alla pagina con articoli cartine">Cartine</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Manuali Scout" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Spiritualità Scout" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a>
                                             </div>
                                             <div class="accordion-item">
-                                                <a href="#" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a>
+                                                <a href="../php/prodotti-categoria.php?Categoria=Tecniche Scout" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a>
                                             </div>
                                         </div>
                                     </div>
@@ -229,10 +229,10 @@
                             Abbigliamento
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli felpe">Felpe</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli giacche">Giacche</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli magliette">Magliette</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli ponci">Ponci</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Felpe" aria-label="Vai alla pagina con articoli felpe">Felpe</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Giacche" aria-label="Vai alla pagina con articoli giacche">Giacche</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Magliette" aria-label="Vai alla pagina con articoli magliette">Magliette</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Ponci" aria-label="Vai alla pagina con articoli ponci">Ponci</a></li>
                         </ul>
                     </div>
                 </li>
@@ -242,13 +242,13 @@
                             Attrezzatura
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli borracce">Borracce</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cucina">Cucina</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli materassini">Materassini</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli tende">Tende</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli zaini">Zaini</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Borracce" aria-label="Vai alla pagina con articoli borracce">Borracce</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Cucina" aria-label="Vai alla pagina con articoli cucina">Cucina</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Illuminazione" aria-label="Vai alla pagina con articoli illuminazione">Illuminazione</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Materassini" aria-label="Vai alla pagina con articoli materassini">Materassini</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Sacchi a pelo" aria-label="Vai alla pagina con articoli sacchi a pelo">Sacchi a pelo</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Tende" aria-label="Vai alla pagina con articoli tende">Tende</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Zaini" aria-label="Vai alla pagina con articoli zaini">Zaini</a></li>
                         </ul>
                     </div>
                 </li>
@@ -258,12 +258,12 @@
                             Divisa
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli camicie">Camicie</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cinture">Cinture</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Calzettoni" aria-label="Vai alla pagina con articoli calzettoni">Calzettoni</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Camicie" aria-label="Vai alla pagina con articoli camicie">Camicie</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Cinture" aria-label="Vai alla pagina con articoli cinture">Cinture</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Distintivi" aria-label="Vai alla pagina con articoli distintivi">Distintivi</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Fazzolettoni" aria-label="Vai alla pagina con articoli fazzolettoni">Fazzolettoni</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Pantaloncini" aria-label="Vai alla pagina con articoli pantaloncini">Pantaloncini</a></li>
                         </ul>
                     </div>
                 </li>
@@ -273,10 +273,10 @@
                             Editoria
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli cartine">Cartine</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a></li>
-                            <li><a class="dropdown-item" href="#" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Cartine" aria-label="Vai alla pagina con articoli cartine">Cartine</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Manuali Scout" aria-label="Vai alla pagina con articoli manuali scout">Manuali Scout</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Spiritualità Scout" aria-label="Vai alla pagina con articoli spiritualità scout">Spiritualità Scout</a></li>
+                            <li><a class="dropdown-item" href="../php/prodotti-categoria.php?Categoria=Tecniche Scout" aria-label="Vai alla pagina con articoli tecniche scout">Tecniche Scout</a></li>
                         </ul>
                     </div>
                 </li>
