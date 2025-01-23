@@ -7,10 +7,24 @@
     //     die();
     // }
     
-    // // Per debuggare
-    // ini_set('display_errors', 1);
-    // ini_set('display_startup_errors', 1);
-    // error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    // Debug $_POST
+    echo "POST DATA:";
+    var_dump($_POST);
+
+    // Debug $_FILES
+    echo "FILES DATA:";
+    var_dump($_FILES);
+
+    // Debug raw input
+    $data = file_get_contents('php://input');
+    echo "RAW INPUT:";
+    var_dump($data);
+
+    die();
     
     $productName = $_POST['productName'];
     $productCategory = $_POST['productCategory'];
@@ -25,25 +39,24 @@
 
     // Crea il codice versione
     $codice_versione = "_".$productColor."_".$productSize;
+    $response = array("status" => "fail", "message" => "Errore generico.");
     
     try {
-        $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
-        $result = uploadImage(UPLOAD_DIR, $productImage);
-        if ($result[0]) {
-            $response = array("status" => "success");
+        $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
+        if ($status) {
+            $result = uploadImage(UPLOAD_DIR, $productImage);
+            if ($result[0]) {
+                $response = array("status" => "success", "message" => "Prodotto inserito correttamente.");
+            } else {
+                throw new Exception("Errore nel caricamento dell'immagine. ".$result[1]);
+            }
         } else {
-            throw new Exception("Errore nel caricamento dell'immagine. ".$result[1]);
+            throw new Exception("Errore nell'inserimento del prodotto.");
         }
     } catch (Exception $e) {
         $response = array("status" => "fail", "message" => $e->getMessage());
+        http_response_code(400);
     }
-
-    // if ($dbh->addProduct($newCode, $productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"])) {
-    //     // Se l'inserimento va a buon fine, procedi con il caricamento dell'immagine
-    //     $response = array("status" => "success");
-    // } else {
-    //     $response = array("status" => "fail", "message" => "Errore nell'inserimento del prodotto.");
-    // }
 
     header("Content-type: application/json");
     echo json_encode($response);

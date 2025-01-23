@@ -2,7 +2,7 @@ const addButton = document.querySelector("main > div > div > section > div > but
 const formButtons = document.querySelector("main > div > div > section > div > form > div:last-of-type");
 const closeButton = document.querySelector("main > div > div > section > div > form > div:last-of-type > input:first-of-type");
 const saveButton = document.querySelector("main > div > div > section > div > form > div:last-of-type > input:last-of-type");
-const title = document.querySelector('main > div > div section > h1');
+const title = document.querySelector('main > div > div > section > h2');
 const formContainer = document.querySelector("main > div > div > section:first-of-type > div");
 const formSection = document.querySelector("main > div > div > section:first-of-type");
 const articlePane = document.querySelector("main > div > div:first-of-type");
@@ -91,39 +91,39 @@ addButton.addEventListener("click", () => {
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productCategory" class="form-label fs-3">Categoria prodotto:</label>
-                <input type="text" class="form-control fs-5" id="productCategory" name="productCategory" />
+                <input type="text" class="form-control fs-5" id="productCategory" name="productCategory" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productBrand" class="form-label fs-3">Marchio prodotto:</label>
-                <input type="text" class="form-control fs-5" id="productBrand" name="productBrand" />
+                <input type="text" class="form-control fs-5" id="productBrand" name="productBrand" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productColor" class="form-label fs-3">Colore:</label>
-                <input type="text" class="form-control fs-5" id="productColor" name="productColor" />
+                <input type="text" class="form-control fs-5" id="productColor" name="productColor" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productSize" class="form-label fs-3">Taglia:</label>
-                <input type="text" class="form-control fs-5" id="productSize" name="productSize" />
+                <input type="text" class="form-control fs-5" id="productSize" name="productSize" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productPrice" class="form-label fs-3">Prezzo:</label>
-                <input type="text" class="form-control fs-5" id="productPrice" name="productPrice" />
+                <input type="text" class="form-control fs-5" id="productPrice" name="productPrice" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productQuantity" class="form-label fs-3">Disponibilità:</label>
-                <input type="text" class="form-control fs-5" id="productQuantity" name="productQuantity" />
+                <input type="text" class="form-control fs-5" id="productQuantity" name="productQuantity" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productDiscount" class="form-label fs-3">Sconto:</label>
-                <input type="text" class="form-control fs-5" value="0" id="productDiscount" name="productDiscount" />
+                <input type="number" class="form-control fs-5" value="0" min="0" max="100" id="productDiscount" name="productDiscount" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productDescription" class="form-label fs-3">Descrizione:</label>
-                <textarea class="form-control fs-5" id="productDescription" name="productDescription" rows="3" cols="10"></textarea>
+                <textarea class="form-control fs-5" id="productDescription" name="productDescription" rows="3" cols="10" required></textarea>
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productImage" class="form-label fs-3">Immagine:</label>
-                <input type="file" class="form-control fs-5" id="productImage" name="productImage" />
+                <input type="file" class="form-control fs-5" id="productImage" name="productImage" required />
             </div>
         `;
         form.insertAdjacentHTML("afterbegin", add_elements);
@@ -276,24 +276,26 @@ async function getOrdini() {
 }
 
 async function addProduct(formData) {
-    const url = "../api/api-aggiugi-prodotto.php";
+    const url = "../api/api-aggiungi-prodotto.php";
     try {
         const response = await fetch(url, { 
             method: "POST",
-            enctype: "multipart/form-data",
             body: formData,
         });
-        // if (!response.ok) {
-        //     throw new Error("Error! Response status: " + response.status);
-        // }
+        if (!response.ok) {
+            return false;
+        }
         const json = await response.json();
         if (json["status"] === "success") {
             console.log("Prodotto aggiunto con successo!");
+            return true;    
         } else {
             console.error("Errore nell'aggiunta del prodotto! " + json["message"]);
+            return false;
         }
     } catch (error) {
         console.error(error);
+        return false;
     }
 }
 
@@ -315,8 +317,16 @@ saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     const form = document.querySelector("main > div > div > section > div > form")
     const formData = new FormData(form);
-    addProduct(formData);
-    closeModalHandler();
+    addProduct(formData).then((success) => {
+        if (success) {
+            title.innerText = "Prodotto aggiunto con successo!";
+        } else {
+            title.innerText = "Errore nell'aggiunta del prodotto!";
+        }
+    });
+    setTimeout(() => {
+        closeModalHandler();
+    }, 3000);
 });
 
 getArticoli();

@@ -8,6 +8,10 @@
         $imageName = basename($image["name"]);
         $fullPath = $path.$imageName;
         
+         ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        
         $maxKB = 500;
         $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
         $result = 0;

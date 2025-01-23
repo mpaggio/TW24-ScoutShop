@@ -59,9 +59,9 @@
             <div class="h-100 tab-pane fade show active h-100 p-4 row justify-content-around" id="articles-tab-pane" role="tabpanel"
                 aria-labelledby="articles-tab" tabindex="0">
                 <section class="col-md-5 p-2 bg-light text-primary">
-                    <h1 class="d-none fs-1"></h1>
+                    <h2 class="d-none fs-1"></h2>
                     <div class="d-none border border-dark border-2 p-3">
-                        <form class="row justify-content-between">
+                        <form class="row justify-content-between" enctype="multipart/form-data">
                             <div class="d-flex justify-content-end">
                                 <input class="btn btn-secondary me-3 fs-5" type="reset" value="Chiudi">
                                 <input class="btn btn-primary fs-5" type="submit" value="Salva">
