@@ -277,15 +277,20 @@ async function getOrdini() {
 
 async function addProduct(formData) {
     const url = "../api/api-aggiungi-prodotto.php";
+    
     try {
         const response = await fetch(url, { 
             method: "POST",
             body: formData,
         });
+        
         if (!response.ok) {
+            console.error("Errore HTTP:", response.status, response.statusText);
             return false;
         }
+        
         const json = await response.json();
+        
         if (json["status"] === "success") {
             console.log("Prodotto aggiunto con successo!");
             return true;    
