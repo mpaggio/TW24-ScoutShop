@@ -173,11 +173,11 @@
         }
         
         // Modifica una versione prodotto (profilo venditore)
-        public function updateProductVersion($codice_prodotto, $codice_versione, $descrizione, $prezzo, $disponibilita, $sconto, $immagine) {
-            $query = "UPDATE VERSIONE_PRODOTTO SET Descrizione = COALESCE(?, Descrizione), Prezzo = COALESCE(?, Prezzo), Disponibilita = COALESCE(?, Disponibilita), Sconto = COALESCE(?, Sconto), Nome_immagine = COALESCE(?, Nome_immagine) WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
+        public function updateProductVersion($codice_prodotto, $codice_versione, $descrizione, $prezzo, $disponibilita, $sconto) {
+            $query = "UPDATE VERSIONE_PRODOTTO SET Descrizione = COALESCE(?, Descrizione), Prezzo = COALESCE(?, Prezzo), Disponibilita = COALESCE(?, Disponibilita), Sconto = COALESCE(?, Sconto) WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sssssss", $descrizione, $prezzo, $disponibilita, $sconto, $immagine, $codice_prodotto, $codice_versione);
+            $stmt->bind_param("ssssss", $descrizione, $prezzo, $disponibilita, $sconto, $codice_prodotto, $codice_versione);
             return $stmt->execute();
         }
 
@@ -198,7 +198,7 @@
             $query = "DELETE FROM VERSIONE_PRODOTTO WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
-            $stmt->execute();
+            return $stmt->execute();
         }
 
         // Visualizza prodotti nel carrello (carrello)

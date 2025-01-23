@@ -25,7 +25,7 @@
     // Crea il codice versione
     $codice_versione = "_".$productColor."_".$productSize;
     $response = array("status" => "fail", "message" => "Errore generico.");
-    
+
     try {
         $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
         if ($status) {

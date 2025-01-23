@@ -13,6 +13,7 @@ const searchBar = document.querySelector("main > div > div > section > div > for
 
 // Variabile per verificare se il form è aperto o chiuso
 let isOpen = false;
+let productID = "";
 
 // Apri modal (aggiungere un pulsante per attivarlo, se necessario)
 function openModal() {
@@ -44,38 +45,52 @@ function closeModalHandler() {
     isOpen = false;
 }
 
-function attachEventListeners(editButton) {
+function attachEventListeners(editButton, deleteButton) {
     editButton.forEach((button) => {
-        button.addEventListener("click", () => {
-            console.log("Premuto edit");
-            if (isOpen === false) {
-                title.innerText = "Modifica prodotto: (Cintura in pelle)";
-                button.disabled = true;
-                let edit_elements = `
-                    <div class="col-lg-6 mb-3">
-                        <label for="productPrice" class="form-label fs-3">Prezzo:</label>
-                        <input type="text" class="form-control fs-5" id="productPrice" name="productPrice" />
-                    </div>
-                    <div class="col-lg-6 mb-3">
-                        <label for="productQuantity" class="form-label fs-3">Disponibilità:</label>
-                        <input type="text" class="form-control fs-5" id="productQuantity" name="productQuantity" />
-                    </div>
-                    <div class="col-lg-6 mb-3">
-                        <label for="productDiscount" class="form-label fs-3">Sconto:</label>
-                        <input type="text" class="form-control fs-5" value="0" id="productDiscount" name="productDiscount" />
-                    </div>
-                    <div class="col-lg-6 mb-3">
-                        <label for="productImage" class="form-label fs-3">Immagine:</label>
-                        <input type="file" class="form-control fs-5" id="productImage" name="productImage" />
-                    </div>
-                    <div class="col-lg-6 mb-3">
-                        <label for="productDescription" class="form-label fs-3">Descrizione:</label>
-                        <textarea class="form-control fs-5" id="productDescription" name="productDescription" rows="3" cols="10">Valure di default text area</textarea>
-                    </div>
-                `;
-                form.insertAdjacentHTML("afterbegin", edit_elements);
-                openModal();   
-            }
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const parentDiv = event.target.closest("div[id]");
+            productID = parentDiv.id;
+            getArticleData().then((data) => {
+                data = data[0];
+                if (isOpen === false) {
+                    title.innerText = `Modifica prodotto: (${data["Nome_prodotto"]})`;
+                    button.disabled = true;
+                    let edit_elements = `
+                        <div class="col-lg-6 mb-3">
+                            <label for="productPrice" class="form-label fs-3">Prezzo:</label>
+                            <input type="text" class="form-control fs-5" id="productPrice" value="${data["Prezzo"]}" name="productPrice" />
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label for="productQuantity" class="form-label fs-3">Disponibilità:</label>
+                            <input type="text" class="form-control fs-5" id="productQuantity" value="${data["Disponibilita"]}" name="productQuantity" />
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label for="productDiscount" class="form-label fs-3">Sconto:</label>
+                            <input type="text" class="form-control fs-5" value="0" id="productDiscount" value="${data["Sconto"]}" name="productDiscount" />
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label for="productDescription" class="form-label fs-3">Descrizione:</label>
+                            <textarea class="form-control fs-5" id="productDescription" name="productDescription" rows="3" cols="10">${data["Descrizione"]}</textarea>
+                        </div>
+                    `;
+                    form.insertAdjacentHTML("afterbegin", edit_elements);
+                    openModal();   
+                } 
+            });
+        });
+    });
+    deleteButton.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const parentDiv = event.target.closest("div[id]");
+            productID = parentDiv.id;
+            const deleteModal = document.querySelector("#deleteModal");
+            const deleteButton = document.querySelector("#deleteModal > div > div > div > button:last-of-type");
+            deleteButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                deleteArticle(productID);
+            });
         });
     });
 }
@@ -83,11 +98,12 @@ function attachEventListeners(editButton) {
 addButton.addEventListener("click", () => {
     if (addButton.disabled === false && isOpen === false) {
         addButton.disabled = true;
+        isEdit = false;
         title.innerText = "Aggiungi prodotto:";
         let add_elements = `
             <div class="col-lg-6 mb-3">
                 <label for="productName" class="form-label fs-3">Nome prodotto:</label>
-                <input type="text" class="form-control fs-5" id="productName" name="productName" />
+                <input type="text" class="form-control fs-5" id="productName" name="productName" required />
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productCategory" class="form-label fs-3">Categoria prodotto:</label>
@@ -156,7 +172,7 @@ function generaArticoli(articoli) {
     
     for(let i = 0; i < articoli.length; i++) {
         let articolo = `
-            <div class="d-flex justify-content-around border border-dark border-2 mt-3 w-100 p-2">
+            <div class="d-flex justify-content-around border border-dark border-2 mt-3 w-100 p-2" id="${articoli[i]["Di_Codice_prodotto"]}${articoli[i]["Codice_prodotto"]}">
                 <img src="${articoli[i]["Nome_immagine"]}" class="object-fit-cover w-25" alt="${articoli[i]["Nome_immagine"]}" />
                 <div class="d-flex flex-column justify-content-center align-items-start">
                     <h5 class="fs-3">${articoli[i]["Nome_prodotto"]}</h5>
@@ -219,6 +235,32 @@ function generaOrdini(ordini) {
   return result;
 }
 
+async function getArticleData() {
+    const url = "../api/api-articolo-singolo.php";
+    const [parte1, ...resto] = productID.split("_");
+    const parte2 =  `_${resto.join('_')}`;
+    
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+                "codiceProdotto": parte1,
+                "codiceVersione": parte2,
+            })
+        });
+
+        if (!response.ok) {
+            console.error("Error! Response status: " + response.status);
+        }
+        const json = await response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
 async function getArticoli() {
     const url = "../api/api-articoli-venditore.php";
     try {
@@ -231,7 +273,8 @@ async function getArticoli() {
         const articoliList = document.querySelector("main > div > div > section:last-of-type > div:last-of-type");
         articoliList.innerHTML = articoli;
         const editButton = document.querySelectorAll("main > div > div > section > div > div > div > a:first-of-type");
-        attachEventListeners(editButton);
+        const deleteButton = document.querySelectorAll("main > div > div > section > div > div > div > a:last-of-type");
+        attachEventListeners(editButton, deleteButton);
     } catch (error) {
         console.error(error);
     }
@@ -253,7 +296,8 @@ async function getSearchArticles(text) {
         const articoliList = document.querySelector("main > div > div > section:last-of-type > div:last-of-type");
         articoliList.innerHTML = articoli;
         const editButton = document.querySelectorAll("main > div > div > section > div > div > div > a:first-of-type");
-        attachEventListeners(editButton);
+        const deleteButton = document.querySelectorAll("main > div > div > section > div > div > div > a:last-of-type");
+        attachEventListeners(editButton, deleteButton);
     } catch (error) {
         console.error(error);
     }
@@ -304,6 +348,69 @@ async function addProduct(formData) {
     }
 }
 
+async function editProduct(formData) {
+    const url = "../api/api-modifica-prodotto.php";
+    
+    try {
+        const response = await fetch(url, { 
+            method: "POST",
+            body: formData,
+        });
+        
+        if (!response.ok) {
+            console.error("Errore HTTP:", response.status, response.statusText);
+            return false;
+        }
+        
+        const json = await response.json();
+        
+        if (json["status"] === "success") {
+            console.log("Prodotto modificato con successo!");
+            return true;    
+        } else {
+            console.error("Errore nella modifica del prodotto! " + json["message"]);
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+        return false;
+    }
+}
+
+async function deleteArticle(id) {
+    const url = "../api/api-elimina-prodotto.php";
+    const [parte1, ...resto] = productID.split("_");
+    const parte2 =  `_${resto.join('_')}`;
+    
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ 
+                "codiceProdotto": parte1, 
+                "codiceVersione": parte2 }),
+        });
+        
+        if (!response.ok) {
+            console.error("Errore HTTP:", response.status, response.statusText);
+        }
+        
+        const json = await response.json();
+        
+        if (json["status"] === "success") {
+            console.log("Prodotto eliminato con successo!");
+            const deleteModal = document.querySelector("#deleteModal");
+            const modal = bootstrap.Modal.getInstance(deleteModal);
+            modal.hide();
+            getArticoli();
+        } else {
+            console.error("Errore nell'eliminazione del prodotto! " + json["message"]);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 ordersButton.addEventListener("click", () => {
     closeModalHandler();
     getOrdini();
@@ -321,14 +428,28 @@ searchBar.addEventListener("input", () => {
 saveButton.addEventListener("click", (event) => {
     event.preventDefault();
     const form = document.querySelector("main > div > div > section > div > form")
-    const formData = new FormData(form);
-    addProduct(formData).then((success) => {
-        if (success) {
-            title.innerText = "Prodotto aggiunto con successo!";
-        } else {
-            title.innerText = "Errore nell'aggiunta del prodotto!";
-        }
-    });
+        const formData = new FormData(form);
+    if (productID === "") {
+        addProduct(formData).then((success) => {
+            if (success) {
+                title.innerText = "Prodotto aggiunto con successo!";
+            } else {
+                title.innerText = "Errore nell'aggiunta del prodotto!";
+            }
+        });
+    } else {
+        const [parte1, ...resto] = productID.split("_");
+        const parte2 =  `_${resto.join('_')}`;
+        formData.append("codiceProdotto", parte1);
+        formData.append("codiceVersione", parte2);
+        editProduct(formData).then((success) => {
+            if (success) {
+                title.innerText = "Prodotto modificato con successo!";
+            } else {
+                title.innerText = "Errore nella modifica del prodotto!";
+            }
+        });
+    }
     setTimeout(() => {
         closeModalHandler();
     }, 3000);
