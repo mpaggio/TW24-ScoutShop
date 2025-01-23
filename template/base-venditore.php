@@ -109,7 +109,7 @@
                     <h1 class="modal-title fs-1" id="deleteModalLabel">Elimina articolo</h1>
                 </div>
                 <div class="modal-body fs-3">
-                    Vuoi eliminare l'articolo "Cintura in pelle" dalla lista?
+                    Vuoi eliminare l'articolo?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-3" data-bs-dismiss="modal" autofocus>No</button>
