@@ -90,7 +90,7 @@
         }
         
         // Ritorna uno specifico prodotto (pagina prodotto)
-        public function getSingleProcuct($nome_prodotto) {
+        public function getSingleProduct($nome_prodotto) {
             $query = "SELECT P.*, VP.* FROM PRODOTTO P INNER JOIN VERSIONE_PRODOTTO VP ON P.Codice_prodotto = VP.Di_Codice_prodotto WHERE P.Nome_prodotto = ?";
             
             $stmt = $this->db->prepare($query);
@@ -127,26 +127,47 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
         
+        // Ritorna l'ultimo codice prodotto (profilo venditore)
+        public function getLastProductCode() {
+            $query = "SELECT Codice_prodotto FROM PRODOTTO ORDER BY Codice_prodotto DESC LIMIT 1";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_row();
+        }
+        
         // Inserisci una nuova versione prodotto (profilo venditore)
         public function insertProductVersion($codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine) {
             $query = "INSERT INTO `VERSIONE_PRODOTTO`(`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Colore`, `Taglia`, `Prezzo`, `Disponibilita`, `Sconto`, `Nome_immagine`) VALUES (?,?,?,?,?,?,?,?,?,?)";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssssssssss", $codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
+            $stmt->bind_param("ssssssssss", $codice_prodotto, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
             return $stmt->execute();
         }
         
         // Aggiungi un prodotto (profilo venditore)
-        public function addProduct($codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine) {
-            if (getSingleProcuct($nome_prodotto)) {
-                return insertProductVersion($codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
+        public function addProduct($nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine) {
+            
+            $isPresent = $this->getSingleProduct($nome_prodotto);
+            if (!empty($isPresent)) {
+                return $this->insertProductVersion($isPresent[0]["Di_Codice_prodotto"], $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
             } else {
+                $codice_prodotto = str_pad($this->getLastProductCode()[0] + 1, 6, "0", STR_PAD_LEFT);
+                
                 $query = "INSERT INTO `PRODOTTO`(`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES (?,?,?)";
                 $stmt = $this->db->prepare($query);
-                $stmt->bind_param("ssss", $codice_prodotto, $nome_prodotto, $categoria);
+
+                if (!$stmt) {
+                    die("Errore nella preparazione della query: " . $this->db->error);
+                }
+                
+                $stmt->bind_param("sss", $codice_prodotto, $nome_prodotto, $categoria);
+                
                 if ($stmt->execute()) {
-                    return insertProductVersion($codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
+                    return $this->insertProductVersion($codice_prodotto, $nome_prodotto, $categoria, $codice_versione, $marchio, $descrizione, $colore, $taglia, $prezzo, $disponibilita, $sconto, $immagine);
                 } else {
-                    return 0;
+                    die("Errore nell'esecuzione della query: " . $stmt->error);
                 }
             }
         }

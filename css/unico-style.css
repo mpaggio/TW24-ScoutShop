@@ -857,6 +857,14 @@ body>div>div>div {
     color: #bcd5e7 !important;
 }
 
+main>div>div>section:last-of-type>div:last-of-type>div>img {
+    max-height: 200px !important;
+}
+
+main>div>div>section:last-of-type>div:last-of-type>div>div:first-of-type {
+    max-width: 60% !important;
+}
+
 @media screen and (max-width: 767px) {
     main>div>div>section:last-of-type {
         margin: 0 !important;
