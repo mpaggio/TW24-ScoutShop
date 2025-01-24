@@ -25,6 +25,7 @@
         $response = array("status" => "success", "message" => "Prodotto modificato con successo");
     } else {
         $response = array("status" => "error", "message" => "Errore durante la modifica del prodotto");
+        http_response_code(400);
     }
     
     header("Content-type: application/json");

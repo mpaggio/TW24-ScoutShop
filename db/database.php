@@ -335,24 +335,33 @@
         }
         
         // Ritorna un utente (login)
-        public function getUser($email) {
-            $query = "SELECT * FROM UTENTE_COMPRATORE WHERE E_mail = ?";
+        public function getUser($email, $is_seller) {
+            if ($is_seller) {
+                $query = "SELECT * FROM UTENTE_VENDITORE WHERE E_mail = ?";
+            } else {
+                $query = "SELECT * FROM UTENTE_COMPRATORE WHERE E_mail = ?";
+            }
             
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
             
-            return $result->fetch_all(MYSQLI_ASSOC);
+            return $result->fetch_assoc();
         }
         
         // Crea un nuovo account (login)
         public function createAccount($email, $password, $nome, $cognome) {
-            $query = "INSERT INTO `UTENTE_COMPRATORE` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES (?, ?, ?, ?, 'Via dell\'Università 50 47521 Cesena FC')";
-            
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssss", $email, $password, $nome, $cognome);
-            return $stmt->execute();
+            if ($this->getUser($email, false) || $this->getUser($email, true)) {
+                return false;
+            } else {
+                $query = "INSERT INTO `UTENTE_COMPRATORE` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES (?, ?, ?, ?, ?)";
+                $default_address = "Via dell\'Università 50 47521 Cesena FC";
+                
+                $stmt = $this->db->prepare($query);
+                $stmt->bind_param("sssss", $email, $password, $nome, $cognome, $default_address);
+                return $stmt->execute();
+            }
         }
         
         // Modifica dati personali (profilo compratore)

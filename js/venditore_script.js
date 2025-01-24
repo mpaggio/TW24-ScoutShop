@@ -426,33 +426,37 @@ searchBar.addEventListener("input", () => {
 })
 
 saveButton.addEventListener("click", (event) => {
-    event.preventDefault();
     const form = document.querySelector("main > div > div > section > div > form")
-        const formData = new FormData(form);
-    if (productID === "") {
-        addProduct(formData).then((success) => {
-            if (success) {
-                title.innerText = "Prodotto aggiunto con successo!";
-            } else {
-                title.innerText = "Errore nell'aggiunta del prodotto!";
-            }
-        });
+    if(!form.checkValidity()) {
+        event.preventDefault();
+        loginForm.reportValidity();
     } else {
-        const [parte1, ...resto] = productID.split("_");
-        const parte2 =  `_${resto.join('_')}`;
-        formData.append("codiceProdotto", parte1);
-        formData.append("codiceVersione", parte2);
-        editProduct(formData).then((success) => {
-            if (success) {
-                title.innerText = "Prodotto modificato con successo!";
-            } else {
-                title.innerText = "Errore nella modifica del prodotto!";
-            }
-        });
+        const formData = new FormData(form);
+        if (productID === "") {
+            addProduct(formData).then((success) => {
+                if (success) {
+                    title.innerText = "Prodotto aggiunto con successo!";
+                } else {
+                    title.innerText = "Errore nell'aggiunta del prodotto!";
+                }
+            });
+        } else {
+            const [parte1, ...resto] = productID.split("_");
+            const parte2 =  `_${resto.join('_')}`;
+            formData.append("codiceProdotto", parte1);
+            formData.append("codiceVersione", parte2);
+            editProduct(formData).then((success) => {
+                if (success) {
+                    title.innerText = "Prodotto modificato con successo!";
+                } else {
+                    title.innerText = "Errore nella modifica del prodotto!";
+                }
+            });
+        }
+        setTimeout(() => {
+            closeModalHandler();
+        }, 3000);   
     }
-    setTimeout(() => {
-        closeModalHandler();
-    }, 3000);
 });
 
 getArticoli();

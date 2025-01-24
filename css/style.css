@@ -2,54 +2,54 @@ body {
     background-color: #bcd5e7;
 }
 
-header > nav {
+header>nav {
     background-color: #21295c;
 }
 
-header > nav > div {
+header>nav>div {
     padding-bottom: 10px;
 }
 
-header > nav > div > * {
+header>nav>div>* {
     margin: 0px 2%;
 }
 
-header > nav > div > a > img {
+header>nav>div>a>img {
     width: 100px;
 }
 
-header > nav > div > form {
+header>nav>div>form {
     margin-top: 10px;
 }
 
 @media screen and (min-width: 452px) {
-    header > nav > div > div:nth-child(2) {
+    header>nav>div>div:nth-child(2) {
         order: 1;
     }
 
-    header > nav > div > form {
+    header>nav>div>form {
         margin-top: 0;
     }
 }
 
 @media screen and (min-width: 768px) {
-    header > nav > div > a > img {
+    header>nav>div>a>img {
         width: 150px;
     }
-    
+
     footer * {
         font-size: 15px;
     }
 }
 
-header > nav > div > form > button {
+header>nav>div>form>button {
     background-color: #bcd5e7;
     color: #21295c;
     border: none;
     border-radius: 10px;
 }
 
-header > nav > div > div > a {
+header>nav>div>div>a {
     color: #bcd5e7;
 }
 
