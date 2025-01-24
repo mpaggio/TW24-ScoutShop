@@ -13,7 +13,7 @@ function generaNotifiche(notifiche) {
         let notifica = `
             <li class="mb-3 p-2">
                 <article>
-                    <h2 class="fw-bold mb-0 fs-6">Ordine n° ${notifiche[i]["Codice_ordine"]} effettuato con successo! Clicca per visualizzare</h2>
+                    <h2 id="${notifiche[i]["Codice_ordine"]}" class="fw-bold mb-0 fs-6">Ordine n° ${notifiche[i]["Codice_ordine"]} effettuato con successo! Clicca per visualizzare</h2>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <p class="m-0">${notifiche[i]["Data_ordine"]}</p>
                         <a href="" class="text-danger" title="Elimina notifica">
@@ -36,6 +36,90 @@ function generaNotifiche(notifiche) {
     return result;
 }
 
+function attachEventListenerReadAll(leggiTuttoButton) {
+    leggiTuttoButton.addEventListener("click", async function(event){
+        event.preventDefault();
+        try {
+            const response = await fetch('../api/api-notification.php', {
+                method: 'POST',
+                body: new URLSearchParams({
+                    'action': 'leggiTutto'
+                })
+            });
+
+            const json = await response.json();
+
+            if (json.status === 'success') {
+                console.log('Tutte le notifiche sono state segnate come lette');
+            } else {
+                console.log('Errore nel segnare le notifiche come lette');
+            }
+        } catch (error) {
+            console.error('Errore nella richiesta:', error);
+        }
+    });
+}
+
+function attachEventListenerDeleteNotify(cancellaLinks) {
+    cancellaLinks.forEach((link) => {
+        link.addEventListener("click", async function(event) {
+            event.preventDefault();
+            const idNotifica = link.closest("li").querySelector("h2").getAttribute("id");
+            try {
+                const response = await fetch('../api/api-notification.php', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'id_notifica': idNotifica
+                    })
+                });
+
+                const json = await response.json();
+
+                if (json.status === 'success') {
+                    console.log('Notifica eliminata con successo');
+                    /*link.closest("li").remove();*/
+                } else {
+                    console.log('Errore nell\'eliminazione della notifica');
+                }
+            } catch (error) {
+                console.error('Errore nella richiesta:', error);
+            }
+        });
+    });
+}
+
+function attachEventListenerViewNotify(notifies){
+    notifies.forEach((notify) => {
+        notify.addEventListener("click", async function(event){
+            event.preventDefault();
+            const idNotifica = notify.querySelector("h2").getAttribute("id");
+            try {
+                const response = await fetch('../api/api-notification.php', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'view': idNotifica
+                    })
+                });
+
+                const json = await response.json();
+
+                if (json.status === 'success') {
+                    console.log('Notifica eliminata con successo');
+                    if (json.venditore) {
+                        window.location.href = "../template/base-venditore.php";
+                    } else {
+                        window.location.href = "../php/profilo-compratore.php";
+                    }
+                } else {
+                    console.log('Errore nell\'eliminazione della notifica');
+                }
+            } catch (error) {
+                console.error('Errore nella richiesta:', error);
+            }
+        })
+    })
+}
+
 async function caricaNotifiche() {
     const url = '../api/api-notification.php';
     try {
@@ -47,6 +131,12 @@ async function caricaNotifiche() {
         const notifiche = generaNotifiche(json);
         const main = document.querySelector("main");
         main.innerHTML += notifiche;
+        const leggiTutto = document.querySelector("main > section > div > button");
+        const cancella = document.querySelectorAll("main > section > ul > li > article > div > a");
+        const liNotifica = document.querySelectorAll("main > section > ul > li");
+        attachEventListenerReadAll(leggiTutto);
+        attachEventListenerDeleteNotify(cancella);
+        attachEventListenerViewNotify(liNotifica);
     } catch (error) {
         console.error('Errore nel caricamento dei prodotti: ', error);
     }

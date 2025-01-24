@@ -3,6 +3,7 @@ const dropdownMenu = document.querySelector("header > nav > div > div:nth-of-typ
 const searchForm = document.querySelector("header > nav > div > form");
 const searchInput = document.getElementById("search-input");
 const main = document.querySelector("main");
+const notificationSpan = document.querySelector("header > nav > div > div > div > button > span");
 
 function addStyles() {
     document.querySelectorAll("body:not(ul)").forEach(function(element) {
@@ -118,3 +119,56 @@ searchInput.addEventListener("input", function() {
         getSearchArticles(searchValue);
     }
 });
+
+
+
+async function checkIfLoggedIn() {
+    const url = "../api/api-check-login.php";
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.isLoggedIn;
+    } catch (error) {
+        console.error('Errore nel controllo del login:', error);
+        return false;
+    }
+}
+
+
+async function getUnreadNotificationsCount() {
+    const url = "../api/api-notification.php";
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            body: new URLSearchParams({
+                'count': "countNotification"
+            })
+        });
+        if (!response.ok) {
+            throw new Error("Errore nel recupero delle notifiche");
+        }
+        const data = await response.json();
+        return data.length;
+    } catch (error) {
+        console.error('Errore nel recupero delle notifiche:', error);
+        return 0;
+    }
+}
+
+async function updateNotificationBadge() {
+    const isLoggedIn = await checkIfLoggedIn();
+    if (!isLoggedIn) {
+        return;
+    }
+
+    const unreadCount = await getUnreadNotificationsCount();
+
+    if (unreadCount > 0) {
+        notificationSpan.textContent = unreadCount;
+        notificationSpan.style.display = 'flex';
+    } else {
+        notificationSpan.style.display = 'none';
+    }
+}
+
+updateNotificationBadge();

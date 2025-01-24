@@ -324,11 +324,15 @@
         }
         
         // Ritorna tutte le notifiche di un utente (notifiche)
-        public function getAllNotifies($email) {
-            $query = "SELECT * FROM `ORDINE` WHERE (E_mail_compratore = ? AND EliminatoCompratoreYN = 0) OR (E_mail_venditore = ? AND EliminatoVenditoreYN = 0) ORDER BY Data_ordine DESC ";
+        public function getAllNotifies($email, $is_client) {
+            if ($is_client) {
+                $query = "SELECT * FROM `ORDINE` WHERE E_mail_compratore = ? AND EliminatoCompratoreYN = 0 ORDER BY Data_ordine DESC";
+            } else {
+                $query = "SELECT * FROM `ORDINE` WHERE E_mail_venditore = ? AND EliminatoVenditoreYN = 0 ORDER BY Data_ordine DESC";
+            }
             
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ss", $email, $email);
+            $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
             
@@ -362,16 +366,35 @@
         }
         
         // Segna tutte le notifiche di un utente come visualizzate (notifiche)
-        public function updateAllNotify($codice_ordine, $is_client) {
+        public function updateAllNotify($email, $is_client) {
             if ($is_client) {
-                $query = "UPDATE `ORDINE` SET `LettoCompratoreYN`=1";
+                $query = "UPDATE `ORDINE` SET `LettoCompratoreYN` = 1 WHERE `E_mail_compratore` = ?";
             } else {
-                $query = "UPDATE `ORDINE` SET `LettoVenditoreYN`=1";
+                $query = "UPDATE `ORDINE` SET `LettoVenditoreYN` = 1 WHERE `E_mail_venditore` = ?";
+            }
+        
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $email);
+            
+            return $stmt->execute();
+        }
+
+        // Conta tutte le notifiche non lette
+        public function countNotifyToRead($email, $is_client) {
+            if ($is_client) {
+                $query = "SELECT COUNT(*) FROM `ORDINE` WHERE `E_mail_compratore` = ? AND `LettoCompratoreYN` = 0 AND `EliminatoCompratoreYN` = 0";
+            } else {
+                $query = "SELECT COUNT(*) FROM `ORDINE` WHERE `E_mail_venditore` = ? AND `LettoVenditoreYN` = 0 AND `EliminatoVenditoreYN` = 0";
             }
             
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("s", $codice_ordine);
-            return $stmt->execute();
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $stmt->bind_result($count);
+            $stmt->fetch();
+            
+            // Restituisci il numero di notifiche non lette
+            return $count;
         }
         
         // Ritorna tutti gli ordini di un utente (profilo compratore/venditore)
