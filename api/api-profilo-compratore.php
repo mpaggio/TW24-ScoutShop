@@ -2,8 +2,8 @@
 
 require_once('../php/bootstrap.php');
 
-$datiPersonali = $dbh->getUser("mpaggiojr@gmail.com");
-$ordiniPersonali = $dbh->getUserOrders("mpaggiojr@gmail.com", true);
+$datiPersonali = $dbh->getUser($_SESSION["email"], $_SESSION["venditore"]);
+$ordiniPersonali = $dbh->getUserOrders($_SESSION["email"], !$_SESSION["venditore"]);
 
 $structuredOrders = [];
     
@@ -31,11 +31,11 @@ foreach($ordiniPersonali as $ordine) {
 
 $response = [
     'datiPersonali' => [
-        'Nome' => $datiPersonali[0]["Nome"],
-        'Cognome' => $datiPersonali[0]["Cognome"], 
-        'E_mail' => $datiPersonali[0]["E_mail"],
-        'Indirizzo' => $datiPersonali[0]["Indirizzo"],
-        'Password' => $datiPersonali[0]["Password"]
+        'Nome' => $datiPersonali["Nome"],
+        'Cognome' => $datiPersonali["Cognome"], 
+        'E_mail' => $datiPersonali["E_mail"],
+        'Indirizzo' => $datiPersonali["Indirizzo"],
+        'Password' => $datiPersonali["Password"]
     ],
     'ordini' => $structuredOrders
 ];

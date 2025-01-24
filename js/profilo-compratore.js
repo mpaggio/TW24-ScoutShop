@@ -6,13 +6,13 @@ function generaDatiUtente(datiPersonali) {
                     <h2>Dati personali:</h2>
                 </header>
                 <form action="get">
-                    <label for="nomecognome">Nome e cognome:</label>
+                    <label for="nome">Nome:</label>
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
-                        <input class="w-100" type="text" id="nomecognome" name="nomecognome" value="${datiPersonali["Nome"]} ${datiPersonali["Cognome"]}" />
+                        <input class="w-100" type="text" id="nome" name="nome" value="${datiPersonali["Nome"]}" />
                     </div>
-                    <label for="password">Password:</label>
+                    <label for="cognome">Cognome:</label>
                     <div class="d-flex justify-content-between align-items-baseline mb-2">
-                        <input class="w-100" type="text" id="password" name="password" value="${datiPersonali["Password"]}" />
+                        <input class="w-100" type="text" id="cognome" name="cognome" value="${datiPersonali["Cognome"]}" />
                     </div>
                     <label for="indirizzo">Indirizzo:</label>
                     <div class="d-flex justify-content-between align-items-baseline mb-2">   
