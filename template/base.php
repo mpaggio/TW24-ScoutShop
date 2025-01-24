@@ -181,7 +181,7 @@
                     </a>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a class="icon-link fs-4 me-4" href="carrello.html" aria-label="Vai al carrello">
+                    <a class="icon-link fs-4 me-4" href="../php/carrello.php" aria-label="Vai al carrello">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart3 d-flex col-md-1"
                             viewBox="0 0 16 16">
                             <title>Cart button</title>
@@ -293,6 +293,25 @@
             <a href="mailto:marco.paggetti@studio.unibo.it" class="text-decoration-none" aria-label="Invia una mail a Marco Paggetti">marco.paggetti@studio.unibo.it</a>
         </div>
     </footer>
+    
+    <!-- Modals -->
+    <!-- Delete article modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-1" id="deleteModalLabel">Elimina articolo</h1>
+                </div>
+                <div class="modal-body fs-3">
+                    Vuoi eliminare l'articolo dal carrello?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary fs-3" data-bs-dismiss="modal" autofocus>No</button>
+                    <button type="button" class="btn btn-danger fs-3">Si</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="../js/base.js"></script>

@@ -2,7 +2,7 @@
 <html lang="it">
 
 <head>
-    <title>Scout Shop - Home</title>
+    <title>Scout Shop - Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

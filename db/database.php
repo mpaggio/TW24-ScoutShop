@@ -259,7 +259,8 @@
 
         // Visualizza prodotti nel carrello (carrello)
         public function getUserProductsInCart($email) {
-            $query = "SELECT * FROM CARRELLO WHERE E_mail = ?";
+            $query = "SELECT C.*, P.Nome_prodotto, VP.Colore, VP.Taglia, VP.Prezzo, VP.Nome_immagine, VP.Sconto, VP.Disponibilita FROM CARRELLO C INNER JOIN versione_prodotto VP ON C.Di_Codice_prodotto = VP.Di_Codice_prodotto and C.Codice_prodotto = VP.Codice_prodotto INNER JOIN prodotto P ON C.Di_Codice_prodotto = P.Codice_prodotto  WHERE E_mail = ?";
+            
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("s", $email);
             $stmt->execute();
@@ -281,7 +282,16 @@
             $query = "DELETE FROM CARRELLO WHERE E_mail = ? AND Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sss", $email, $codice_prodotto, $codice_versione);
-            return $stmt->execute();
+            $stmt->execute();
+            
+            // Controlla il numero di righe interessate
+            if ($stmt->affected_rows > 0) {
+                return true; // Rimozione riuscita
+            } elseif ($stmt->affected_rows === 0) {
+                return false; // Nessun elemento da rimuovere
+            } else {
+                return null; // Errore durante l'esecuzione
+            }
         }
         
         // Modifica quantità prodotti nel carrello (carrello)
@@ -289,7 +299,17 @@
             $query = "UPDATE CARRELLO SET Quantita_ = ? WHERE E_mail = ? AND Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("isss", $quantita, $email, $codice_prodotto, $codice_versione);
-            return $stmt->execute();
+            $stmt->execute();
+            
+            // Controlla il numero di righe aggiornate
+            if ($stmt->affected_rows > 0) {
+                return true; // Aggiornamento riuscito
+            } elseif ($stmt->affected_rows === 0) {
+                return false; // Nessuna riga aggiornata (i dati erano già uguali)
+            } else {
+                // In caso di errore
+                return null; // Errore durante l'esecuzione
+            }
         }
         
         // Inserimenti dettagli ordine (pagamento)

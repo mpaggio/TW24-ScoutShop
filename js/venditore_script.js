@@ -379,7 +379,7 @@ async function editProduct(formData) {
 
 async function deleteArticle(id) {
     const url = "../api/api-elimina-prodotto.php";
-    const [parte1, ...resto] = productID.split("_");
+    const [parte1, ...resto] = id.split("_");
     const parte2 =  `_${resto.join('_')}`;
     
     try {

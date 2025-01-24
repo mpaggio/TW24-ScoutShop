@@ -2,10 +2,10 @@
     require_once("../php/bootstrap.php");
     require_once("../utils/functions.php");
     
-    // if (!isUserLoggedIn() || !isset($_SESSION["venditore"])) {
-    //     header("location: ../index.php");
-    //     die();
-    // }
+    if (!isUserLoggedIn() || $_SESSION["venditore"]) {
+        header("location: ../index.php");
+        die();
+    }
     
     // ini_set('display_errors', 1);
     // ini_set('display_startup_errors', 1);
