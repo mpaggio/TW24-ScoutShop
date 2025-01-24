@@ -3,7 +3,29 @@ let color = 0;
 let taglia = 0;
 let versione;
 
+async function isUserLoggedIn() {
+    try {
+        const response = await fetch('../api/api-check-login.php');
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.isLoggedIn;
+    } catch (error) {
+        console.error('Errore:', error);
+    }
+}
+
 async function inviaDatiProdotto() {
+    const loggedIn = await isUserLoggedIn();
+    alert(loggedIn);
+    if (!loggedIn) {
+        window.location.href = "../template/login.php";
+        return;
+    }
+
     console.log(versione);
     const codiceProdotto = versione[0]["Di_Codice_prodotto"];
     const quantita = document.getElementById("quantita").value;
@@ -242,7 +264,7 @@ function attachEventListenerForm(form) {
 async function caricaProdottoSingolo() {
     
     const urlParamsNomeProdotto = new URLSearchParams(window.location.search).get("Nome_prodotto");
-    const urlParamsCodiceProdotto = new URLSearchParams(window.location.search).get("Codice_prodotto");
+    const urlParamsCodiceProdotto = new URLSearchParams(window.location.search).get("Di_Codice_prodotto");
     const url = "../api/api-prodotto-singolo.php?" + "Di_Codice_prodotto=" + encodeURIComponent(urlParamsCodiceProdotto) + "&Nome_prodotto=" + encodeURIComponent(urlParamsNomeProdotto);
     
 

@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once('../php/bootstrap.php');
+require_once('../utils/functions.php');
 
 if (isset($_POST["Di_Codice_prodotto"]) && isset($_POST["Codice_prodotto"]) && isset($_POST["Quantita"])) {
     $codiceProdotto = $_POST["Di_Codice_prodotto"];
@@ -12,7 +13,7 @@ if (isset($_POST["Di_Codice_prodotto"]) && isset($_POST["Codice_prodotto"]) && i
     $quantita = $_POST["Quantita"];
 
     if (is_numeric($quantita) && $quantita > 0) {
-        $result = $dbh->insertProductInCart("mpaggiojr@gmail.com", $codiceProdotto, $codiceVersione, $quantita);
+        $result = $dbh->insertProductInCart($_SESSION["email"], $codiceProdotto, $codiceVersione, $quantita);
         if ($result) {
             header('Content-Type: application/json');
             echo json_encode(["success" => "Prodotto aggiunto al carrello"]);
