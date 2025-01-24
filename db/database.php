@@ -427,11 +427,11 @@
         }
         
         // Modifica dati personali (profilo compratore)
-        public function updateAccount($nome, $cognome, $email, $password, $indirizzo) {
-            $query = "UPDATE UTENTE_COMPRATORE SET Nome = COALESCE(?, Nome), Cognome = COALESCE(?, Cognome), Indirizzo = COALESCE(?, Indirizzo), Password = COALESCE(?, Password) WHERE E_mail = ?";
+        public function updateAccount($nome, $cognome, $email, $indirizzo) {
+            $query = "UPDATE UTENTE_COMPRATORE SET Nome = COALESCE(?, Nome), Cognome = COALESCE(?, Cognome), Indirizzo = COALESCE(?, Indirizzo) WHERE E_mail = ?";
             
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sssss", $nome, $cognome, $indirizzo, $password, $email);
+            $stmt->bind_param("ssss", $nome, $cognome, $indirizzo, $email);
             
             return $stmt->execute();
         }

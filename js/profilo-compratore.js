@@ -77,6 +77,34 @@ function generaOrdiniUtente(ordini) {
     return ordine;
 }
 
+function attachEventListenerForm(form) {
+    form.addEventListener("submit", async function(event){
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('../api/api-salva-dati-compratore.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+
+            const json = await response.json();
+            if (json.status === 'success') {
+                console.log('Dati salvati correttamente');
+            } else {
+                console.log('Errore nel salvataggio dei dati');
+            }
+        } catch (error) {
+            console.error('Errore nella richiesta: ', error);
+        }
+    })
+}
+
 async function caricaProfiloCompratore() {
     const url = '../api/api-profilo-compratore.php';
     try {
@@ -90,8 +118,8 @@ async function caricaProfiloCompratore() {
         const main = document.querySelector("main");
         main.classList.add("d-flex", "flex-grow-1", "flex-column");
         main.innerHTML = dati + ordini;
-        console.log(dati);
-        console.log(ordini);
+        const form = document.querySelector("section > article > form");
+        attachEventListenerForm(form);
     } catch (error) {
         console.error('Errore nel caricamento dei prodotti: ', error);
     }
