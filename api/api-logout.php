@@ -14,5 +14,5 @@
     echo "Logout effettuato con successo!";
         
     // Redirect alla pagina di login
-    header("location: ../template/login.php");
+    header("location: ../php/home.php");
 ?>

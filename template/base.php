@@ -181,7 +181,7 @@
                     </a>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <a class="icon-link fs-4 me-4" href="carrello.html" aria-label="Vai al carrello">
+                    <a class="icon-link fs-4 me-4" href="../php/carrello.php" aria-label="Vai al carrello">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart3 d-flex col-md-1"
                             viewBox="0 0 16 16">
                             <title>Cart button</title>
