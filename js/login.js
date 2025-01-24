@@ -16,6 +16,8 @@ signupForm.style.display = "none"; // Nasconde il form di signup
 // Aggiungi evento al radio button
 signupRadio.addEventListener("change", function () {
     if (signupRadio.checked) {
+        errorLogin.innerHTML = "";
+        errorSignup.innerHTML = "";
         signupForm.style.display = "block";
         signupContainer.classList.replace("bg-secondary", "bg-light");
         loginForm.style.display = "none";
@@ -25,6 +27,8 @@ signupRadio.addEventListener("change", function () {
 
 loginRadio.addEventListener("change", function () {
     if (loginRadio.checked) {
+        errorLogin.innerHTML = "";
+        errorSignup.innerHTML = "";
         loginForm.style.display = "block";
         loginContainer.classList.replace("bg-secondary", "bg-light");
         signupForm.style.display = "none";
@@ -42,16 +46,32 @@ async function login(formData, seller) {
             body: formData
         });
         
-        if (response.ok) {
-            const json = await response.json();
-            return json;
+        let json;
+        try {
+            // Prova a parsare il JSON
+            json = await response.json();
+        } catch (parseError) {
+            console.error("Errore nel parsing della risposta JSON:", parseError);
+            json = null; // Imposta a null se non è parsabile
+        }
+        
+        if (!response.ok) {
+            // Gestione degli errori con risposta non OK
+            if (response.status === 401) {
+                errorLogin.innerHTML = `<p>${json["message"]}</p>`;
+            } else {
+                errorLogin.innerHTML = `<p>Errore durante il login.</p>`;
+            }
         } else {
-            console.error("Errore HTTP: " + response.status);
-            return {"status": "error", "message": "Errore durante il login."};
+            // Login riuscito
+            errorLogin.innerHTML = `<p class="text-success">${json["message"]}</p>`;
+            setTimeout(() => {
+                window.location.href = "../php/home.php";
+            }, 1500);
         }
     } catch (error) {
-        console.error(error);
-        return {"status": "error", "message": "Errore durante il login."};
+        // Errore di rete o altro problema
+        console.error("Errore nella richiesta di rete:", error);
     }
 }
 
@@ -65,37 +85,39 @@ async function signup(formData) {
             body: formData
         });
         
+        let json;
+        try {
+            // Prova a parsare il JSON
+            json = await response.json();
+        } catch (parseError) {
+            console.error("Errore nel parsing della risposta JSON:", parseError);
+            json = null; // Imposta a null se non è parsabile
+        }
+        
         if (response.ok) {
-            const json = await response.json();
-            window.location.href = "../php/home.php";
-            return true;
+            // Registrazione riuscita
+            errorSignup.innerHTML = `<p>${json["message"]}</p>`;
+            setTimeout(() => {
+                window.location.href = "../php/home.php";
+            }, 1500);
         } else {
-            console.error("Errore HTTP: " + response.status);
-            return false;
+            errorSignup.innerHTML = '<p>Errore durante la registrazione.</p>';
         }
     } catch (error) {
-        console.error(error);
-        return false;
+        // Errore di rete o altro problema
+        console.error("Errore nella richiesta di rete:", error);
     }
 }
 
 loginButton.addEventListener("click", (event) => {
     event.preventDefault();
+    errorLogin.innerHTML = "";
     
     if(!loginForm.checkValidity()) {
         loginForm.reportValidity();
     } else {
         const formData = new FormData(loginForm);
-        login(formData, isSeller.checked).then((result) => {
-            if (result["status"] === "error") {
-                errorLogin.innerHTML = `<p>${result["message"]}</p>`;
-            } else {
-                errorLogin.innerHTML = `<p class="text-success">${result["message"]}</p>`;
-                setTimeout(() => {
-                    window.location.href = "../php/home.php";
-                }, 1500);
-            }
-        });
+        login(formData, isSeller.checked);
     }
 });
 
@@ -122,10 +144,6 @@ signUpButton.addEventListener("click", (event) => {
         errorSignup.innerHTML += '<p>La password deve avere almeno 8 caratteri, una lettera maiuscola, un numero e un carattere speciale.</p>';
     } else {
         const formData = new FormData(signupForm);
-        signup(formData).then((result) => {
-            if (!result) {
-                errorSignup.innerHTML += '<p>Errore durante la registrazione.</p>';
-            }
-        });
+        signup(formData);
     }
 });

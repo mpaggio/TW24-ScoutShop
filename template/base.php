@@ -204,7 +204,7 @@
                             <li><a class="dropdown-item" href="profilo-compratore.html" aria-label="Vai al profilo">Profilo</a></li>
                             <li><a class="dropdown-item" href="notification.html" aria-label="Vai alle notifiche">Notifiche</a></li>
                             <li><hr class="dropdown-divider" aria-hidden="true"></li>
-                            <li><a class="dropdown-item" href="home-buyer.html" aria-label="Esci dal profilo">Log out</a></li>
+                            <li><a class="dropdown-item" href="../api/api-logout.php" aria-label="Esci dal profilo">Log out</a></li>
                         </ul>
                     </div>
                 </div>

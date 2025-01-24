@@ -353,14 +353,20 @@
         // Crea un nuovo account (login)
         public function createAccount($email, $password, $nome, $cognome) {
             if ($this->getUser($email, false) || $this->getUser($email, true)) {
-                return false;
+                // Eccezione utente già esistente
+                throw new Exception("USER_EXISTS");
             } else {
                 $query = "INSERT INTO `UTENTE_COMPRATORE` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES (?, ?, ?, ?, ?)";
                 $default_address = "Via dell\'Università 50 47521 Cesena FC";
                 
                 $stmt = $this->db->prepare($query);
                 $stmt->bind_param("sssss", $email, $password, $nome, $cognome, $default_address);
-                return $stmt->execute();
+                if (!$stmt->execute()) {
+                    // Eccezione query di inserimento
+                    throw new Exception("INSERT_FAILED");
+                } 
+                
+                return true;
             }
         }
         
