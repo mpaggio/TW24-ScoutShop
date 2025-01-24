@@ -176,7 +176,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="navbar-brand" href="home.php">
+                    <a class="navbar-brand" href="../php/home.php">
                         <img src="../img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top" />
                     </a>
                 </div>
