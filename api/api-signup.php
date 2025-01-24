@@ -18,6 +18,7 @@
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $response = [];
+    
     try {
         $result = $dbh->createAccount($email, $hashedPassword, $nome, $cognome);
         $_SESSION["email"] = $email;

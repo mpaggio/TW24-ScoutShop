@@ -85,8 +85,16 @@ async function signup(formData) {
             body: formData
         });
         
+        let json;
+        try {
+            // Prova a parsare il JSON
+            json = await response.json();
+        } catch (parseError) {
+            console.error("Errore nel parsing della risposta JSON:", parseError);
+            json = null; // Imposta a null se non è parsabile
+        }
+        
         if (response.ok) {
-            let json = await response.json();
             // Registrazione riuscita
             errorSignup.innerHTML = `<p>${json["message"]}</p>`;
             setTimeout(() => {

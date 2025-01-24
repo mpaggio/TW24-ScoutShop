@@ -303,7 +303,7 @@ main>section>ul>li>article>a>h3 {
     font-size: 1.5em;
 }
 
-main > section > ul > li > article > img {
+main>section>ul>li>article>img {
     height: 300px;
     width: 100%;
     object-fit: cover;
@@ -849,10 +849,12 @@ body>div>div>div {
     color: #bcd5e7 !important;
 }
 
+main>section>div>ul>li>img,
 main>div>div>section:last-of-type>div:last-of-type>div>img {
     max-height: 200px !important;
 }
 
+main>section>div>div>ul>li>div:first-of-type,
 main>div>div>section:last-of-type>div:last-of-type>div>div:first-of-type {
     max-width: 60% !important;
 }
