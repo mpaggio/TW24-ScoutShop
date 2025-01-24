@@ -155,6 +155,20 @@
             
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+        // Ritorna il nome del prodotto generale a partire dal codice
+        public function getProductNameFromCode($codice_prodotto) {
+            $query = "SELECT P.Nome_prodotto FROM PRODOTTO P WHERE P.Codice_prodotto = ?";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $codice_prodotto);
+            
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            
+            return $row["Nome_prodotto"];
+        }
         
         // Ritorna l'ultimo codice prodotto (profilo venditore)
         public function getLastProductCode() {
@@ -220,6 +234,19 @@
             $result = $stmt->get_result();
             
             return $result->fetch_row();
+        }
+
+        // Trova l'immagine della versione prodotto
+        public function getProductVersioneImage($codice_prodotto, $codice_versione) {
+            $query = "SELECT Nome_immagine FROM VERSIONE_PRODOTTO WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            
+            return $row["Nome_immagine"];
         }
         
         // Rimuovi un prodotto (profilo venditore)
