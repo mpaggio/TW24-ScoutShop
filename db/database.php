@@ -113,6 +113,35 @@
             
             return $result->fetch_all(MYSQLI_ASSOC);
         }
+
+
+        public function getProductsFromSearchSingleVersion($string) {
+            $query = "
+                SELECT 
+                    P.*, 
+                    VP.* 
+                FROM 
+                    PRODOTTO P
+                INNER JOIN 
+                    VERSIONE_PRODOTTO VP 
+                    ON P.Codice_prodotto = VP.Di_Codice_prodotto
+                WHERE 
+                    Nome_prodotto LIKE CONCAT('%', ?, '%') 
+                AND VP.Codice_prodotto IN (
+                    SELECT MIN(Codice_prodotto)
+                    FROM VERSIONE_PRODOTTO
+                    WHERE Di_Codice_prodotto = VP.Di_Codice_prodotto
+                    GROUP BY Di_Codice_prodotto
+                )
+            ";
+        
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $string);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
         
         // Ritorna la versione del prodotto dati i codici (profilo venditore)
         public function getProductFromCode($codice_prodotto, $codice_versione) {
