@@ -41,7 +41,7 @@ function attachEventListenerReadAll(leggiTuttoButton) {
     leggiTuttoButton.addEventListener("click", async function(event){
         event.preventDefault();
         try {
-            const response = await fetch('../api/api-notification.php', {
+            const response = await fetch('./api/api-notification.php', {
                 method: 'POST',
                 body: new URLSearchParams({
                     'action': 'leggiTutto'
@@ -68,7 +68,7 @@ function attachEventListenerDeleteNotify(cancellaLinks) {
             event.preventDefault();
             const idNotifica = link.closest("li").querySelector("h2").getAttribute("id");
             try {
-                const response = await fetch('../api/api-notification.php', {
+                const response = await fetch('./api/api-notification.php', {
                     method: 'POST',
                     body: new URLSearchParams({
                         'id_notifica': idNotifica
@@ -96,7 +96,7 @@ function attachEventListenerViewNotify(notifies){
             event.preventDefault();
             const idNotifica = notify.getAttribute("id");
             try {
-                const response = await fetch('../api/api-notification.php', {
+                const response = await fetch('./api/api-notification.php', {
                     method: 'POST',
                     body: new URLSearchParams({
                         'view': idNotifica
@@ -108,9 +108,9 @@ function attachEventListenerViewNotify(notifies){
                 if (json.status === 'success') {
                     console.log('Notifica visualizzata con successo');
                     if (json.venditore) {
-                        window.location.href = "../template/base-venditore.php";
+                        window.location.href = "./dashboard.php";
                     } else {
-                        window.location.href = "../php/profilo-compratore.php";
+                        window.location.href = "./profilo-compratore.php";
                     }
                 } else {
                     console.log('Errore nella visualizzazione della notifica');
@@ -123,7 +123,7 @@ function attachEventListenerViewNotify(notifies){
 }
 
 async function caricaNotifiche() {
-    const url = '../api/api-notification.php';
+    const url = './api/api-notification.php';
     try {
         const response = await fetch(url);
         if (!response.ok) {

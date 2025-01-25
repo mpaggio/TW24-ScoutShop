@@ -1,12 +1,13 @@
 <?php 
-    require_once("../php/bootstrap.php");
+    require_once("./php/bootstrap.php");
+    require_once("./utils/functions.php");
     
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+    if (!isUserLoggedIn()) {
+        header("Location: ./login.php");
+        exit();
+    }
     
     $spedizione = $_GET["spedizione"];
-    
     $costo_spedizione = $dbh->getShippingPrice($spedizione);
 
 ?>
@@ -18,7 +19,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="../css/unico-style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/unico-style.css" />
 </head>
 <body class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
     <main class="w-100">
@@ -57,7 +58,6 @@
                             <label for="ownerName" class="form-label fs-3">Nome proprietario</label>
                             <input type="text" class="form-control fs-5" id="ownerName" placeholder="Nome Cognome" required />
                         </div>
-                        <div class="col-md-12 text-center fs-4"></div>
                     </form>
                 </div>
                 <div class="col-md-5 h-100 p-3 m-0">
@@ -76,12 +76,13 @@
                         <p class="fs-5"></p>
                     </div>
                     <a class="btn btn-primary fs-3 w-100" href="#">Paga</a>
+                    <div class="col-md-12 text-center fs-4 mt-2"></div>
                 </div>
             </div>
         </section>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="../js/pagamento.js"></script>
+    <script src="./js/pagamento.js"></script>
 </body>
 </html>

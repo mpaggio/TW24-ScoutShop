@@ -5,7 +5,7 @@ let versione;
 
 async function isUserLoggedIn() {
     try {
-        const response = await fetch('../api/api-check-login.php');
+        const response = await fetch('./api/api-check-login.php');
 
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
@@ -22,14 +22,13 @@ async function inviaDatiProdotto() {
     const loggedIn = await isUserLoggedIn();
     alert(loggedIn);
     if (!loggedIn) {
-        window.location.href = "../template/login.php";
+        window.location.href = "./login.php";
         return;
     }
 
-    console.log(versione);
     const codiceProdotto = versione[0]["Di_Codice_prodotto"];
     const quantita = document.getElementById("quantita").value;
-    const urlApi = "../api/api-prodotto-singolo.php";
+    const urlApi = "./api/api-prodotto-singolo.php";
 
     let codiceVersione = "_" + color + "_" + taglia;
 
@@ -69,10 +68,6 @@ function trovaIndiceTaglia(prodotto, taglia) {
 function generaPaginaProdottoSingolo($prodotto) {
 
     let index;
-
-    console.log($prodotto);
-    console.log("Colore: " + color);
-    console.log("Taglia: " + taglia);
 
     if (color === 0) {
         versione = Object.values($prodotto)[color];
@@ -265,7 +260,7 @@ async function caricaProdottoSingolo() {
     
     const urlParamsNomeProdotto = new URLSearchParams(window.location.search).get("Nome_prodotto");
     const urlParamsCodiceProdotto = new URLSearchParams(window.location.search).get("Di_Codice_prodotto");
-    const url = "../api/api-prodotto-singolo.php?" + "Di_Codice_prodotto=" + encodeURIComponent(urlParamsCodiceProdotto) + "&Nome_prodotto=" + encodeURIComponent(urlParamsNomeProdotto);
+    const url = "./api/api-prodotto-singolo.php?" + "Di_Codice_prodotto=" + encodeURIComponent(urlParamsCodiceProdotto) + "&Nome_prodotto=" + encodeURIComponent(urlParamsNomeProdotto);
     
 
     try {

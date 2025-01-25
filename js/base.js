@@ -59,8 +59,7 @@ function mostraProdotti(prodottiRicercati, searchValue) {
         </ul>
     </section>
     `;
-
-    console.log(result);
+    
     return result;
 }
 
@@ -85,14 +84,13 @@ iconProfileButton.addEventListener("click", () => {
 
 document.addEventListener("click", (event) => {
     if (!dropdownMenu.contains(event.target) && !dropdownMenu.classList.contains("show")) {
-        console.log("Premuto fuori dal quadratino");
         removeStyles();
     }
 })
 
 
 async function getSearchArticles(text) {
-    const url = "../api/api-cerca-prodotti.php";
+    const url = "./api/api-cerca-prodotti.php";
     
     try {
         const response = await fetch(url, { 
@@ -130,7 +128,7 @@ searchInput.addEventListener("input", function() {
 
 
 async function checkIfLoggedIn() {
-    const url = "../api/api-check-login.php";
+    const url = "./api/api-check-login.php";
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -143,7 +141,7 @@ async function checkIfLoggedIn() {
 
 
 async function getUnreadNotificationsCount() {
-    const url = "../api/api-notification.php";
+    const url = "./api/api-notification.php";
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -170,7 +168,6 @@ async function updateNotificationBadge() {
     }
 
     const unreadCount = await getUnreadNotificationsCount();
-    console.log(unreadCount);
 
     if (unreadCount > 0) {
         notificationSpan.textContent = unreadCount;

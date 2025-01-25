@@ -38,7 +38,7 @@ loginRadio.addEventListener("change", function () {
 
 // Richiesta post di login
 async function login(formData) {
-    const url = "../api/api-login.php";
+    const url = "./api/api-login.php";
     
     try {
         const response = await fetch(url, {
@@ -57,7 +57,7 @@ async function login(formData) {
         
         if (response.ok) {
             if (json["status"] === "redirect") {
-                window.location.href = json["seller"] ? "../template/base-venditore.php" : "../php/home.php";
+                window.location.href = json["seller"] ? "./dashboard.php" : "./home.php";
             } else if (json["status"] === "error") {
                 errorLogin.innerHTML = `<p>${json["message"]}</p>`;
             } else if (json["status"] === "success") {
@@ -65,9 +65,9 @@ async function login(formData) {
                 errorLogin.innerHTML = `<p class="text-success">${json["message"]}</p>`;
                 setTimeout(() => {
                     if (json["seller"]) {
-                        window.location.href = "../template/base-venditore.php";
+                        window.location.href = "./dashboard.php";
                     } else {
-                        window.location.href = "../php/home.php";
+                        window.location.href = "./home.php";
                     }
                 }, 1500);
             }
@@ -80,7 +80,7 @@ async function login(formData) {
 
 // Richiesta post di signup
 async function signup(formData) {
-    const url = "../api/api-signup.php";
+    const url = "./api/api-signup.php";
     
     try {
         const response = await fetch(url, {
@@ -101,7 +101,7 @@ async function signup(formData) {
             // Registrazione riuscita
             errorSignup.innerHTML = `<p class="text-success">${json["message"]}</p>`;
             setTimeout(() => {
-                window.location.href = "../php/home.php";
+                window.location.href = "./home.php";
             }, 1500);
         } else {
             errorSignup.innerHTML = '<p>Errore durante la registrazione.</p>';

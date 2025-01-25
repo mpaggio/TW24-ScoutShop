@@ -1,12 +1,10 @@
 <?php
-    require_once("../php/bootstrap.php");
-    require_once("../utils/functions.php");
+    require_once __DIR__ . "/../php/bootstrap.php";
+    require_once __DIR__ . "/../utils/functions.php";
     
     if (isUserLoggedIn()) {
-        
         header("Content-type: application/json");
         echo json_encode(array("status" => "redirect", "message" => "Utente già loggato!", "seller" => $_SESSION["venditore"]));
-        
         exit();
     }
     

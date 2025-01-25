@@ -84,7 +84,7 @@ function attachEventListenerForm(form) {
         const formData = new FormData(form);
 
         try {
-            const response = await fetch('../api/api-salva-dati-compratore.php', {
+            const response = await fetch('./api/api-salva-dati-compratore.php', {
                 method: 'POST',
                 body: formData
             });
@@ -106,7 +106,7 @@ function attachEventListenerForm(form) {
 }
 
 async function caricaProfiloCompratore() {
-    const url = '../api/api-profilo-compratore.php';
+    const url = './api/api-profilo-compratore.php';
     try {
         const response = await fetch(url);
         if (!response.ok) {

@@ -1,5 +1,5 @@
 <?php
-    require_once("../php/bootstrap.php");
+    require_once __DIR__ . '/../php/bootstrap.php';
     
     $data = json_decode(file_get_contents("php://input"), true);
     

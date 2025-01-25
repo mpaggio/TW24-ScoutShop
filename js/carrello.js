@@ -74,7 +74,7 @@ function generaPagina(prodotti) {
                     <h3 class="fs-2 fw-bold">Riepilogo dell'ordine</h3>
                     <div class="d-flex w-100 justify-content-between align-items-center">
                         <p class="fs-4">Subtotale:</p>
-                        <p class="fs-4">${subtotale}€</p>
+                        <p class="fs-4">${subtotale.toFixed(2)}€</p>
                     </div>
                     <div class="w-100 border-bottom border-dark mb-3">
                         <p class="fs-4 mb-0">Consegna</p>
@@ -99,9 +99,9 @@ function generaPagina(prodotti) {
                     </div>
                     <div class="d-flex w-100 justify-content-between align-items-center">
                         <p class="fs-4">Totale:</p>
-                        <p class="fs-4">${subtotale}€</p>
+                        <p class="fs-4">${subtotale.toFixed(2)}€</p>
                     </div>
-                    <a href="../php/pagamento.php" class="btn btn-primary w-100 fs-3">Vai al pagamento</a>
+                    <a href="./pagamento.php" class="btn btn-primary w-100 fs-3">Vai al pagamento</a>
                 </div>
             </div>
         </section>
@@ -111,7 +111,7 @@ function generaPagina(prodotti) {
 function attachEventListeners(select, radio, deleteButtons, pagamento) {
     select.forEach((selector) => {
         selector.addEventListener('change', async (event) => {
-            const url = "../api/api-modifica-carrello.php";
+            const url = "./api/api-modifica-carrello.php";
             const [codice_prodotto, ...resto] = event.target.closest('li').id.split("_");
             const codice_versione =  `_${resto.join('_')}`;
             
@@ -148,7 +148,7 @@ function attachEventListeners(select, radio, deleteButtons, pagamento) {
             const totale = document.querySelector("main > section > div> div > div:last-of-type > p:last-of-type");
             const subtotale = document.querySelector("main > section > div> div > div:first-of-type > p:last-of-type");
             const consegna = parseFloat(event.target.value);
-            totale.textContent = `${parseFloat(subtotale.textContent) + consegna}€`;
+            totale.textContent = `${(parseFloat(subtotale.textContent) + consegna).toFixed(2)}€`;
             spedizione = event.target.id;
         });
     });
@@ -182,12 +182,12 @@ function attachEventListeners(select, radio, deleteButtons, pagamento) {
                 break;
         }
         console.log(nomeSpedizione);
-        window.location.href = `../php/pagamento.php?spedizione=${encodeURIComponent(nomeSpedizione)}`;
+        window.location.href = `./pagamento.php?spedizione=${encodeURIComponent(nomeSpedizione)}`;
     })
 }
 
 async function caricaCarrello() {
-    const url = "../api/api-prodotti-carrello.php";
+    const url = "./api/api-prodotti-carrello.php";
     
     try {
         const response = await fetch(url);
@@ -226,7 +226,7 @@ async function caricaCarrello() {
 }
 
 async function removeProduct(id, deleteModal) {
-    const url = "../api/api-rimuovi-prodotto-carrello.php";
+    const url = "./api/api-rimuovi-prodotto-carrello.php";
     const [codice_prodotto, ...resto] = id.split("_");
     const codice_versione =  `_${resto.join('_')}`;
     

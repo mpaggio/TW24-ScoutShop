@@ -1,5 +1,5 @@
 const form = document.querySelector("#form");
-const error = document.querySelector("main > section > div > div > form > div:last-of-type");
+const error = document.querySelector("main > section > div > div > div:last-of-type");
 const pagamento = document.querySelector("main > section > div > div > a");
 const cardNumber = document.querySelector("main > section > div > div > form > div:nth-of-type(4) > input");
 const expireDate = document.querySelector("main > section > div > div > form > div:nth-of-type(5) > input");
@@ -10,13 +10,11 @@ let dettagli_ordine = {};
 function generaRiepilogo(articoli) {
     let riepilogo = "";
     
-    console.log(articoli[0]);
-    
     for (let i = 0; i < articoli.length; i++) {
         riepilogo += `
             <li class="d-flex w-100 justify-content-between align-items-center">
                 <p class="fs-5 m-0">${articoli[i]["Nome_prodotto"]} (${articoli[i]["Quantita_"]}) </p>
-                <p class="fs-5 m-0">${(articoli[i]["Prezzo"] - (articoli[i]["Prezzo"] * articoli[i]["Sconto"]) * articoli[i]["Quantita_"])}€</p>
+                <p class="fs-5 m-0">${(articoli[i]["Prezzo"] - (articoli[i]["Prezzo"] * articoli[i]["Sconto"])) * articoli[i]["Quantita_"]}€</p>
             </li>
         `;
     }
@@ -39,7 +37,7 @@ cvv.addEventListener("input", (event) => {
 });
 
 async function fetchArticoli() {
-    const url = "../api/api-prodotti-carrello.php";
+    const url = "./api/api-prodotti-carrello.php";
     
     try {
         const response = await fetch(url);
@@ -59,10 +57,12 @@ async function fetchArticoli() {
                 const lista = document.querySelector("main > section > div > div:last-of-type > div:first-of-type > ul");
                 const pagina = generaRiepilogo(json["data"]);
                 lista.innerHTML = pagina;
-                const totale = document.querySelector("main > section > div > div:last-of-type > div:last-of-type > p:last-of-type");
+                const totale = document.querySelector("main > section > div > div:last-of-type > div:nth-last-of-type(2) > p:last-of-type");
                 const spedizione = document.querySelector("main > section > div > div:last-of-type > div:nth-of-type(2) > p:last-of-type");
-                const subtotale = json["data"].reduce((acc, item) => acc + (item["Prezzo"] - (item["Prezzo"] * item["Sconto"]) * item["Quantita_"]), 0);
-                totale.innerHTML = `${subtotale + parseFloat(spedizione.textContent)}€`;
+                console.log(json["data"]);
+                const subtotale = json["data"].reduce((acc, item) => acc + ((item["Prezzo"] - (item["Prezzo"] * item["Sconto"])) * item["Quantita_"]), 0);
+                console.log(subtotale);
+                totale.innerHTML = `${(subtotale + parseFloat(spedizione.textContent)).toFixed(2)}€`;
             } else {
                 console.error("Errore durante il fetch dei dati. Risposta server:", json["message"]);
             }
@@ -76,7 +76,7 @@ async function fetchArticoli() {
 }
 
 async function eseguiOrdine(data) {
-    const url = "../api/api-pagamento.php";
+    const url = "./api/api-pagamento.php";
     
     try {
         const response = await fetch(url, {
@@ -97,7 +97,7 @@ async function eseguiOrdine(data) {
             if (json["status"] === "success") {
                 error.innerHTML = `<p class="text-success">${json["message"]}</p>`;
                 setTimeout(() => {
-                    window.location.href = "../php/home.php";
+                    window.location.href = "./home.php";
                 }, 3000);
             } else {
                 error.innerHTML = `<p class="text-danger">${json["message"]}</p>`;

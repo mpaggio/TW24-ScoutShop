@@ -1,5 +1,5 @@
 <?php
-    require_once("../php/bootstrap.php");
+    require_once __DIR__ . "/../php/bootstrap.php";
     
     function parseVersionCode($versionCode) {
         $parts = explode("_", $versionCode);

@@ -1,12 +1,12 @@
 <?php
-require_once('../php/bootstrap.php');
-require_once('../utils/functions.php');
+    require_once __DIR__ . "/../php/bootstrap.php";
+    require_once __DIR__ . "/../utils/functions.php";
 
-header('Content-Type: application/json');
+    header('Content-Type: application/json');
 
-if (isUserLoggedIn()) {
-    echo json_encode(['isLoggedIn' => true]);
-} else {
-    echo json_encode(['isLoggedIn' => false]);
-}
+    if (isUserLoggedIn()) {
+        echo json_encode(['isLoggedIn' => true]);
+    } else {
+        echo json_encode(['isLoggedIn' => false]);
+    }
 ?>

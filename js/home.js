@@ -25,8 +25,7 @@ function generaProdottiCasuali(prodotti) {
         </ul>
     </section>
     `;
-
-    console.log(result);
+    
     return result;
 }
 
@@ -103,7 +102,7 @@ function attachEventListener(productTitleLink) {
 
 
 async function caricaProdotti() {
-    const url = '../api/api-prodotti.php';
+    const url = './api/api-prodotti.php';
     try {
         const response = await fetch(url);
         if (!response.ok) {

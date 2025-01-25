@@ -1,10 +1,10 @@
 <?php
 
-    require_once("../php/bootstrap.php");
-    require_once("../utils/functions.php");
+    require_once __DIR__ . "/../php/bootstrap.php";
+    require_once __DIR__ . "/../utils/functions.php";
     
     if (!isUserLoggedIn()) {
-        header("Location: ../php/home.php");
+        header("Location: ../home.php");
         die();
     }
     

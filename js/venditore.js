@@ -58,13 +58,12 @@ iconProfileButton.addEventListener("click", () => {
 
 document.addEventListener("click", (event) => {
     if (!dropdownMenu.contains(event.target) && !dropdownMenu.classList.contains("show")) {
-        console.log("Premuto fuori dal quadratino");
         removeStyles();
     }
 })
 
 async function checkIfLoggedIn() {
-    const url = "../api/api-check-login.php";
+    const url = "./api/api-check-login.php";
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -77,7 +76,7 @@ async function checkIfLoggedIn() {
 
 
 async function getUnreadNotificationsCount() {
-    const url = "../api/api-notification.php";
+    const url = "./api/api-notification.php";
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -98,14 +97,12 @@ async function getUnreadNotificationsCount() {
 
 async function updateNotificationBadge() {
     const isLoggedIn = await checkIfLoggedIn();
-    console.log(isLoggedIn);
     if (!isLoggedIn) {
         notificationSpan.classList.add('d-none');
         return;
     }
 
     const unreadCount = await getUnreadNotificationsCount();
-    console.log(unreadCount);
 
     if (unreadCount > 0) {
         notificationSpan.textContent = unreadCount;
@@ -336,7 +333,7 @@ function generaOrdini(ordini) {
 }
 
 async function getArticleData() {
-    const url = "../api/api-articolo-singolo.php";
+    const url = "./api/api-articolo-singolo.php";
     const [parte1, ...resto] = productID.split("_");
     const parte2 =  `_${resto.join('_')}`;
     
@@ -362,7 +359,7 @@ async function getArticleData() {
 }
 
 async function getArticoli() {
-    const url = "../api/api-articoli-venditore.php";
+    const url = "./api/api-articoli-venditore.php";
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -382,7 +379,7 @@ async function getArticoli() {
 }
 
 async function getSearchArticles(text) {
-    const url = "../api/api-articoli-venditore.php";
+    const url = "./api/api-articoli-venditore.php";
     try {
         const response = await fetch(url, { 
             method: "POST", 
@@ -405,7 +402,7 @@ async function getSearchArticles(text) {
 }
 
 async function getOrdini() {
-    const url = "../api/api-ordini-venditore.php";
+    const url = "./api/api-ordini-venditore.php";
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -421,7 +418,8 @@ async function getOrdini() {
 }
 
 async function addProduct(formData) {
-    const url = "../api/api-aggiungi-prodotto.php";
+    console.log("Adding product...");
+    const url = "./api/api-aggiungi-prodotto.php";
     
     try {
         const response = await fetch(url, { 
@@ -450,7 +448,7 @@ async function addProduct(formData) {
 }
 
 async function editProduct(formData) {
-    const url = "../api/api-modifica-prodotto.php";
+    const url = "./api/api-modifica-prodotto.php";
     
     try {
         const response = await fetch(url, { 
@@ -479,7 +477,7 @@ async function editProduct(formData) {
 }
 
 async function deleteArticle(id) {
-    const url = "../api/api-elimina-prodotto.php";
+    const url = "./api/api-elimina-prodotto.php";
     const [parte1, ...resto] = id.split("_");
     const parte2 =  `_${resto.join('_')}`;
     
@@ -527,16 +525,18 @@ searchBar.addEventListener("input", () => {
 })
 
 saveButton.addEventListener("click", (event) => {
-    const form = document.querySelector("main > div > div > section > div > form")
+    const form = document.querySelector("main > div > div > section > div > form");
+    event.preventDefault();
     if(!form.checkValidity()) {
-        event.preventDefault();
-        loginForm.reportValidity();
+        // event.preventDefault();
+        form.reportValidity();
     } else {
         const formData = new FormData(form);
         if (productID === "") {
             addProduct(formData).then((success) => {
                 if (success) {
                     title.innerText = "Prodotto aggiunto con successo!";
+                    getArticoli();
                 } else {
                     title.innerText = "Errore nell'aggiunta del prodotto!";
                 }
@@ -549,6 +549,7 @@ saveButton.addEventListener("click", (event) => {
             editProduct(formData).then((success) => {
                 if (success) {
                     title.innerText = "Prodotto modificato con successo!";
+                    getArticoli();
                 } else {
                     title.innerText = "Errore nella modifica del prodotto!";
                 }

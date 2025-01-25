@@ -1,15 +1,12 @@
 <?php
-    require_once("../php/bootstrap.php");
-    require_once("../utils/functions.php");
+        
+    require_once __DIR__ . "/../php/bootstrap.php";
+    require_once __DIR__ . "/../utils/functions.php";
     
-    if (!isUserLoggedIn() || $_SESSION["venditore"]) {
-        header("location: ../index.php");
+    if (!isUserLoggedIn() || !$_SESSION["venditore"]) {
+        header("location: ../home.php");
         die();
     }
-    
-    // ini_set('display_errors', 1);
-    // ini_set('display_startup_errors', 1);
-    // error_reporting(E_ALL);
     
     $productName = $_POST['productName'];
     $productCategory = $_POST['productCategory'];

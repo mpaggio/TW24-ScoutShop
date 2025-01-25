@@ -2,8 +2,6 @@ const categoria = new URLSearchParams(window.location.search).get("Categoria");
 
 function generaProdottiDiCategoria(prodotti) {
 
-    console.log(prodotti);
-
     let result = `
     <section>
         <h2>Prodotti (${categoria})</h2>
@@ -29,8 +27,7 @@ function generaProdottiDiCategoria(prodotti) {
         </ul>
     </section>
     `;
-
-    console.log(result);
+    
     return result;
 }
 
@@ -48,7 +45,7 @@ function attachEventListener(productTitleLink) {
 
 
 async function caricaProdottiCategoria() {
-    const url = `../api/api-prodotti-categoria.php?Categoria=${encodeURIComponent(categoria)}`;
+    const url = `./api/api-prodotti-categoria.php?Categoria=${encodeURIComponent(categoria)}`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
