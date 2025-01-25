@@ -141,6 +141,7 @@ async function caricaNotifiche() {
         main.innerHTML = notifiche;
         if (json["venditore"]){
             document.body.classList.remove("vh-100", "h-100", "m-0", "d-flex", "flex-column");
+            main.classList.remove("container-fluid", "flex-grow-1", "overflow-hidden");
         }
         const leggiTutto = document.querySelector("main > section > div > button");
         const cancella = document.querySelectorAll("main > section > ul > li > article > div > a");

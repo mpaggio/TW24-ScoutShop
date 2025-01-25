@@ -204,7 +204,14 @@
                             <li><a class="dropdown-item" href="./profilo-compratore.php" aria-label="Vai al profilo">Profilo</a></li>
                             <li><a class="dropdown-item" href="./notification.php" aria-label="Vai alle notifiche">Notifiche</a></li>
                             <li><hr class="dropdown-divider" aria-hidden="true"></li>
-                            <li><a class="dropdown-item" href="./api/api-logout.php" aria-label="Esci dal profilo">Log out</a></li>
+                            <?php
+                                if (isset($_SESSION["email"])) {
+                                    echo '<li><a class="dropdown-item" href="./api/api-logout.php" aria-label="Esci dal profilo">Log out</a></li>';
+                                } else {
+                                    echo '<li><a class="dropdown-item" href="./login.php" aria-label="Esci dal profilo">Log in</a></li>';
+                                }
+                            ?>
+                            
                         </ul>
                     </div>
                 </div>

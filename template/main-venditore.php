@@ -17,8 +17,8 @@
             <div class="d-none border border-dark border-2 p-3">
                 <form class="row justify-content-between" enctype="multipart/form-data">
                     <div class="d-flex justify-content-end">
-                        <input class="btn btn-secondary me-3 fs-5" type="reset" value="Chiudi">
-                        <input class="btn btn-primary fs-5" type="submit" value="Salva">
+                        <input class="btn btn-secondary me-3 fs-5" type="reset" value="Chiudi" aria-label="Chiudi form" />
+                        <input class="btn btn-primary fs-5" type="submit" value="Salva" aria-label="Salva form" />
                     </div>
                 </form>
             </div>

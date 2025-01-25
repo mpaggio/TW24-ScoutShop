@@ -270,15 +270,15 @@ function generaArticoli(articoli) {
     for(let i = 0; i < articoli.length; i++) {
         let articolo = `
             <div class="d-flex justify-content-around border border-dark border-2 mt-3 w-100 p-2" id="${articoli[i]["Di_Codice_prodotto"]}${articoli[i]["Codice_prodotto"]}">
-                <img src="${articoli[i]["Nome_immagine"]}" class="object-fit-cover w-25" alt="${articoli[i]["Nome_immagine"]}" />
+                <img src="${articoli[i]["Nome_immagine"]}" class="object-fit-cover w-25" alt="${articoli[i]["Nome_prodotto"]}" />
                 <div class="d-flex flex-column justify-content-center align-items-start">
-                    <h5 class="fs-3">${articoli[i]["Nome_prodotto"]}</h5>
+                    <h3 class="fs-3">${articoli[i]["Nome_prodotto"]}</h3>
                     <p class="fs-4">
                         Prezzo: ${articoli[i]["Prezzo"]}€ - Pezzi rimasti: ${articoli[i]["Disponibilita"]}
                     </p>
                 </div>
                 <div class="d-flex flex-column justify-content-around">
-                    <a class="icon-link fs-4 text-primary" href="#">
+                    <a class="icon-link fs-4 text-primary" href="#" title="Modifica prodotto">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path
@@ -288,7 +288,7 @@ function generaArticoli(articoli) {
                         </svg>
                     </a>
                     <a class="icon-link fs-4 text-danger" href="#" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal">
+                        data-bs-target="#deleteModal" title="Elimina prodotto">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                             <path
@@ -318,7 +318,7 @@ function generaOrdini(ordini) {
 
     let row = `
       <li class="list-group-item w-100">
-        <h5 class="fs-2">Ordine no. ${ordine["Codice_ordine"]}</h5>
+        <h4 class="fs-2">Ordine no. ${ordine["Codice_ordine"]}</h4>
         <p class="d-flex flex-wrap mb-0 fs-4">
           <span class="fw-bold">${ordine["Email_compratore"]} ha ordinato in data (${ordine["Data_ordine"]}):</span>
           ${dettagliHTML}
