@@ -37,7 +37,7 @@ loginRadio.addEventListener("change", function () {
 });
 
 // Richiesta post di login
-async function login(formData, seller) {
+async function login(formData) {
     const url = "../api/api-login.php";
     
     try {
@@ -55,19 +55,22 @@ async function login(formData, seller) {
             json = null; // Imposta a null se non è parsabile
         }
         
-        if (!response.ok) {
-            // Gestione degli errori con risposta non OK
-            if (response.status === 401) {
+        if (response.ok) {
+            if (json["status"] === "redirect") {
+                window.location.href = json["seller"] ? "../template/base-venditore.php" : "../php/home.php";
+            } else if (json["status"] === "error") {
                 errorLogin.innerHTML = `<p>${json["message"]}</p>`;
-            } else {
-                errorLogin.innerHTML = `<p>Errore durante il login.</p>`;
+            } else if (json["status"] === "success") {
+                // Login riuscito
+                errorLogin.innerHTML = `<p class="text-success">${json["message"]}</p>`;
+                setTimeout(() => {
+                    if (json["seller"]) {
+                        window.location.href = "../template/base-venditore.php";
+                    } else {
+                        window.location.href = "../php/home.php";
+                    }
+                }, 1500);
             }
-        } else {
-            // Login riuscito
-            errorLogin.innerHTML = `<p class="text-success">${json["message"]}</p>`;
-            setTimeout(() => {
-                window.location.href = "../php/home.php";
-            }, 1500);
         }
     } catch (error) {
         // Errore di rete o altro problema
@@ -96,7 +99,7 @@ async function signup(formData) {
         
         if (response.ok) {
             // Registrazione riuscita
-            errorSignup.innerHTML = `<p>${json["message"]}</p>`;
+            errorSignup.innerHTML = `<p class="text-success">${json["message"]}</p>`;
             setTimeout(() => {
                 window.location.href = "../php/home.php";
             }, 1500);
@@ -117,7 +120,7 @@ loginButton.addEventListener("click", (event) => {
         loginForm.reportValidity();
     } else {
         const formData = new FormData(loginForm);
-        login(formData, isSeller.checked);
+        login(formData);
     }
 });
 

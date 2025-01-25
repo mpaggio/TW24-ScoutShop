@@ -3,8 +3,11 @@
     require_once("../utils/functions.php");
     
     if (isUserLoggedIn()) {
-        header("location: ../php/home.php");
-        die();
+        
+        header("Content-type: application/json");
+        echo json_encode(array("status" => "redirect", "message" => "Utente già loggato!", "seller" => $_SESSION["venditore"]));
+        
+        exit();
     }
     
     ini_set('display_errors', 1);
@@ -24,15 +27,12 @@
         if (password_verify($password, $result["Password"])) {
             $_SESSION["email"] = $email;
             $_SESSION["venditore"] = $seller;
-            $response = array("status" => "success", "message" => "Login effettuato con successo!");
-            http_response_code(200);
+            $response = array("status" => "success", "message" => "Login effettuato con successo!", "seller" => $seller);
         } else {
             $response = array("status" => "error", "message" => "Credenziali non valide!");
-            http_response_code(401);
         }
     } else {
         $response = array("status" => "error", "message" => "Credenziali non valide!");
-        http_response_code(401);
     }
     
     header("Content-type: application/json");
