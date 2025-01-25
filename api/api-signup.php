@@ -20,14 +20,11 @@
         $result = $dbh->createAccount($email, $hashedPassword, $nome, $cognome);
         $_SESSION["email"] = $email;
         $_SESSION["venditore"] = false;
-        http_response_code(201); // 201 Created
         $response = ["status" => "success", "message" => "Registrazione completata con successo."];
     } catch (Exception $e) {
         if ($e->getMessage() === "USER_EXISTS") {
-            http_response_code(409); // 409 Conflict
             $response = ["status" => "error", "message" => "Email già registrata."];
         } elseif ($e->getMessage() === "INSERT_FAILED") {
-            http_response_code(500); // 500 Internal Server Error
             $response = ["status" => "error", "message" => "Errore durante la registrazione."];
         }
     }

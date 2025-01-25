@@ -19,7 +19,6 @@
         $response = array("status" => "success", "message" => "Prodotto eliminato con successo");
     } else {
         $response = array("status" => "error", "message" => "Errore durante l'eliminazione del prodotto");
-        http_response_code(400);
     }
     
     header("Content-type: application/json");

@@ -452,6 +452,18 @@ main>section>article>aside>form {
     margin: 0 20px;
 }
 
+main>section>article>aside>form>input:disabled {
+    background-color: #21295c;
+    color: #bcd5e7;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+main>section>article>aside>form>input:disabled:hover {
+    background-color: #21295c;
+    color: #bcd5e7;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
 main>section>article>aside>form>input {
     background-color: #21295c;
     color: #bcd5e7;
@@ -511,12 +523,6 @@ main>section>article>aside>form>fieldset>input {
     text-align: center;
     appearance: none;
 }
-
-
-
-
-
-
 
 /* MEDIA QUERY */
 @media screen and (min-width: 482px) {

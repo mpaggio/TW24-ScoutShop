@@ -138,10 +138,12 @@ async function caricaNotifiche() {
         const json = await response.json();
         const notifiche = generaNotifiche(json["notifiche"], json["venditore"]);
         const main = document.querySelector("main");
+        const footer = document.querySelector("footer");
         main.innerHTML = notifiche;
         if (json["venditore"]){
             document.body.classList.remove("vh-100", "h-100", "m-0", "d-flex", "flex-column");
             main.classList.remove("container-fluid", "flex-grow-1", "overflow-hidden");
+            footer.classList.add("fixed-bottom");
         }
         const leggiTutto = document.querySelector("main > section > div > button");
         const cancella = document.querySelectorAll("main > section > ul > li > article > div > a");

@@ -24,10 +24,11 @@ function generaListaProdotti(prodotti) {
             <li class="d-flex justify-content-around align-items-center p-2 mb-3 w-100" id="${prodotto["Di_Codice_prodotto"]}${prodotto["Codice_prodotto"]}">
                 <img src="${prodotto["Nome_immagine"]}" class="object-fit-cover w-25" alt="${prodotto["Nome_prodotto"]}" />
                 <div class="d-flex flex-column felx-wrap justify-content-center align-items-start">
-                    <h5 class="fs-3 mb-1">${prodotto["Nome_prodotto"]}</h5>
+                    <h3 class="fs-3 mb-1">${prodotto["Nome_prodotto"]}</h3>
                     <span class="d-flex">
                         <p class="fs-4 mb-1">Quantità: </p>
-                        <select class="form-select">
+                        <label for="quantita ${prodotto["Nome_prodotto"]}${prodotto["Di_Codice_prodotto"]}" class="visually-hidden">Quantità</label>
+                        <select name="quantita ${prodotto["Nome_prodotto"]}${prodotto["Di_Codice_prodotto"]}" id="quantita ${prodotto["Nome_prodotto"]}${prodotto["Di_Codice_prodotto"]}" class="form-select">
                             ${select}
                         </select>
                     </span>
@@ -37,7 +38,7 @@ function generaListaProdotti(prodotti) {
                 </div>
                 <div class="d-flex flex-column justify-content-around">
                     <a class="icon-link text-danger fs-4" href="#" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal">
+                        data-bs-target="#deleteModal" title="Rimuovi prodotto">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                             fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                             <path
@@ -101,7 +102,7 @@ function generaPagina(prodotti) {
                         <p class="fs-4">Totale:</p>
                         <p class="fs-4">${subtotale.toFixed(2)}€</p>
                     </div>
-                    <a href="./pagamento.php" class="btn btn-primary w-100 fs-3">Vai al pagamento</a>
+                    <a href="./pagamento.php" class="btn btn-primary w-100 fs-3" title="Vai al pagamento">Vai al pagamento</a>
                 </div>
             </div>
         </section>

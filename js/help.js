@@ -12,9 +12,14 @@ function modificaMain() {
         </section>
     `;
     document.body.classList.remove("vh-100", "h-100", "m-0", "d-flex", "flex-column");
+    main.classList.remove("container-fluid", "flex-grow-1", "overflow-hidden");
+    
+    const footer = document.querySelector("footer");
     const formHelp = document.querySelector("main > section > form");
     const messageInput = document.querySelector("main > section > form > textarea");
-
+    
+    footer.classList.add("fixed-bottom");
+    
     formHelp.addEventListener('submit', function(event) {
         event.preventDefault();
 

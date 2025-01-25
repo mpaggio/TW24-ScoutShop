@@ -37,7 +37,6 @@
         }
     } catch (Exception $e) {
         $response = array("status" => "fail", "message" => $e->getMessage());
-        http_response_code(400);
     }
 
     header("Content-type: application/json");

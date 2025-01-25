@@ -59,7 +59,7 @@
         
         // Ritorna i prodotti venduti più recentemente (home buyer)
         public function getRecentProducts($email, $n=-1) {
-            $query = "SELECT P.*, VP.* FROM DETTAGLIO_ORDINE DO INNER JOIN VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON DO.Di_Codice_prodotto = VP.Di_Codice_prodotto AND DO.Codice_prodotto = VP.Codice_prodotto AND P.Codice_prodotto = VP.Di_Codice_prodotto INNER JOIN ORDINE O ON DO.Codice_ordine = O.Codice_ordine WHERE O.E_mail_compratore != ? ORDER BY O.Data_ordine DESC";
+            $query = "SELECT P.*, VP.* FROM DETTAGLIO_ORDINE DO INNER JOIN VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON DO.Di_Codice_prodotto = VP.Di_Codice_prodotto AND DO.Codice_prodotto = VP.Codice_prodotto AND P.Codice_prodotto = VP.Di_Codice_prodotto INNER JOIN ORDINE O ON DO.Codice_ordine = O.Codice_ordine WHERE O.E_mail_compratore != ? GROUP BY VP.Di_Codice_prodotto ORDER BY O.Data_ordine DESC";
             
             if ($n > 0) {
                 $query .= " LIMIT ?";
@@ -283,7 +283,11 @@
             $query = "INSERT INTO CARRELLO (E_mail, Di_Codice_prodotto, Codice_prodotto, Quantita_) VALUES (?, ?, ?, ?)";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sssi", $email, $codice_prodotto, $codice_versione, $quantita);
-            return $stmt->execute();
+            try {
+                return $stmt->execute();
+            } catch (Exception $e) {
+                return false;
+            }
         }
         
         // Rimozione prodotti dal carrello (carrello)

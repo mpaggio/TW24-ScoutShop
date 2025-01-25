@@ -50,6 +50,12 @@ async function inviaDatiProdotto() {
 
         const responseData = await response.json();
         console.log('Risposta:', responseData);
+        const alert = document.querySelector("main > section > article > aside > form > div");
+        if (Object.keys(responseData).includes("success")) {
+            alert.innerHTML = `<p class="text-success">Prodotto aggiunto al carrello</p>`;
+        } else {
+            alert.innerHTML = `<p>Hai già inserito questo prodotto</p>`;
+        }
     } catch (error) {
         console.error('Errore:', error);
     }
@@ -154,6 +160,14 @@ function generaPaginaProdottoSingolo($prodotto) {
             </label>
         `;
     }
+    
+    let messaggio = "";
+    let attivo = "";
+    
+    if (versione[index]["Disponibilita"] <= 0) {
+        messaggio = `<p>Prodotto non disponibile</p>`;
+        attivo = "disabled";
+    }
                       
     result += `
                         <fieldset> 
@@ -165,7 +179,8 @@ function generaPaginaProdottoSingolo($prodotto) {
                             <input type="number" name="quantita" id="quantita" min="1" max="${versione[0]["Disponibilita"]}" value="1" />
                             <button type="button" aria-label="Incrementa quantita">+</button>
                         </fieldset>
-                        <input type="submit" value="Aggiungi al carrello" />
+                        <input type="submit" value="Aggiungi al carrello" ${attivo}/>
+                        <div class="text-danger fs-4 mt-2" role="alert">${messaggio}</div>
                     </form>
                 </aside>
             </article>

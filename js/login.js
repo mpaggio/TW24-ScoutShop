@@ -99,12 +99,14 @@ async function signup(formData) {
         
         if (response.ok) {
             // Registrazione riuscita
-            errorSignup.innerHTML = `<p class="text-success">${json["message"]}</p>`;
-            setTimeout(() => {
-                window.location.href = "./home.php";
-            }, 1500);
-        } else {
-            errorSignup.innerHTML = '<p>Errore durante la registrazione.</p>';
+            if (json["status"] === "success") {
+                errorSignup.innerHTML = `<p class="text-success">${json["message"]}</p>`;
+                setTimeout(() => {
+                    window.location.href = "./home.php";
+                }, 1500);
+            } else {
+                errorSignup.innerHTML = '<p>Errore durante la registrazione.</p>';
+            }
         }
     } catch (error) {
         // Errore di rete o altro problema
