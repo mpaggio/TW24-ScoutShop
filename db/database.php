@@ -41,7 +41,7 @@
         
         // Ritorna i prodotti più venduti (home buyer)
         public function getTopProducts($n=-1) {
-            $query = "SELECT P.*, VP.*, SUM(DO.Quantita_) AS Quantita_Venduta FROM DETTAGLIO_ORDINE DO INNER JOIN VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON DO.Di_Codice_prodotto = VP.Di_Codice_prodotto AND DO.Codice_prodotto = VP.Codice_prodotto AND P.Codice_prodotto = VP.Di_Codice_prodotto GROUP BY VP.Di_Codice_prodotto, VP.Codice_prodotto, VP.Marchio, VP.Descrizione ORDER BY Quantita_Venduta DESC
+            $query = "SELECT P.*, VP.*, SUM(DO.Quantita_) AS Quantita_Venduta FROM DETTAGLIO_ORDINE DO INNER JOIN VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON DO.Di_Codice_prodotto = VP.Di_Codice_prodotto AND DO.Codice_prodotto = VP.Codice_prodotto AND P.Codice_prodotto = VP.Di_Codice_prodotto GROUP BY VP.Di_Codice_prodotto ORDER BY Quantita_Venduta DESC
             ";
             
             if ($n > 0) {
@@ -256,6 +256,15 @@
             $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
             return $stmt->execute();
         }
+        
+        // Diminuisce il numero di prodotti disponibili (carrello)
+        public function decreaseProductAvailability($codice_prodotto, $codice_versione, $quantita) {
+            $query = "UPDATE VERSIONE_PRODOTTO SET Disponibilita = Disponibilita - ? WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("iss", $quantita, $codice_prodotto, $codice_versione);
+            
+            return $stmt->execute();
+        }
 
         // Visualizza prodotti nel carrello (carrello)
         public function getUserProductsInCart($email) {
@@ -312,17 +321,39 @@
             }
         }
         
+        // Svuota carrello (carrello)
+        public function emptyCart($email) {
+            $query = "DELETE FROM `carrello` WHERE E_mail = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $email);
+            return $stmt->execute();
+        }
+        
         // Inserimenti dettagli ordine (pagamento)
         public function addOrderDetails($dettaglio_ordine) {
             $query = "INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES (?,?,?,?,?)";
             
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("sssss", $dettaglio_ordine["Di_Codice_prodotto"], $dettaglio_ordine["Codice_prodotto"], $dettaglio_ordine["Codice_ordine"], $dettaglio_ordine["Quantita_"], $dettaglio_ordine["Prezzo_d_acquisto"]);
+            
             return $stmt->execute();
         }
         
+        // Ritorna l'ultimo codice prodotto (profilo venditore)
+        public function getLastOrderCode() {
+            $query = "SELECT Codice_ordine FROM ORDINE ORDER BY Codice_ordine DESC LIMIT 1";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            return $result->fetch_row();
+        }
+        
         // Creazione di un ordine (pagamento)
-        public function newOrder($codice_ordine, $data_ordine, $email_compratore, $email_venditore, $tipo_spedizione, $dettagli_ordine) {
+        public function newOrder($data_ordine, $email_compratore, $email_venditore, $tipo_spedizione, $dettagli_ordine) {
+            $codice_ordine = str_pad($this->getLastOrderCode()[0] + 1, 6, "0", STR_PAD_LEFT);
+            
             $query = "INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES (?,?,0,0,?,?,?)";
             
             $success = 1;
@@ -333,7 +364,14 @@
             if ($success) {
                 foreach($dettagli_ordine as $dettaglio) {
                     if ($success) {
-                        $success = addOrderDetails($dettaglio);
+                        
+                        $tmp["Codice_ordine"] = $codice_ordine;
+                        $tmp["Di_Codice_prodotto"] = $dettaglio["Di_Codice_prodotto"];
+                        $tmp["Codice_prodotto"] = $dettaglio["Codice_prodotto"];
+                        $tmp["Quantita_"] = $dettaglio["Quantita_"];
+                        $tmp["Prezzo_d_acquisto"] = $dettaglio["Prezzo"] - $dettaglio["Prezzo"] * $dettaglio["Sconto"];
+                        
+                        $success = $this->addOrderDetails($tmp);
                     } else {
                         break;
                     }
@@ -477,6 +515,24 @@
             $stmt->bind_param("ssss", $nome, $cognome, $indirizzo, $email);
             
             return $stmt->execute();
+        }
+        
+        // Ritorna il prezzo della spedizione (carrello)
+        public function getShippingPrice($tipo_spedizione) {
+            $query = "SELECT Costo_spedizione FROM SPEDIZIONE WHERE Tipo_spedizione = ?";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("s", $tipo_spedizione);
+            $stmt->execute();
+            
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                return $row["Costo_spedizione"];
+            } else {
+                // Gracefully handle missing data
+                return null; // Or throw an exception, depending on your design
+            }
         }
     }
 ?>

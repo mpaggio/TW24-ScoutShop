@@ -15,7 +15,7 @@
     <header>
         <nav class="navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="../php/home.php">
                     <img src="../img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top" />
                 </a>
                 <a href="" class="text-decoration-none text-secondary">

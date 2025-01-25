@@ -1,3 +1,5 @@
+let spedizione = "consegnaStandard";
+
 function generaListaProdotti(prodotti) {
     let listaProdotti = "";
     for (const prodotto of prodotti) {
@@ -83,9 +85,15 @@ function generaPagina(prodotti) {
                             </label>
                         </div>
                         <div class="form-check d-flex align-items-center ms-3">
-                            <input class="form-check-input" type="radio" name="consegna" id="consegnaExpress" value="10" />
+                            <input class="form-check-input" type="radio" name="consegna" id="consegnaExpress" value="4.5" />
                             <label class="form-check-label fs-5 ms-1" for="consegnaExpress">
-                                Consegna express (10.00€)
+                                Consegna express (4.50€)
+                            </label>
+                        </div>
+                        <div class="form-check d-flex align-items-center ms-3">
+                            <input class="form-check-input" type="radio" name="consegna" id="consegnaSuperExpress" value="8.5" />
+                            <label class="form-check-label fs-5 ms-1" for="consegnaSuperExpress">
+                                Consegna super express (8.50€)
                             </label>
                         </div>
                     </div>
@@ -100,7 +108,7 @@ function generaPagina(prodotti) {
     `;
 }
 
-function attachEventListeners(select, radio, deleteButtons) {
+function attachEventListeners(select, radio, deleteButtons, pagamento) {
     select.forEach((selector) => {
         selector.addEventListener('change', async (event) => {
             const url = "../api/api-modifica-carrello.php";
@@ -141,6 +149,7 @@ function attachEventListeners(select, radio, deleteButtons) {
             const subtotale = document.querySelector("main > section > div> div > div:first-of-type > p:last-of-type");
             const consegna = parseFloat(event.target.value);
             totale.textContent = `${parseFloat(subtotale.textContent) + consegna}€`;
+            spedizione = event.target.id;
         });
     });
     
@@ -153,10 +162,28 @@ function attachEventListeners(select, radio, deleteButtons) {
             const deleteButton = deleteModal.querySelector("#deleteModal > div > div > div:last-of-type > button:last-of-type");
             deleteButton.addEventListener('click', (event) => {
                 event.preventDefault();
-                removeProduct(productID);
+                removeProduct(productID, deleteModal);
             });
         });
     });
+    
+    pagamento.addEventListener("click", (event) => {
+        event.preventDefault();
+        let nomeSpedizione = "";
+        switch (spedizione) {
+            case "consegnaStandard":
+                nomeSpedizione = "Standard";
+                break;
+            case "consegnaExpress":
+                nomeSpedizione = "Express";
+                break;
+            case "consegnaSuperExpress":
+                nomeSpedizione = "Super Express";
+                break;
+        }
+        console.log(nomeSpedizione);
+        window.location.href = `../php/pagamento.php?spedizione=${encodeURIComponent(nomeSpedizione)}`;
+    })
 }
 
 async function caricaCarrello() {
@@ -182,7 +209,8 @@ async function caricaCarrello() {
                 const select = document.querySelectorAll('main select');
                 const consegna = document.querySelectorAll('main input[type="radio"]');
                 const deleteButton = document.querySelectorAll("main > section > div > div > ul > li > div:last-of-type > a");
-                attachEventListeners(select, consegna, deleteButton);
+                const pagamento = document.querySelector("main > section > div > div:last-of-type > a")
+                attachEventListeners(select, consegna, deleteButton, pagamento);
             } else {
                 const main = document.querySelector('main');
                 const pagina = generaPagina("");
@@ -219,7 +247,6 @@ async function removeProduct(id, deleteModal) {
             console.error("Errore nel parsing della risposta JSON:", parseError);
             json = null; // Imposta a null se non è parsabile
         }
-        const deleteModal = document.querySelector("#deleteModal");
         const modal = bootstrap.Modal.getInstance(deleteModal);
         modal.hide();
         console.log(`${json["status"]}: ${json["message"]}`);

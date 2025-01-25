@@ -118,6 +118,9 @@ async function caricaProfiloCompratore() {
         const main = document.querySelector("main");
         main.classList.add("d-flex", "flex-grow-1", "flex-column");
         main.innerHTML = dati + ordini;
+        
+        document.body.classList.add("vh-100", "h-100", "m-0", "d-flex", "flex-column");
+        main.classList.add("d-flex", "flex-column", "flex-grow-1");
         const form = document.querySelector("section > article > form");
         attachEventListenerForm(form);
     } catch (error) {

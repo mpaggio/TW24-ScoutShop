@@ -1,3 +1,18 @@
+<?php
+
+    require_once("../php/bootstrap.php");
+    require_once("../utils/functions.php");
+    
+    if (!isUserLoggedIn()) {
+        header("Location: ../template/login.php");
+        die();
+    } else if (!$_SESSION["venditore"]) {
+        header("Location: ../php/home.php");
+        die();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 
@@ -33,10 +48,10 @@
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle">1</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end mt-3">
-                            <li><a class="dropdown-item" href="profilo-venditore.html" aria-label="Vai al profilo">Profilo</a></li>
-                            <li><a class="dropdown-item" href="notification.html" aria-label="Vai alle notifiche">Notifiche</a></li>
+                            <li><a class="dropdown-item" href="../template/base-venditore.php" aria-label="Vai al profilo">Profilo</a></li>
+                            <li><a class="dropdown-item" href="../php/notification.php" aria-label="Vai alle notifiche">Notifiche</a></li>
                             <li><hr class="dropdown-divider" aria-hidden="true"></li>
-                            <li><a class="dropdown-item" href="home-buyer.html" aria-label="Esci dal profilo">Log out</a></li>
+                            <li><a class="dropdown-item" href="../api/api-logout.php" aria-label="Esci dal profilo">Log out</a></li>
                         </ul>
                     </div>
                 </div>
