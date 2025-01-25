@@ -95,7 +95,7 @@ function attachEventListenerForm(form) {
 
             const json = await response.json();
             if (json.status === 'success') {
-                console.log('Dati salvati correttamente');
+                alert('Dati salvati correttamente');
             } else {
                 console.log('Errore nel salvataggio dei dati');
             }

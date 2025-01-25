@@ -148,7 +148,7 @@ async function getUnreadNotificationsCount() {
             throw new Error("Errore nel recupero delle notifiche");
         }
         const data = await response.json();
-        return data.length;
+        return data.result;
     } catch (error) {
         console.error('Errore nel recupero delle notifiche:', error);
         return 0;
@@ -158,16 +158,18 @@ async function getUnreadNotificationsCount() {
 async function updateNotificationBadge() {
     const isLoggedIn = await checkIfLoggedIn();
     if (!isLoggedIn) {
+        notificationSpan.classList.add('d-none');
         return;
     }
 
     const unreadCount = await getUnreadNotificationsCount();
+    console.log(unreadCount);
 
     if (unreadCount > 0) {
         notificationSpan.textContent = unreadCount;
-        notificationSpan.style.display = 'flex';
+        notificationSpan.classList.remove('d-none');
     } else {
-        notificationSpan.style.display = 'none';
+        notificationSpan.classList.add('d-none');
     }
 }
 

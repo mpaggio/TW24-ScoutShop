@@ -40,11 +40,7 @@
 
     if (isset($_POST["count"])) {
         $result = $dbh->countNotifyToRead($_SESSION["email"], !$_SESSION["venditore"]);
-        if ($result) {
-            echo json_encode(['status' => 'success']);
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Errore nella visualizzazione della notifica']);
-        }
+        echo json_encode(['result' => $result]);
         exit();
     }
 
