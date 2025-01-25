@@ -20,7 +20,7 @@ async function isUserLoggedIn() {
 
 async function inviaDatiProdotto() {
     const loggedIn = await isUserLoggedIn();
-    alert(loggedIn);
+    console.log(loggedIn);
     if (!loggedIn) {
         window.location.href = "../template/login.php";
         return;
