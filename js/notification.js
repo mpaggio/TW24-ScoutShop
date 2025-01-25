@@ -11,8 +11,14 @@ function generaNotifiche(notifiche, isVenditore) {
     for(let i=0; i < notifiche.length; i++){
 
         let message = isVenditore ? `${notifiche[i]["E_mail_compratore"]} ha effettuato un nuovo ordine (codice: ${notifiche[i]["Codice_ordine"]})!` : `Ordine n° ${notifiche[i]["Codice_ordine"]} effettuato con successo! Clicca per andare alla pagina degli ordini`
+        let colorClass = "";
+        
+        if ((isVenditore && notifiche[i]["LettoVenditoreYN"] === "1") || (!isVenditore && notifiche[i]["LettoCompratoreYN"] === "1")) {
+            colorClass = "bg-light";
+        }
+
         let notifica = `
-            <li class="mb-3 p-2">
+            <li class="mb-3 p-2 ${colorClass}">
                 <article>
                     <h2 id="${notifiche[i]["Codice_ordine"]}" class="fw-bold mb-0 fs-6">${message}</h2>
                     <div class="d-flex justify-content-between align-items-center mt-3">
