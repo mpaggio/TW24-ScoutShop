@@ -11,7 +11,8 @@ function generaProdottiCasuali(prodotti) {
             <article class="p-3 d-flex flex-column w-100">
                 <img class="d-block mx-auto mt-0 mb-2" src="${prodotti[i]["Nome_immagine"]}" alt="${prodotti[i]["Nome_prodotto"]}" />
                 <a class="text-decoration-none" href="prodotto-singolo.php" aria-label="Vai alla pagina del prodotto singolo">
-                    <h3 id="${prodotti[i]["Di_Codice_prodotto"]}">${prodotti[i]["Nome_prodotto"]}</h3>
+                    <span class="d-none">${prodotti[i]["Di_Codice_prodotto"]}</span>
+                    <h3>${prodotti[i]["Nome_prodotto"]}</h3>
                 </a>
                 <p>Prezzo: ${prodotti[i]["Prezzo"]}€</p>
             </article>
@@ -42,7 +43,8 @@ function generaProdottiPiuVenduti(prodotti) {
             <article class="p-3 d-flex flex-column w-100">
                 <img class="w-100 d-block mx-auto mt-0 mb-2" src="${prodotti[i]["Nome_immagine"]}" alt="${prodotti[i]["Nome_prodotto"]}" />
                 <a class="text-decoration-none" href="prodotto-singolo.php" aria-label="Vai alla pagina del prodotto singolo">
-                    <h3 id="${prodotti[i]["Di_Codice_prodotto"]}">${prodotti[i]["Nome_prodotto"]}</h3>
+                    <span class="d-none">${prodotti[i]["Di_Codice_prodotto"]}</span>
+                    <h3>${prodotti[i]["Nome_prodotto"]}</h3>
                 </a>
                 <p>Prezzo: ${prodotti[i]["Prezzo"]}€</p>
             </article>
@@ -71,7 +73,8 @@ function generaProdottiConsigliati(prodotti) {
             <article class="p-3 d-flex flex-column w-100">
                 <img class="w-100 d-block mx-auto mt-0 mb-2" src="${prodotti[i]["Nome_immagine"]}" alt="${prodotti[i]["Nome_prodotto"]}" />
                 <a class="text-decoration-none" href="prodotto-singolo.php" aria-label="Vai alla pagina del prodotto singolo">
-                    <h3 id="${prodotti[i]["Di_Codice_prodotto"]}">${prodotti[i]["Nome_prodotto"]}</h3>
+                    <span class="d-none">${prodotti[i]["Di_Codice_prodotto"]}</span>
+                    <h3>${prodotti[i]["Nome_prodotto"]}</h3>
                 </a>
                 <p>Prezzo: ${prodotti[i]["Prezzo"]}€</p>
             </article>
@@ -91,7 +94,7 @@ function attachEventListener(productTitleLink) {
     productTitleLink.forEach((link) => {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            const codiceProdotto = link.querySelector("h3").getAttribute("id");
+            const codiceProdotto = link.querySelector("span").innerText;
             const nomeProdotto = link.querySelector("h3").innerText;
             window.location.href = `prodotto-singolo.php?Di_Codice_prodotto=${encodeURIComponent(codiceProdotto)}&Nome_prodotto=${encodeURIComponent(nomeProdotto)}`;
         });

@@ -38,11 +38,11 @@ INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, 
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000008', 'Maglietta Agesci', 'Magliette');
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000009', 'Maglietta polo cotone - Protezione Civile Agesci Emilia Romagna', 'Magliette');
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000010', 'Maglietta Aquile Randage Il Film', 'Magliette');
-INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000011', 'Maglietta B.P. con immagine \"QUERCIA\"', 'Magliette');
-INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000012', 'Maglietta B.P. con immagine \"FUOCO\"', 'Magliette');
-INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000013', 'Maglietta B.P. con immagine \"GUARDARE LONTANO\"', 'Magliette');
-INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000014', 'Maglietta B.P. con immagine \"GUIDA DA TE LA TUA CANOA\"', 'Magliette');
-INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000015', 'Maglietta B.P. con immagine \"ALBERI\"', 'Magliette');
+INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000011', 'Maglietta B.P. con immagine QUERCIA', 'Magliette');
+INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000012', 'Maglietta B.P. con immagine FUOCO', 'Magliette');
+INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000013', 'Maglietta B.P. con immagine GUARDARE LONTANO', 'Magliette');
+INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000014', 'Maglietta B.P. con immagine GUIDA DA TE LA TUA CANOA', 'Magliette');
+INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000015', 'Maglietta B.P. con immagine ALBERI', 'Magliette');
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000016', 'Maglietta cotone Route Nazionale 2024', 'Magliette');
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000017', 'Poncho Scout tech in Peva', 'Ponci');
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000018', 'Poncho antipioggia FERRINO TODOMODO RP', 'Ponci');
@@ -198,7 +198,7 @@ INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, 
 INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, `Nome_categoria`) VALUES ('000168', 'Aggiustatutto', 'Tecniche Scout');
 
 /* INSERIMENTO UTENTE VENDITORE */
-INSERT INTO `scoutshopdatabase`.`utente_venditore` (`E_mail`, `Password`) VALUES ('orazio.spina@studio.unibo.it', '12345');
+INSERT INTO `scoutshopdatabase`.`utente_venditore` (`E_mail`, `Password`) VALUES ('orazio.spina@studio.unibo.it', '$2y$10$oluepxGIgIfhT0KEXUD7ve0ACztkE6eP8tW8T5wpRlokxXaPSQ98G');
 
 /* INSERIMENTO UTENTE COMPRATORE */
 INSERT INTO `scoutshopdatabase`.`utente_compratore` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES ('mpaggiojr@gmail.com', 'password123', 'Marco', 'Paggetti', 'Via dell\'Università 50 47521 Cesena FC');

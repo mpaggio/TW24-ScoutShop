@@ -83,6 +83,13 @@ iconProfileButton.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("click", (event) => {
+    if (!dropdownMenu.contains(event.target) && !dropdownMenu.classList.contains("show")) {
+        console.log("Premuto fuori dal quadratino");
+        removeStyles();
+    }
+})
+
 
 async function getSearchArticles(text) {
     const url = "../api/api-cerca-prodotti.php";

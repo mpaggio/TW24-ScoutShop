@@ -11,6 +11,11 @@ if(!isUserLoggedIn()) {
 $templateParams["titolo"] = "Scout Shop - Notifiche";
 $templateParams["js"] = array("../js/notification.js");
 
-require('../template/base.php');
+if ($_SESSION["venditore"]) {
+    require('../template/base-venditore.php');
+} else {
+    require('../template/base.php');
+}
+
 
 ?>

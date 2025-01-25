@@ -31,7 +31,7 @@
         <nav class="navbar">
             <div class="container-fluid">
                 <div class="d-flex align-items-center">
-                    <a class="navbar-brand" href="home-buyer.html">
+                    <a class="navbar-brand" href="../template/base-venditore.php">
                         <img src="../img/ScoutShop_Logo6.png" alt="Logo" class="d-inline-block align-text-top" />
                     </a>
                 </div>
@@ -45,7 +45,7 @@
                                 <path fill-rule="evenodd"
                                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                             </svg>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle">1</span>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle d-flex align-items-center justify-content-center"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end mt-3">
                             <li><a class="dropdown-item" href="../template/base-venditore.php" aria-label="Vai al profilo">Profilo</a></li>
@@ -107,7 +107,7 @@
         </div>
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center">
-        <a href="" class="text-decoration-none">Aiuto</a>
+        <a href="../php/help.php" class="text-decoration-none">Aiuto</a>
         <div class="d-flex flex-wrap flex-column justify-content-end">
             <a href="mailto:orazio.spina@studio.unibo.it" class="text-decoration-none">orazio.spina@studio.unibo.it</a>
             <a href="mailto:marco.paggetti@studio.unibo.it"
@@ -138,6 +138,16 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../js/venditore_script.js"></script>
+
+    <?php
+    if(isset($templateParams["js"])):
+        foreach($templateParams["js"] as $script):
+    ?>
+    <script src="<?php echo $script; ?>"></script>
+    <?php
+        endforeach;
+    endif;
+    ?>
 </body>
 
 </html>

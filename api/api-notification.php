@@ -19,9 +19,9 @@
         $idNotifica = $_POST["id_notifica"];
         $result = $dbh->deleteNotify($idNotifica, !$_SESSION["venditore"]);
         if ($result) {
-            echo json_encode(['status' => 'success', 'isVenditore' => $_SESSION["venditore"]]);
+            echo json_encode(['status' => 'success']);
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Errore nell\'eliminazione della notifica', 'isVenditore' => $_SESSION["venditore"]]);
+            echo json_encode(['status' => 'error', 'message' => 'Errore nell\'eliminazione della notifica']);
         }
         exit();
     }
@@ -30,9 +30,9 @@
         $idNotifica = $_POST["view"];
         $result = $dbh->updateNotify($idNotifica, !$_SESSION["venditore"]);
         if ($result) {
-            echo json_encode(['status' => 'success']);
+            echo json_encode(['status' => 'success', 'venditore' => $_SESSION["venditore"]]);
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Errore nella visualizzazione della notifica']);
+            echo json_encode(['status' => 'error', 'message' => 'Errore nella visualizzazione della notifica', 'venditore' => $_SESSION["venditore"]]);
         }
         exit();
     }
@@ -44,7 +44,10 @@
         exit();
     }
 
-
+    $response = [
+        "notifiche" => $notifiche,
+        "venditore" => $_SESSION["venditore"]
+    ];
     
-    echo json_encode($notifiche);
+    echo json_encode($response);
 ?>

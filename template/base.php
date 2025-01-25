@@ -165,7 +165,7 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <a class="accordion-button collapsed" href="../template/help.php" aria-label="Vai alla pagina supporto/aiuto">
+                                    <a class="accordion-button collapsed" href="../php/help.php" aria-label="Vai alla pagina supporto/aiuto">
                                         Aiuto
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-question-circle ms-1" viewBox="0 0 16 16">
                                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
@@ -287,7 +287,7 @@
         
     </main>
     <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center fixed-bottom">
-        <a href="../template/help.php" class="text-decoration-none" aria-label="Vai alla pagina di supporto/aiuto ">Aiuto</a>
+        <a href="../php/help.php" class="text-decoration-none" aria-label="Vai alla pagina di supporto/aiuto ">Aiuto</a>
         <div class="d-flex flex-wrap flex-column justify-content-end">
             <a href="mailto:orazio.spina@studio.unibo.it" class="text-decoration-none" aria-label="Invia una mail a Orazio Spina">orazio.spina@studio.unibo.it</a>
             <a href="mailto:marco.paggetti@studio.unibo.it" class="text-decoration-none" aria-label="Invia una mail a Marco Paggetti">marco.paggetti@studio.unibo.it</a>

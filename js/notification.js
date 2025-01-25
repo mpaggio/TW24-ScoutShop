@@ -1,4 +1,4 @@
-function generaNotifiche(notifiche) {
+function generaNotifiche(notifiche, isVenditore) {
     let result = `
         <section>
             <div class="d-flex justify-content-between align-items-baseline my-0 mx-2">
@@ -10,10 +10,11 @@ function generaNotifiche(notifiche) {
 
     for(let i=0; i < notifiche.length; i++){
 
+        let message = isVenditore ? `${notifiche[i]["E_mail_compratore"]} ha effettuato un nuovo ordine (codice: ${notifiche[i]["Codice_ordine"]})!` : `Ordine n° ${notifiche[i]["Codice_ordine"]} effettuato con successo! Clicca per andare alla pagina degli ordini`
         let notifica = `
             <li class="mb-3 p-2">
                 <article>
-                    <h2 id="${notifiche[i]["Codice_ordine"]}" class="fw-bold mb-0 fs-6">Ordine n° ${notifiche[i]["Codice_ordine"]} effettuato con successo! Clicca per visualizzare</h2>
+                    <h2 id="${notifiche[i]["Codice_ordine"]}" class="fw-bold mb-0 fs-6">${message}</h2>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <p class="m-0">${notifiche[i]["Data_ordine"]}</p>
                         <a href="" class="text-danger" title="Elimina notifica">
@@ -51,6 +52,7 @@ function attachEventListenerReadAll(leggiTuttoButton) {
 
             if (json.status === 'success') {
                 console.log('Tutte le notifiche sono state segnate come lette');
+                window.location.reload();
             } else {
                 console.log('Errore nel segnare le notifiche come lette');
             }
@@ -77,7 +79,7 @@ function attachEventListenerDeleteNotify(cancellaLinks) {
 
                 if (json.status === 'success') {
                     console.log('Notifica eliminata con successo');
-                    /*link.closest("li").remove();*/
+                    window.location.reload();
                 } else {
                     console.log('Errore nell\'eliminazione della notifica');
                 }
@@ -92,7 +94,7 @@ function attachEventListenerViewNotify(notifies){
     notifies.forEach((notify) => {
         notify.addEventListener("click", async function(event){
             event.preventDefault();
-            const idNotifica = notify.querySelector("h2").getAttribute("id");
+            const idNotifica = notify.getAttribute("id");
             try {
                 const response = await fetch('../api/api-notification.php', {
                     method: 'POST',
@@ -104,14 +106,14 @@ function attachEventListenerViewNotify(notifies){
                 const json = await response.json();
 
                 if (json.status === 'success') {
-                    console.log('Notifica eliminata con successo');
+                    console.log('Notifica visualizzata con successo');
                     if (json.venditore) {
                         window.location.href = "../template/base-venditore.php";
                     } else {
                         window.location.href = "../php/profilo-compratore.php";
                     }
                 } else {
-                    console.log('Errore nell\'eliminazione della notifica');
+                    console.log('Errore nella visualizzazione della notifica');
                 }
             } catch (error) {
                 console.error('Errore nella richiesta:', error);
@@ -128,12 +130,15 @@ async function caricaNotifiche() {
             throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
-        const notifiche = generaNotifiche(json);
+        const notifiche = generaNotifiche(json["notifiche"], json["venditore"]);
         const main = document.querySelector("main");
-        main.innerHTML += notifiche;
+        main.innerHTML = notifiche;
+        if (json["venditore"]){
+            document.body.classList.remove("vh-100", "h-100", "m-0", "d-flex", "flex-column");
+        }
         const leggiTutto = document.querySelector("main > section > div > button");
         const cancella = document.querySelectorAll("main > section > ul > li > article > div > a");
-        const liNotifica = document.querySelectorAll("main > section > ul > li");
+        const liNotifica = document.querySelectorAll("main > section > ul > li > article > h2");
         attachEventListenerReadAll(leggiTutto);
         attachEventListenerDeleteNotify(cancella);
         attachEventListenerViewNotify(liNotifica);
