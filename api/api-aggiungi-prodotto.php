@@ -28,11 +28,11 @@
     
     if ($result[0]) {
         try {
-            $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
+            $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $result[1]);
             if ($status) {
                 $response = array("status" => "success", "message" => "Prodotto inserito correttamente.");
             } else {
-                deleteImage($path, $productImage);
+                deleteImage($path, $result[1]);
                 throw new Exception("Errore nell'inserimento del prodotto.");
             }
         } catch (Exception $e) {

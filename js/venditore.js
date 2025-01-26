@@ -108,6 +108,29 @@ addButton.addEventListener("click", () => {
             </div>
             <div class="col-lg-6 mb-3">
                 <label for="productCategory" class="form-label fs-3">Categoria prodotto:</label>
+                <select class="form-control fs-5" id="productCategory" name="productCategory" required>
+                    <option value="Felpe" selected>Felpe</option>
+                    <option value="Giacche">Giacche</option>
+                    <option value="Magliette">Magliette</option>
+                    <option value="Ponci">Ponci</option>
+                    <option value="Borracce">Borracce</option>\
+                    <option value="Cucina">Cucina</option>
+                    <option value="Illuminazione">Illuminazione</option>
+                    <option value="Materassini">Materassini</option>
+                    <option value="Sacchi a pelo">Sacchi a pelo</option>
+                    <option value="Tende">Tende</option>
+                    <option value="Zaini">Zaini</option>
+                    <option value="Calzettoni">Calzettoni</option>
+                    <option value="Camicie">Camicie</option>
+                    <option value="Cinture">Cinture</option>
+                    <option value="Distintivi">Distintivi</option>
+                    <option value="Fazzolettoni">Fazzolettoni</option>
+                    <option value="Pantaloncini">Pantaloncini</option>
+                    <option value="Cartine">Cartine</option>
+                    <option value="Manuali Scout">Manuali Scout</option>
+                    <option value="Spiritualità Scout">Spiritualità Scout</option>
+                    <option value="Tecniche Scout">Tecniche Scout</option>
+                </select>
                 <input type="text" class="form-control fs-5" id="productCategory" name="productCategory" required />
             </div>
             <div class="col-lg-6 mb-3">
