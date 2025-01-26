@@ -9,9 +9,41 @@
             }
         }
         
+        // Ritorna il nome dell'immagine
+        public function getImageName($codice_prodotto, $codice_versione) {
+            $query = "SELECT Nome_immagine FROM VERSIONE_PRODOTTO WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
+
+            $stmt = $this->db->prepare($query);
+
+            if (!$stmt) {
+                error_log("Errore nella preparazione della query: " . $this->db->error);
+                return null;
+            }
+
+            $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
+
+            if (!$stmt->execute()) {
+                error_log("Errore nell'esecuzione della query: " . $stmt->error);
+                return null;
+            }
+
+            $result = $stmt->get_result();
+            
+            error_log($result->num_rows);
+            $row = $result->fetch_assoc();
+
+            if ($row) {
+                error_log("Nome immagine trovato: " . $row["Nome_immagine"]);
+                return $row["Nome_immagine"];
+            } else {
+                error_log("Nessun risultato trovato per: $codice_prodotto, $codice_versione");
+                return null;
+            }
+        }
+        
         // Ritorna tutte le versioni prodotto (pagina venditore)
         public function getProductVerions() {
-            $query = "SELECT P.Nome_prodotto, VP.Nome_immagine, VP.Disponibilita, VP.Di_Codice_prodotto, VP.Codice_prodotto, VP.Prezzo FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto";
+            $query = "SELECT P.Nome_prodotto, VP.Nome_immagine, VP.Disponibilita, VP.Di_Codice_prodotto, VP.Codice_prodotto, VP.Prezzo, VP.Taglia, VP.Colore FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto";
             
             $stmt = $this->db->prepare($query);
             $stmt->execute();
@@ -145,7 +177,7 @@
         
         // Ritorna la versione del prodotto dati i codici (profilo venditore)
         public function getProductFromCode($codice_prodotto, $codice_versione) {
-            $query = "SELECT P.*, VP.* FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto WHERE P.Codice_prodotto = ? AND VP.Codice_prodotto = ?";
+            $query = "SELECT P.*, VP.* FROM VERSIONE_PRODOTTO VP INNER JOIN PRODOTTO P ON VP.Di_Codice_prodotto = P.Codice_prodotto WHERE VP.Di_Codice_prodotto = ? AND VP.Codice_prodotto = ?";
             
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ss", $codice_prodotto, $codice_versione);

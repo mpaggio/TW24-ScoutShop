@@ -26,7 +26,8 @@
     try {
         $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
         if ($status) {
-            $result = uploadImage(UPLOAD_DIR, $productImage);
+            $path = __DIR__ . "/../img/";
+            $result = uploadImage($path, $productImage);
             if ($result[0]) {
                 $response = array("status" => "success", "message" => "Prodotto inserito correttamente.");
             } else {

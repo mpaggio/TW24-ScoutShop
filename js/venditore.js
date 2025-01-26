@@ -14,6 +14,7 @@ const searchBar = document.querySelector("main > div > div > section > div > for
 // Variabile per verificare se il form è aperto o chiuso
 let isOpen = false;
 let productID = "";
+let isEdit = false;
 
 // Apri modal (aggiungere un pulsante per attivarlo, se necessario)
 function openModal() {
@@ -49,6 +50,7 @@ function attachEventListeners(editButton, deleteButton) {
     editButton.forEach((button) => {
         button.addEventListener("click", (event) => {
             event.preventDefault();
+            isEdit = true;
             const parentDiv = event.target.closest("div[id]");
             productID = parentDiv.id;
             getArticleData().then((data) => {
@@ -85,7 +87,6 @@ function attachEventListeners(editButton, deleteButton) {
             event.preventDefault();
             const parentDiv = event.target.closest("div[id]");
             productID = parentDiv.id;
-            const deleteModal = document.querySelector("#deleteModal");
             const deleteButton = document.querySelector("#deleteModal > div > div > div > button:last-of-type");
             deleteButton.addEventListener("click", (event) => {
                 event.preventDefault();
@@ -171,11 +172,14 @@ function generaArticoli(articoli) {
     let result = "";
     
     for(let i = 0; i < articoli.length; i++) {
+        let taglia = articoli[i]["Taglia"] !== null ? articoli[i]["Taglia"] : "";
+        let colore = articoli[i]["Colore"] !== null ? articoli[i]["Colore"] : "";
+        
         let articolo = `
             <div class="d-flex justify-content-around border border-dark border-2 mt-3 w-100 p-2" id="${articoli[i]["Di_Codice_prodotto"]}${articoli[i]["Codice_prodotto"]}">
                 <img src="${articoli[i]["Nome_immagine"]}" class="object-fit-cover w-25" alt="${articoli[i]["Nome_prodotto"]}" />
                 <div class="d-flex flex-column justify-content-center align-items-start">
-                    <h3 class="fs-3">${articoli[i]["Nome_prodotto"]}</h3>
+                    <h3 class="fs-3">${articoli[i]["Nome_prodotto"]} ${taglia} ${colore}</h3>
                     <p class="fs-4">
                         Prezzo: ${articoli[i]["Prezzo"]}€ - Pezzi rimasti: ${articoli[i]["Disponibilita"]}
                     </p>
@@ -406,6 +410,7 @@ async function deleteArticle(id) {
             modal.hide();
             getArticoli();
         } else {
+            modal.textContent = "Non è possibile eliminare il prodotto, poiché è presente in uno o più ordini o in uno o più carrelli..";
             console.error("Errore nell'eliminazione del prodotto! " + json["message"]);
         }
     } catch (error) {
@@ -435,7 +440,7 @@ saveButton.addEventListener("click", (event) => {
         form.reportValidity();
     } else {
         const formData = new FormData(form);
-        if (productID === "") {
+        if (productID === "" || isEdit === false) {
             addProduct(formData).then((success) => {
                 if (success) {
                     title.innerText = "Prodotto aggiunto con successo!";

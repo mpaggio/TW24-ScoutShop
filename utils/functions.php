@@ -46,13 +46,43 @@
         //Se non ci sono errori, sposto il file dalla posizione temporanea alla cartella di destinazione
         if(strlen($msg)==0){
             if(!move_uploaded_file($image["tmp_name"], $fullPath)){
-                $msg.= "Errore nel caricamento dell'immagine.";
+                $msg.= "Errore nel caricamento dell'immagine. Percorso: ".$fullPath;
             }
             else{
                 $result = 1;
                 $msg = $imageName;
             }
         }
+        return array($result, $msg);
+    }
+    
+    function deleteImage($path, $imageName) {
+        // Costruisce il percorso completo del file
+        $fullPath = rtrim($path, "/") . "/" . $imageName;
+
+        // Abilita il debug degli errori (opzionale)
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
+        // Variabili di ritorno
+        $result = 0; // 1 se l'immagine è stata eliminata, 0 altrimenti
+        $msg = "";
+
+        // Controlla se il file esiste
+        if (file_exists($fullPath)) {
+            // Prova a eliminare il file
+            if (unlink($fullPath)) {
+                $result = 1; // Successo
+                $msg = "L'immagine $imageName è stata eliminata correttamente.";
+            } else {
+                $msg = "Errore durante l'eliminazione dell'immagine $imageName.";
+            }
+        } else {
+            $msg = "L'immagine $imageName non esiste nel percorso specificato.";
+        }
+
+        // Restituisce il risultato e il messaggio
         return array($result, $msg);
     }
 ?>
