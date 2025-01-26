@@ -1,3 +1,710 @@
+/* ---- BODY ---- */
+body {
+    background-color: #bcd5e7;
+}
+
+
+/* ---- HEADER ---- */
+header>nav:first-of-type {
+    background-color: #21295c;
+}
+
+header>nav:first-of-type>div {
+    padding-bottom: 10px;
+}
+
+header>nav:first-of-type>div>* {
+    margin: 0px 2%;
+}
+
+header>nav:first-of-type>div>div>a>img {
+    width: 100px;
+}
+
+header>nav:first-of-type>div>form {
+    margin-top: 10px;
+}
+
+header>nav>div>div>a,
+header>nav>div>div>button {
+    color: #bcd5e7;
+    border: none;
+    background-color: transparent;
+}
+
+header>nav>div>div>div>a,
+header>nav>div>div>div>button {
+    color: #bcd5e7;
+    border: none;
+    background-color: transparent;
+}
+
+header>nav>div>div>div {
+    background-color: #21295c !important;
+}
+
+header>nav>div>div>div>button>span {
+    background-color: #fcba04;
+    width: 20px;
+    height: 20px;
+    font-size: 0.5em !important;
+    color: #21295c !important;
+}
+
+header>nav>div>div>div>div {
+    color: #bcd5e7;
+}
+
+
+
+/* ---- FOOTER ---- */
+footer {
+    background-color: #21295c;
+    font-size: 10px;
+    padding: 10px 0;
+}
+
+footer * {
+    margin: 0px 2%;
+}
+
+footer a {
+    color: #bcd5e7;
+}
+
+footer a:hover {
+    color: #fcba04;
+}
+
+
+
+/* ---- OFFCANVAS ---- */
+header>nav>div>div>div>div>div,
+header>nav>div>div>div>div>div>div>div>div>div {
+    border: none !important;
+    background-color: transparent !important;
+}
+
+header>nav>div>div>div>div>div>div>div>div>div {
+    margin-left: 5%;
+}
+
+header>nav>div>div>div>div>div>div>div>div>div:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+header>nav>div>div>div>div>div>div {
+    border-top: 1px solid #bcd5e7 !important;
+    border-bottom: 1px solid #bcd5e7 !important;
+}
+
+header>nav>div>div>div>div>h2 {
+    background-color: transparent !important;
+}
+
+header>nav>div>div>div>div>button,
+header>nav>div>div>div>div>div>h2>button,
+header>nav>div>div>div>div>div>h2>a,
+header>nav>div>div>div>div>div>div>div>div>div>a {
+    color: #bcd5e7 !important;
+    border: none !important;
+    text-decoration: none;
+    background-color: transparent !important;
+}
+
+header>nav>div>div>div>div>div>h2>a:focus,
+header>nav>div>div>div>div>div>h2>button:focus,
+header>nav>div>div>div>div>div>div>div>div>div>a:focus {
+    box-shadow: none !important;
+}
+
+header>nav>div>div>div>div>a {
+    color: #bcd5e7;
+}
+
+/* Nasconde la freccia di default di Bootstrap */
+header>nav>div>div>div>div>div>h2>a::after,
+header>nav>div>div>div>div>div>h2>button::after {
+    display: none !important;
+}
+
+header>nav>div>div>div>div>div>h2>button {
+    box-shadow: none !important;
+}
+
+/* Quando l'accordion è espanso, ruota l'icona */
+header>nav>div>div>div>div>div>h2>button:not(.collapsed) .svg-chevron {
+    transform: rotate(180deg);
+}
+
+header>nav>div>div>div>div>div>h2>button:not(.collapsed) {
+    border-top: 1px solid #bcd5e7 !important;
+}
+
+header>nav>div>div>div>div>div>div>div>div>div>a:hover {
+    color: #fcba04 !important;
+}
+
+
+
+
+
+/* ---- PROFILE ICON ---- */
+header>nav>div>div:last-of-type>div {
+    background-color: transparent !important;
+}
+
+header>nav>div>div>div>ul {
+    background-color: #21295c !important;
+    border-radius: 0% !important;
+    border: none !important;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}
+
+header>nav>div>div>div>ul>li>a:focus,
+header>nav>div>div>div>ul>li>a:hover {
+    background-color: transparent !important;
+}
+
+header>nav>div>div>div>ul>li>a:hover {
+    color: #fcba04 !important;
+}
+
+header>nav>div>div>div>ul>li>a {
+    color: #bcd5e7 !important;
+}
+
+header>nav>div>div>div>ul>li>hr {
+    border-color: #bcd5e7 !important;
+}
+
+
+
+
+
+/* ---- DEKSTOP NAV BAR ---- */
+header>nav:nth-child(2) {
+    background: none !important;
+    border-color: transparent !important;
+    display: none;
+}
+
+header>nav:nth-child(2) a,
+header>nav:nth-child(2) button {
+    color: #21295c;
+    font-size: 1em;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+header>nav:nth-child(2)>>>a:hover,
+header>nav:nth-child(2)>ul>li>div>button:hover {
+    text-decoration: underline !important;
+}
+
+header>nav:nth-child(2)>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+header>nav:nth-child(2)>ul>li {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+}
+
+header>nav:nth-child(2)>ul>li>div>a,
+header>nav:nth-child(2)>ul>li>div>button {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header>nav:nth-child(2) a::after,
+header>nav:nth-child(2) button::after {
+    display: none;
+}
+
+header>nav:nth-child(2)>ul>li>div>ul {
+    background-color: #21295c;
+    box-shadow: 0 4px 6px rgba(33, 41, 92, 0.9);
+}
+
+header>nav:nth-child(2)>ul>li>div>ul>li>a {
+    margin: 10px 0;
+}
+
+header>nav:nth-child(2)>ul>li>div>ul>li>a {
+    color: #bcd5e7 !important;
+}
+
+header>nav:nth-child(2)>ul>li>div>ul>li>a:hover {
+    color: #fcba04 !important;
+}
+
+
+
+/* ---- MAIN ---- */
+main>section {
+    background-color: white;
+    margin: 35px 5% 10px;
+    padding: 20px 20px 10px;
+    border: 2px solid #21295c;
+}
+
+main>section:last-of-type {
+    margin: 35px 5% 100px;
+}
+
+main>section>h2 {
+    color: #21295c;
+}
+
+main>section>div>button {
+    color: #21295c;
+    font-size: 1.1em;
+}
+
+main>section>div>button:hover {
+    text-decoration: underline;
+}
+
+main>section>div>h1 {
+    color: #21295c;
+    font-size: 1.5em;
+}
+
+main>section>ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+main>section>ul>li {
+    border: 1px solid #21295c;
+    background-color: #bcd5e7;
+}
+
+main>section>ul>li:hover {
+    box-shadow: 0 0 3px 1px #21295c;
+}
+
+main>section>ul>li>article>p {
+    font-size: 1em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+main>section>ul>li>article>a>h3 {
+    color: #21295c;
+    font-size: 1.5em;
+}
+
+main>section>ul>li>article>img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+main>section>article {
+    background-color: #EEEEEE;
+    border: 2px solid #21295c;
+}
+
+main>section>article>header>h2 {
+    color: #21295c;
+    font-size: 6vw;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+main>section>article>form>label {
+    color: #21295c;
+    font-size: 4vw;
+    display: block;
+}
+
+main>section>article>form>div>input {
+    width: 80%;
+    background-color: white;
+    border: 1px solid #21295c;
+    padding: 3px 6px;
+}
+
+main>section>article>form>div>button>svg {
+    color: #21295c;
+}
+
+main>section>article>form>button:first-of-type {
+    background-color: white;
+    color: #21295c;
+    padding: 5px 10px;
+    margin-top: 30px;
+    margin-right: 10%;
+    width: 45%;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+}
+
+main>section>article>form>button:last-of-type {
+    background-color: #21295c;
+    color: #bcd5e7;
+    padding: 5px 10px;
+    width: 45%;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+}
+
+main>section>article>form>button:hover {
+    color: #fcba04;
+    box-shadow: 0px 0px 2px 1px rgba(33, 41, 92, 0.5) inset;
+}
+
+main>section>article>article {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #21295c;
+    margin-bottom: 20px;
+}
+
+main>section>article>article>header>h3 {
+    color: #21295c;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+main>section>article>article>div:not(:last-of-type) {
+    border-bottom: 1px solid #21295c;
+}
+
+main>section>article>article>div>img {
+    max-width: 40%;
+    margin-right: 5%;
+}
+
+main>section>article>article>div>div>h4 {
+    color: #21295c;
+}
+
+main>section>article>article>div>div>h4,
+main>section>article>article>div>div>p {
+    margin: 0;
+    padding: 0;
+    font-size: 3vw;
+}
+
+main>section>section {
+    padding: 20px 0 5px;
+    border-top: 2px solid #21295c;
+}
+
+main>section>section>h3 {
+    color: #21295c;
+    font-size: 1.8em;
+}
+
+main>section>section>p {
+    margin: 0 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 0;
+}
+
+main>section>article>img {
+    width: 100%;
+}
+
+main>section>article>aside {
+    margin: 30px 0 0;
+    border-top: 2px solid #21295c;
+    padding-top: 20px;
+}
+
+main>section>article>aside>h2 {
+    font-size: 2em;
+    color: #21295c;
+}
+
+main>section>article>aside span {
+    font-weight: bold;
+    color: #21295c;
+}
+
+main>section>article>aside>p>span {
+    margin-right: 10px;
+}
+
+main>section>article>aside>p,
+main>section>article>aside>form>label,
+main>section>article>aside>form>fieldset {
+    display: flex;
+    margin: 10px 0;
+    align-items: center;
+}
+
+main>section>article>aside>p,
+main>section>article>aside>form {
+    text-align: left;
+    margin: 0 20px;
+}
+
+main>section>article>aside>form>input:disabled {
+    background-color: #21295c;
+    color: #bcd5e7;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+main>section>article>aside>form>input:disabled:hover {
+    background-color: #21295c;
+    color: #bcd5e7;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+}
+
+main>section>article>aside>form>input {
+    background-color: #21295c;
+    color: #bcd5e7;
+    padding: 5px 10px;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+}
+
+main>section>article>aside>form>input:hover {
+    color: #fcba04;
+}
+
+main>section>article>aside>form>label>select {
+    margin-left: 10px;
+    border: 1px solid #21295c;
+    background-color: transparent;
+    outline: 0;
+    animation-direction: normal;
+}
+
+main>section>article>aside>form>fieldset>legend {
+    display: none;
+}
+
+main>section>article>aside>form>fieldset>input {
+    outline: 0;
+}
+
+main>section>article>aside>form>fieldset>button {
+    background-color: #21295c;
+    color: #bcd5e7;
+    border: none;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+main>section>article>aside>form>fieldset>button:first-of-type {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+main>section>article>aside>form>fieldset>button:last-of-type {
+    margin-left: 5px;
+}
+
+main>section>article>aside>form>fieldset>button:hover {
+    color: #fcba04;
+}
+
+main>section>article>aside>form>fieldset>input {
+    border-radius: 0%;
+    border: 1px solid #21295c;
+    background-color: transparent;
+    width: 50px;
+    text-align: center;
+    appearance: none;
+}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 482px) {
+    header>nav:first-of-type>div>div:nth-child(2) {
+        order: 1;
+    }
+
+    header>nav:first-of-type>div>form {
+        margin-top: 0;
+    }
+
+    header>nav:first-of-type>div>div:first-child>button:first-child {
+        display: none;
+    }
+
+    header>nav:first-of-type>div>div:first-child>nav {
+        display: none;
+    }
+
+    header>nav:nth-child(2) {
+        display: block !important;
+    }
+
+    main>section {
+        margin: 5px 5% 10px !important;
+    }
+
+    main>section:last-of-type {
+        margin: 5px 5% 100px !important;
+    }
+
+    main>section>div>h1 {
+        font-size: 2.5em;
+    }
+
+    main>section>ul>li {
+        margin: 10px 20px;
+    }
+
+    main>section>article>aside>h2 {
+        font-size: 3.5em;
+    }
+
+    main>section>article>aside>form {
+        text-align: center;
+    }
+
+    main>section>article>aside>form>input {
+        font-size: 1.5em;
+    }
+
+    main>section>article>aside>p,
+    main>section>article>aside>form>label,
+    main>section>article>aside>form>fieldset {
+        margin: 20px 20px;
+        font-size: 1.5em;
+    }
+
+    main>section>article>aside>p {
+        margin-left: 40px;
+    }
+
+    main>section>section>h3 {
+        font-size: 3.0em;
+    }
+
+    main>section>section>p {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    header>nav:nth-of-type(2)>ul>li>div>a,
+    header>nav:nth-of-type(2)>ul>li>div>button {
+        font-size: 1.5em !important;
+    }
+
+    header>nav>div>div>a>img {
+        width: 150px;
+    }
+
+    footer * {
+        font-size: 15px;
+    }
+
+    header>nav:nth-child(2)>ul>li>div>a,
+    header>nav:nth-child(2)>ul>li>div>button {
+        font-size: 1.4em;
+    }
+
+    main>section>article {
+        padding: 2%;
+        margin: 20px 15px;
+        width: 50%;
+    }
+
+    main>section>article>img {
+        width: 40%;
+    }
+
+    main>section>article>form {
+        padding: 0 5%;
+    }
+
+    main>section>article>form>div>input {
+        margin-bottom: 15px;
+    }
+
+    main>section>article>header>h2 {
+        font-size: 2.5vw;
+    }
+
+    main>section>article>form>label {
+        font-size: 1.5vw;
+    }
+
+    main>section>article>form>button {
+        margin-top: 30px;
+    }
+
+    main>section>article>article>header>h3 {
+        font-size: 2vw;
+    }
+
+    main>section>article>article>div>img {
+        max-width: 20%;
+    }
+
+    main>section>article>article>div>div>h4 {
+        font-size: 1.5vw;
+    }
+
+    main>section>article>article>div>div>p {
+        font-size: 1em;
+    }
+
+    main>section>article>aside {
+        border-top: none;
+        width: 40%;
+        margin: 0;
+        padding: 0;
+    }
+
+    main>section>article>aside>h2 {
+        font-size: 3vw;
+    }
+
+    main>section>article>aside>form {
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    main>section>article>aside>form>input {
+        font-size: 1.5vw;
+        padding: 5px 0;
+    }
+
+    main>section>article>aside>p,
+    main>section>article>aside>form>label,
+    main>section>article>aside>form>fieldset {
+        margin: 8% 0;
+        font-size: 1.5vw;
+    }
+
+    main>section>section {
+        text-align: start;
+        padding: 0;
+        border: none;
+    }
+
+    main>section>section>h3 {
+        font-size: 2.5vw;
+    }
+
+    main>section>section>p {
+        font-size: 1.5vw;
+    }
+}
+
+/* Home page layout */
 body {
     background-color: #bcd5e7;
 }
@@ -22,7 +729,7 @@ header>nav>div>form {
     margin-top: 10px;
 }
 
-@media screen and (min-width: 452px) {
+@media screen and (min-width: 482px) {
     header>nav>div>div:nth-child(2) {
         order: 1;
     }
@@ -39,6 +746,20 @@ header>nav>div>form {
 
     footer * {
         font-size: 15px;
+    }
+
+    main {
+        overflow: hidden;
+    }
+
+    main>section {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    main>section>article:nth-of-type(2) {
+        height: 100%;
+        overflow: auto;
     }
 }
 
@@ -70,3 +791,169 @@ footer a {
 footer a:hover {
     color: #fcba04;
 }
+
+/* Fine home page */
+
+/* Customizing bootstrap classes */
+.btn-primary {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+    font-size: 1em;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
+}
+
+.btn-secondary {
+    background-color: white !important;
+    color: #21295c !important;
+    font-size: 1em;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
+}
+
+.btn-danger {
+    background-color: red !important;
+    color: white !important;
+    font-size: 1em;
+    padding: 5px 10px;
+    border: 1px solid #21295c;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5);
+    border-radius: 0px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
+    color: #fcba04 !important;
+    box-shadow: 0px 2px 6px rgba(33, 41, 92, 0.5) inset;
+}
+
+.text-primary {
+    color: #21295c !important;
+}
+
+.text-secondary {
+    color: #bcd5e7 !important;
+}
+
+.bg-dark {
+    background-color: #21295c !important;
+}
+
+.bg-secondary {
+    background-color: #bdbdbd !important;
+}
+
+/* Fine classi bootstrap */
+
+/* Profilo venditore */
+body>div>div>div {
+    background-color: #21295c !important;
+    color: #bcd5e7 !important;
+}
+
+main>section>div>ul>li>img,
+main>div>div>section:last-of-type>div:last-of-type>div>img {
+    max-height: 200px !important;
+}
+
+main>section>div>div>ul>li>div:first-of-type,
+main>div>div>section:last-of-type>div:last-of-type>div>div:first-of-type {
+    max-width: 60% !important;
+}
+
+@media screen and (max-width: 767px) {
+    main>div>div>section:last-of-type {
+        margin: 0 !important;
+    }
+
+    main>div>div>section:first-of-type {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        /* Limita la dimensione massima */
+        border: 2px solid #21295c;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 20px;
+        max-height: 75% !important;
+        overflow: auto !important;
+        border-radius: 10px;
+    }
+
+    main>div>div>section:first-of-type>div:last-of-type {
+        border: none !important;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    main>div>div:first-of-type {
+        flex-direction: row !important;
+    }
+
+    main>div>div>section:first-of-type {
+        display: block;
+    }
+}
+
+.active {
+    display: flex !important;
+}
+
+body.modal-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Fine profilo venditore */
+
+/* Carrello */
+main>section>div>div>ul>li {
+    background-color: white;
+    padding: 20px 20px 10px;
+    border: 2px solid #21295c;
+}
+
+@media screen and (min-width: 768px) {
+    main>section>div>div:last-of-type {
+        margin-right: calc(var(--bs-gutter-x) * .5);
+    }
+}
+
+/* Fine carrello */
+
+/* Pagamento */
+main>section>div>div {
+    background-color: #D3D3D3;
+    padding: 20px 20px 10px;
+    border: 2px solid #21295c;
+}
+
+@media sceen and (min-width: 768px) {
+    main>section>div>div:last-of-type {
+        margin-right: calc(var(--bs-gutter-x) * .5);
+    }
+}
+
+/* Fine pagamento */
+
+/* Login page */
+/* Apparentemente non funzione non so il perché */
+header>nav>div>a:hover {
+    color: #fcba04;
+}
+
+/* Fine login */
