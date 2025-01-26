@@ -22,24 +22,27 @@
     // Crea il codice versione
     $codice_versione = "_".$productColor."_".$productSize;
     $response = array("status" => "fail", "message" => "Errore generico.");
-
-    try {
-        $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
-        if ($status) {
-            $path = __DIR__ . "/../img/";
-            $result = uploadImage($path, $productImage);
-            if ($result[0]) {
+    
+    $path = __DIR__ . "/../img/";
+    $result = uploadImage($path, $productImage);
+    
+    if ($result[0]) {
+        try {
+            $status = $dbh->addProduct($productName, $productCategory, $codice_versione, $productBrand, $productDescription, $productColor, $productSize, $productPrice, $productQuantity, $productDiscount, $productImage["name"]);
+            if ($status) {
                 $response = array("status" => "success", "message" => "Prodotto inserito correttamente.");
             } else {
-                throw new Exception("Errore nel caricamento dell'immagine. ".$result[1]);
+                deleteImage($path, $productImage);
+                throw new Exception("Errore nell'inserimento del prodotto.");
             }
-        } else {
-            throw new Exception("Errore nell'inserimento del prodotto.");
+        } catch (Exception $e) {
+            $response = array("status" => "fail", "message" => $e->getMessage());
         }
-    } catch (Exception $e) {
-        $response = array("status" => "fail", "message" => $e->getMessage());
+    } else {
+        $response = array("status" => "fail", "message" => $result[1]);
     }
 
     header("Content-type: application/json");
     echo json_encode($response);
+
 ?>
