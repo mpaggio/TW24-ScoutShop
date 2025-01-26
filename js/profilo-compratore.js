@@ -37,7 +37,7 @@ function generaOrdiniUtente(ordini) {
 
     for(let codiceOrdine in ordini) {
         let ordineSingolo = ordini[codiceOrdine];
-        let totalPrize = 0;
+        let totalPrize = ordineSingolo["Costo_spedizione"];
         for(let j=0; j < ordineSingolo["Dettagli"].length; j++) {
             totalPrize += ordineSingolo["Dettagli"][j]["Quantita"]*ordineSingolo["Dettagli"][j]["Prezzo_d_acquisto"];
         }
@@ -45,7 +45,7 @@ function generaOrdiniUtente(ordini) {
         let ordineSpecifico = `
                 <article>
                     <header>
-                        <h3>Ordine n°${ordineSingolo["Codice_ordine"]} - Totale: ${totalPrize}€</h3>
+                        <h3>Ordine n°${ordineSingolo["Codice_ordine"]} - Totale: ${totalPrize.toFixed(2)}€</h3>
                     </header>
         `;
 
@@ -96,6 +96,7 @@ function attachEventListenerForm(form) {
             const json = await response.json();
             if (json.status === 'success') {
                 console.log('Dati salvati correttamente');
+                window.location.reload();
             } else {
                 console.log('Errore nel salvataggio dei dati');
             }

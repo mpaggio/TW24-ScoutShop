@@ -293,6 +293,10 @@ main>section>ul>li:hover {
     box-shadow: 0 0 3px 1px #21295c;
 }
 
+main>section>ul>li>article>h2:hover {
+    cursor: pointer;
+}
+
 main>section>ul>li>article>p {
     font-size: 1em;
     text-align: justify;

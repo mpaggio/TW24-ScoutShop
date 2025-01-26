@@ -15,6 +15,7 @@
                 "Data_ordine" => $ordine["Data_ordine"],
                 "Email_compratore" => $ordine["E_mail_compratore"],
                 "Tipo_spedizione" => $ordine["Tipo_spedizione"],
+                "Costo_spedizione" => $dbh->getShippingPrice($ordine["Tipo_spedizione"]),
                 "Dettagli" => []
             ];
         }
