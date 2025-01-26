@@ -201,8 +201,8 @@ INSERT INTO `scoutshopdatabase`.`prodotto` (`Codice_prodotto`, `Nome_prodotto`, 
 INSERT INTO `scoutshopdatabase`.`utente_venditore` (`E_mail`, `Password`) VALUES ('orazio.spina@studio.unibo.it', '$2y$10$oluepxGIgIfhT0KEXUD7ve0ACztkE6eP8tW8T5wpRlokxXaPSQ98G');
 
 /* INSERIMENTO UTENTE COMPRATORE */
-INSERT INTO `scoutshopdatabase`.`utente_compratore` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES ('mpaggiojr@gmail.com', 'password123', 'Marco', 'Paggetti', 'Via dell\'Università 50 47521 Cesena FC');
-INSERT INTO `scoutshopdatabase`.`utente_compratore` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES ('oraziospina@icloud.com', 'password321', 'Orazio', 'Spina', 'Via dell\'Università 50 47521 Cesena FC');
+INSERT INTO `scoutshopdatabase`.`utente_compratore` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES ('mpaggiojr@gmail.com', '$2y$10$jDehY51zAJS/I9CXtUcWoOKF2U075WS99RMTtIoSFHR.CTIZRVy26', 'Marco', 'Paggetti', 'Via dell\'Università 50 47521 Cesena FC');
+INSERT INTO `scoutshopdatabase`.`utente_compratore` (`E_mail`, `Password`, `Nome`, `Cognome`, `Indirizzo`) VALUES ('oraziospina@icloud.com', '$2y$10$EiLdZU1h1mAw3qYFglHKNeiR937BdEK7H25VE.ZPobZP0Q4Pk1Fcm', 'Orazio', 'Spina', 'Via dell\'Università 50 47521 Cesena FC');
 
 /* INSERIMENTO VERSIONE PRODOTTO DEFINITIVO */
 INSERT INTO `scoutshopdatabase`.`versione_prodotto` (`Di_Codice_prodotto`, `Codice_prodotto`, `Marchio`, `Descrizione`, `Taglia`, `Prezzo`, `Disponibilita`, `Nome_immagine`) VALUES ('000001', '_0_XS', 'Scoutmarchio', 'Maglione dell’uniforme Agesci, blu unisex, pura lana vergine.', 'XS', '47.50', '48', 'maglione.jpg');
@@ -701,7 +701,24 @@ UPDATE `scoutshopdatabase`.`versione_prodotto` SET `Codice_prodotto` = '_Verde_0
 UPDATE `scoutshopdatabase`.`versione_prodotto` SET `Codice_prodotto` = '_Lilla_0', `Colore` = 'Lilla', `Nome_immagine` = '24-fog.jpg' WHERE (`Di_Codice_prodotto` = '000029') and (`Codice_prodotto` = '_Rosso_0');
  
 /* AGGIUNTA ORDINI */
-INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000001','2025-01-08','0','0','mpaggiojr@gmail.com','orazio.spina@studio.unibo.it','Standard');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000001','2025-01-08','1','1','mpaggiojr@gmail.com','orazio.spina@studio.unibo.it','Standard');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000002','2025-01-09','0','0','mpaggiojr@gmail.com','orazio.spina@studio.unibo.it','Express');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000003','2025-01-10','0','0','mpaggiojr@gmail.com','orazio.spina@studio.unibo.it','Super Express');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000004','2025-01-11','0','0','oraziospina@icloud.com','orazio.spina@studio.unibo.it','Standard');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000005','2025-01-12','0','0','oraziospina@icloud.com','orazio.spina@studio.unibo.it','Express');
+INSERT INTO `ORDINE`(`Codice_ordine`, `Data_ordine`, `LettoCompratoreYN`, `LettoVenditoreYN`, `E_mail_compratore`, `E_mail_venditore`, `Tipo_spedizione`) VALUES ('000006','2025-01-24','0','0','oraziospina@icloud.com','orazio.spina@studio.unibo.it','Super Express');
 
 /* AGGIUNTA DETTAGLI ORDINE */
 INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000003','_0_S','000001','2','29');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000005','_Blu_M','000002','4','71.5');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000021','_jade_0','000002','5','11');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000149','_0_0','000003','6','10');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000134','_0_58','000003','3','45');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000092','_0_0','000003','1','116');
+
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000015','_Bordeaux_L','000004','10','7');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000001','_0_3XL','000005','3','55');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000021','_navy_0','000005','5','11');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000126','_0_0','000006','6','2.3');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000136','_0_48','000006','2','50');
+INSERT INTO `DETTAGLIO_ORDINE`(`Di_Codice_prodotto`, `Codice_prodotto`, `Codice_ordine`, `Quantita_`, `Prezzo_d_acquisto`) VALUES ('000073','_0_0','000006','1','1100');
