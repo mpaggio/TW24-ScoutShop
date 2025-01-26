@@ -286,7 +286,12 @@
             $query = "DELETE FROM VERSIONE_PRODOTTO WHERE Di_Codice_prodotto = ? AND Codice_prodotto = ?";
             $stmt = $this->db->prepare($query);
             $stmt->bind_param("ss", $codice_prodotto, $codice_versione);
-            return $stmt->execute();
+            
+            try {
+                return $stmt->execute();
+            } catch (Exception $e) {
+                return false;
+            }
         }
         
         // Diminuisce il numero di prodotti disponibili (carrello)

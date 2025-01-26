@@ -303,17 +303,17 @@
     
     <!-- Modals -->
     <!-- Delete article modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-1" id="deleteModalLabel">Elimina articolo</h1>
                 </div>
                 <div class="modal-body fs-3">
-                    Vuoi eliminare l'articolo dal carrello?
+                    <p>Vuoi eliminare l'articolo dal carrello?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary fs-3" data-bs-dismiss="modal" autofocus>No</button>
+                    <button type="button" class="btn btn-secondary fs-3" data-bs-dismiss="modal">No</button>
                     <button type="button" class="btn btn-danger fs-3">Si</button>
                 </div>
             </div>

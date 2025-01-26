@@ -87,8 +87,8 @@ function attachEventListeners(editButton, deleteButton) {
             event.preventDefault();
             const parentDiv = event.target.closest("div[id]");
             productID = parentDiv.id;
-            const deleteButton = document.querySelector("#deleteModal > div > div > div > button:last-of-type");
-            deleteButton.addEventListener("click", (event) => {
+            const deleteModal = document.querySelector("#deleteModal > div > div > div > button:last-of-type");
+            deleteModal.addEventListener("click", (event) => {
                 event.preventDefault();
                 deleteArticle(productID);
             });
@@ -325,7 +325,6 @@ async function getOrdini() {
 }
 
 async function addProduct(formData) {
-    console.log("Adding product...");
     const url = "./api/api-aggiungi-prodotto.php";
     
     try {
@@ -403,15 +402,20 @@ async function deleteArticle(id) {
         
         const json = await response.json();
         
+        const deleteModal = document.querySelector("#deleteModal");
+        const modal = bootstrap.Modal.getInstance(deleteModal);
+        
         if (json["status"] === "success") {
             console.log("Prodotto eliminato con successo!");
-            const deleteModal = document.querySelector("#deleteModal");
-            const modal = bootstrap.Modal.getInstance(deleteModal);
             modal.hide();
             getArticoli();
         } else {
-            modal.textContent = "Non è possibile eliminare il prodotto, poiché è presente in uno o più ordini o in uno o più carrelli..";
-            console.error("Errore nell'eliminazione del prodotto! " + json["message"]);
+            const deleteModalText = deleteModal.querySelector("div > div > div > p");
+            deleteModalText.innerText = "Non è possibile eliminare il prodotto, poiché è presente in uno o più ordini o in uno o più carrelli.";
+            setTimeout(() => {
+                modal.hide();
+                deleteModalText.innerText = "Sei sicuro di voler eliminare il prodotto?";
+            }, 3000);
         }
     } catch (error) {
         console.error(error);
